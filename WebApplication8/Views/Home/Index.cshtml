@@ -4,30 +4,23 @@
 
 <div class="jumbotron">
     <h1 style="text-align:center">MOTO DELIVERY</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <p style="text-align:center" class="lead">¿Necesitas enviarlo y no tenes tiempo?</p>
 </div>
-
-
-
-
+<div class="blog-test" id="geolocation-test"> </div>
 <div class="row">
     <div class="col-md-4">
         <div class="container" ;id="accordion">
             <div class="card">
                 <div class="card-header" id="headingOne">
                     <h5 class="mb-0">
-                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                             Objetivos
                         </button>
                     </h5>
                 </div>
-
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
-                        texto1............
-                        ............
-                        ..........
+                        Ser el nexo entre aquellos que tiene algo para enviar o recibir y los que pueden hacerlo por ellos.
                     </div>
                 </div>
             </div>
@@ -35,15 +28,13 @@
                 <div class="card-header" id="headingTwo">
                     <h5 class="mb-0">
                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Tarifas aproximadas
+                            Tarifas estimadas
                         </button>
                     </h5>
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                     <div class="card-body">
-                        texto3..........................
-                        .......
-                        .  ......
+                        Pagas un minimo de $25 por 2 KM, y hasta $15 por cada KM adicional. Dias de lluvia el servicio tiene un costo adicional del 50 %
                     </div>
                 </div>
             </div>
@@ -57,7 +48,23 @@
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                     <div class="card-body">
-                        texto3
+                        ¿Que puedo llevar? <br />
+                        Todo objeto (no vivo) que pese menos de 20 KG y quepa en una caja de 50 x 50 x 50 (cms de alto x ancho x fondo)
+                        <br /><br />
+                        ¿Cuando puedo enviar o recibir algo?<br />
+                        Cuando gustes, siempre que haya un moto delivery disponible para transportarlo.
+                        <br /><br />
+                        ¿Cual es la distancia Maxima?<br />
+                        Al ser pensado para el área urbana o interurbana es de 10 KM.
+                        <br /><br />
+                        ¿Es seguro el envio?<br />
+                        Contamos con un sistema que asegura el contenido de lo que envies y con los datos completos de quien lo transporta.
+                        <br /><br />
+                        ¿Como pago?<br />
+                        Se paga en efectivo o tarjeta mediante una Clave unica al recibir lo que solicitaste.
+                        <br /><br />
+                        ¿Puedo hacer envios y a su vez ser Moto Delivery?<br />
+                        Claro, tenes una interfaz distinta para cada uno.
                     </div>
                 </div>
             </div>
@@ -67,17 +74,19 @@
         <div id="googleMap" style="width:100%;height:400px;"></div>
 
         <script>
-function myMap() {
-var mapProp= {
-    center:new google.maps.LatLng(51.508742,-0.120850),
-    zoom:5,
-};
-var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-}
+            function myMap() {
+                var myCenter = new google.maps.LatLng(-34.59801607522178, -58.435920592574234)
+                var mapProp = {
+                    center: myCenter,
+                    zoom: 11,
+                    draggable: true,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                };
+                var marker = new google.maps.Marker({ position: myCenter });
+                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                marker.setMap(map);
+            }
         </script>
-
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZUj2QpFw1P8mS9dnWafEv2f7z9wQVXYQ&callback=myMap"></script>
-
-
     </div>
 </div>
