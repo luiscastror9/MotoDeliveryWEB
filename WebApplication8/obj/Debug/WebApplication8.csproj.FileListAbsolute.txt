@@ -206,3 +206,4 @@ C:\Users\Giovanny\Documents\GitHub\MotoDeliveryWEB\WebApplication8\bin\Microsoft
 C:\Users\Giovanny\Documents\GitHub\MotoDeliveryWEB\WebApplication8\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Giovanny\Documents\GitHub\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.dll
 C:\Users\Giovanny\Documents\GitHub\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.pdb
+C:\Users\Giovanny\Documents\GitHub\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.csprojResolveAssemblyReference.cache

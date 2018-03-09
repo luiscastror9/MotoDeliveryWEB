@@ -4928,13 +4928,17 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
+
   padding: 30px;
+  min-height:330px; 
   margin-bottom: 30px;
   font-size: 21px;
   font-weight: 200;
   line-height: 2.1428571435;
-  color: inherit;
-  background-image:url('logo_moto.jpg');
+  color: inherit;  
+  background-image:url('Logo_Moto.png');
+  
+  
 }
 
 .jumbotron h1 {
