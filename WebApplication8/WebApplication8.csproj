@@ -184,6 +184,11 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\dbo.moto.sql" />
+    <Content Include="App_Data\dbo.pago.sql" />
+    <Content Include="App_Data\dbo.usuario.sql" />
+    <Content Include="App_Data\dbo.ususarioxmoto.sql" />
+    <Content Include="App_Data\dbo.viajes.sql" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Logo_Moto.png" />
