@@ -2,9 +2,9 @@
 (
 	[Codigo_id] INT NOT NULL PRIMARY KEY,
 	modelo varchar(15) NOT NULL,
-	Registro varchar(15) NOT NULL,
-	Patente varchar(15) NOT NULL ,
-	Seguro varchar(15) NOT NULL,
-	Foto image NULL,
+	registro varchar(15) NOT NULL,
+	patente varchar(15) NOT NULL ,
+	seguro varchar(15) NOT NULL,
+	foto image NULL,
 )
 GO
