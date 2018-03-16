@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="MOTO">
+    <Key>
+      <PropertyRef Name="Patente" />
+    </Key>
+    <Property Name="modelo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Registro" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Patente" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Seguro" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.ususarioxmoto" FromRole="MOTO" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="pago">
+    <Key>
+      <PropertyRef Name="Numero_Factura" />
+    </Key>
+    <Property Name="Codigo_viaje" Type="Int32" Nullable="false" />
+    <Property Name="Met_Pago" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado_pago" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="importe" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Numero_Factura" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="viaje" Relationship="DatabaseModel1.pagoviaje" FromRole="pago" ToRole="viaje" />
+  </EntityType>
+  <EntityType Name="TipoUsuario">
+    <Key>
+      <PropertyRef Name="Codigo_id" />
+    </Key>
+    <Property Name="Codigo_id" Type="Int32" Nullable="false" />
+    <Property Name="Tipo_Usuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="DatabaseModel1.TipoUsuarioUsuario" FromRole="TipoUsuario" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Codigo_id" />
+    </Key>
+    <Property Name="Codigo_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="doc_type" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="num_doc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pais" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="f_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="calle" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="altura" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="piso" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="departamento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TipoUsuario" Relationship="DatabaseModel1.TipoUsuarioUsuario" FromRole="Usuario" ToRole="TipoUsuario" />
+    <NavigationProperty Name="viaje" Relationship="DatabaseModel1.Usuarioviaje" FromRole="Usuario" ToRole="viaje" />
+  </EntityType>
+  <EntityType Name="viaje">
+    <Key>
+      <PropertyRef Name="Codigo_viaje" />
+    </Key>
+    <Property Name="Id_Usuario_Pide" Type="Int32" Nullable="false" />
+    <Property Name="Id_Usuario_Realiza" Type="Int32" Nullable="false" />
+    <Property Name="Codigo_viaje" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Calle_in" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Altura_in" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Piso_in" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dep_in" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Calle_fn" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Altura_fn" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Piso_fn" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dep_fn" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="pago" Relationship="DatabaseModel1.pagoviaje" FromRole="viaje" ToRole="pago" />
+    <NavigationProperty Name="Usuarios" Relationship="DatabaseModel1.Usuarioviaje" FromRole="viaje" ToRole="Usuario" />
+  </EntityType>
+  <Association Name="ususarioxmoto">
+    <End Type="Self.Usuario" Multiplicity="*" Role="Usuario" />
+    <End Type="Self.MOTO" Multiplicity="0..1" Role="MOTO" />
+  </Association>
+  <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MOTOes" EntityType="Self.MOTO" />
+    <EntitySet Name="pagoes" EntityType="Self.pago" />
+    <EntitySet Name="TipoUsuarios" EntityType="Self.TipoUsuario" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <EntitySet Name="viajes" EntityType="Self.viaje" />
+    <AssociationSet Name="ususarioxmoto" Association="Self.ususarioxmoto">
+      <End EntitySet="Usuarios" Role="Usuario" />
+      <End EntitySet="MOTOes" Role="MOTO" />
+    </AssociationSet>
+    <AssociationSet Name="pagoviaje" Association="DatabaseModel1.pagoviaje">
+      <End Role="pago" EntitySet="pagoes" />
+      <End Role="viaje" EntitySet="viajes" />
+    </AssociationSet>
+    <AssociationSet Name="TipoUsuarioUsuario" Association="DatabaseModel1.TipoUsuarioUsuario">
+      <End Role="TipoUsuario" EntitySet="TipoUsuarios" />
+      <End Role="Usuario" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="Usuarioviaje" Association="DatabaseModel1.Usuarioviaje">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="viaje" EntitySet="viajes" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="pagoviaje">
+    <End Type="DatabaseModel1.pago" Role="pago" Multiplicity="1" />
+    <End Type="DatabaseModel1.viaje" Role="viaje" Multiplicity="1" />
+  </Association>
+  <Association Name="TipoUsuarioUsuario">
+    <End Type="DatabaseModel1.TipoUsuario" Role="TipoUsuario" Multiplicity="1" />
+    <End Type="DatabaseModel1.Usuario" Role="Usuario" Multiplicity="1" />
+  </Association>
+  <Association Name="Usuarioviaje">
+    <End Type="DatabaseModel1.Usuario" Role="Usuario" Multiplicity="*" />
+    <End Type="DatabaseModel1.viaje" Role="viaje" Multiplicity="1" />
+  </Association>
+</Schema>

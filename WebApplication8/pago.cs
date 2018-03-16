@@ -19,5 +19,7 @@ namespace WebApplication8
         public string Estado_pago { get; set; }
         public string importe { get; set; }
         public string Numero_Factura { get; set; }
+    
+        public virtual viaje viaje { get; set; }
     }
 }

@@ -26,5 +26,9 @@ namespace WebApplication8
         public string piso { get; set; }
         public string departamento { get; set; }
         public string cp { get; set; }
+        public string password { get; set; }
+    
+        public virtual viaje viaje { get; set; }
+        public virtual TipoUsuario TipoUsuario { get; set; }
     }
 }

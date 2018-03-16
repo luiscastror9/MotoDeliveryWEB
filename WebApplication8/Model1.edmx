@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="MOTO">
           <Key>
             <PropertyRef Name="Patente" />
@@ -72,8 +72,7 @@
           <EntitySet Name="ususarioxmoto" EntityType="Self.ususarioxmoto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="viajes" EntityType="Self.viajes" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -125,8 +124,8 @@
           <Key>
             <PropertyRef Name="Codigo_viaje" />
           </Key>
-          <Property Name="Id_Usuario_Pide" Type="Int32" Nullable="false" />
-          <Property Name="Id_Usuario_Realiza" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_id_Pide" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_id_Hace" Type="Int32" Nullable="false" />
           <Property Name="Codigo_viaje" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Calle_in" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Altura_in" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
@@ -201,8 +200,8 @@
           <EntitySetMapping Name="viajes">
             <EntityTypeMapping TypeName="DatabaseModel.viaje">
               <MappingFragment StoreEntitySet="viajes">
-                <ScalarProperty Name="Id_Usuario_Pide" ColumnName="Id_Usuario_Pide" />
-                <ScalarProperty Name="Id_Usuario_Realiza" ColumnName="Id_Usuario_Realiza" />
+                <ScalarProperty Name="Codigo_id_Pide" ColumnName="Id_Usuario_Pide" />
+                <ScalarProperty Name="Codigo_id_Hace" ColumnName="Id_Usuario_Realiza" />
                 <ScalarProperty Name="Codigo_viaje" ColumnName="Codigo_viaje" />
                 <ScalarProperty Name="Calle_in" ColumnName="Calle_in" />
                 <ScalarProperty Name="Altura_in" ColumnName="Altura_in" />

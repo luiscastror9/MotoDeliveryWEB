@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MOTO">
+    <Key>
+      <PropertyRef Name="Patente" />
+    </Key>
+    <Property Name="modelo" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Registro" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Patente" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Seguro" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Foto" Type="image" />
+  </EntityType>
+  <EntityType Name="pago">
+    <Key>
+      <PropertyRef Name="Numero_Factura" />
+    </Key>
+    <Property Name="Codigo_viaje" Type="int" Nullable="false" />
+    <Property Name="Met_Pago" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Estado_pago" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="importe" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Numero_Factura" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Codigo_id" />
+    </Key>
+    <Property Name="Codigo_id" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="doc_type" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="num_doc" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="pais" Type="text" />
+    <Property Name="f_nacimiento" Type="date" Nullable="false" />
+    <Property Name="calle" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="altura" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="piso" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="departamento" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cp" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ususarioxmoto">
+    <Key>
+      <PropertyRef Name="Codigo_id" />
+    </Key>
+    <Property Name="Codigo_id" Type="int" Nullable="false" />
+    <Property Name="Patente" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="viajes">
+    <Key>
+      <PropertyRef Name="Codigo_viaje" />
+    </Key>
+    <Property Name="Id_Usuario_Pide" Type="int" Nullable="false" />
+    <Property Name="Id_Usuario_Realiza" Type="int" Nullable="false" />
+    <Property Name="Codigo_viaje" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Calle_in" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Altura_in" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Piso_in" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="dep_in" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Calle_fn" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Altura_fn" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Piso_fn" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="dep_fn" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="DatabaseModelStoreContainer">
+    <EntitySet Name="MOTO" EntityType="Self.MOTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pago" EntityType="Self.pago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ususarioxmoto" EntityType="Self.ususarioxmoto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="viajes" EntityType="Self.viajes" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -14,9 +14,15 @@ namespace WebApplication8
     
     public partial class viaje
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public viaje()
+        {
+            this.Usuarios = new HashSet<Usuario>();
+        }
+    
         public int Id_Usuario_Pide { get; set; }
         public int Id_Usuario_Realiza { get; set; }
-        public string Codigo_viaje { get; set; }
+        public int Codigo_viaje { get; set; }
         public string Calle_in { get; set; }
         public string Altura_in { get; set; }
         public string Piso_in { get; set; }
@@ -25,5 +31,9 @@ namespace WebApplication8
         public string Altura_fn { get; set; }
         public string Piso_fn { get; set; }
         public string dep_fn { get; set; }
+    
+        public virtual pago pago { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Usuario> Usuarios { get; set; }
     }
 }

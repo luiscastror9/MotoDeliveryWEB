@@ -12,6 +12,6 @@
 	piso varchar(10) NOT NULL, 
 	departamento varchar(10) NOT NULL,
 	cp varchar(10) NOT NULL,
-	moto bit NOT NULL,
+	pass password NOT NULL,
 )
 GO
