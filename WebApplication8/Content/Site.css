@@ -5,8 +5,8 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -21,4 +21,18 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+@media(max-width:479px)
+{
+    .body-content {
+    background-image: url(Logo_Moto2.png);
+    
+    }
+}
+@media(min-width:480px)
+{
+    .body-content {
+    background-image :url(Logo_Moto.png);
+    
+    }
 }
