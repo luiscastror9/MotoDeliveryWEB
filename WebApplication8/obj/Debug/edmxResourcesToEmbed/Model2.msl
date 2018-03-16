@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabaseModel1StoreContainer" CdmEntityContainer="DatabaseEntities">
+    <EntitySetMapping Name="MOTOes">
+      <EntityTypeMapping TypeName="DatabaseModel1.MOTO">
+        <MappingFragment StoreEntitySet="MOTO">
+          <ScalarProperty Name="modelo" ColumnName="modelo" />
+          <ScalarProperty Name="Registro" ColumnName="Registro" />
+          <ScalarProperty Name="Patente" ColumnName="Patente" />
+          <ScalarProperty Name="Seguro" ColumnName="Seguro" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pagoes">
+      <EntityTypeMapping TypeName="DatabaseModel1.pago">
+        <MappingFragment StoreEntitySet="pago">
+          <ScalarProperty Name="Codigo_viaje" ColumnName="Codigo_viaje" />
+          <ScalarProperty Name="Met_Pago" ColumnName="Met_Pago" />
+          <ScalarProperty Name="Estado_pago" ColumnName="Estado_pago" />
+          <ScalarProperty Name="importe" ColumnName="importe" />
+          <ScalarProperty Name="Numero_Factura" ColumnName="Numero_Factura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoUsuarios">
+      <EntityTypeMapping TypeName="DatabaseModel1.TipoUsuario">
+        <MappingFragment StoreEntitySet="TipoUsuario">
+          <ScalarProperty Name="Codigo_id" ColumnName="Codigo_id" />
+          <ScalarProperty Name="Tipo_Usuario" ColumnName="Tipo_Usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="DatabaseModel1.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="Codigo_id" ColumnName="Codigo_id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="doc_type" ColumnName="doc_type" />
+          <ScalarProperty Name="num_doc" ColumnName="num_doc" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="f_nacimiento" ColumnName="f_nacimiento" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="altura" ColumnName="altura" />
+          <ScalarProperty Name="piso" ColumnName="piso" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+          <ScalarProperty Name="cp" ColumnName="cp" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="viajes">
+      <EntityTypeMapping TypeName="DatabaseModel1.viaje">
+        <MappingFragment StoreEntitySet="viajes">
+          <ScalarProperty Name="Id_Usuario_Pide" ColumnName="Id_Usuario_Pide" />
+          <ScalarProperty Name="Id_Usuario_Realiza" ColumnName="Id_Usuario_Realiza" />
+          <ScalarProperty Name="Codigo_viaje" ColumnName="Codigo_viaje" />
+          <ScalarProperty Name="Calle_in" ColumnName="Calle_in" />
+          <ScalarProperty Name="Altura_in" ColumnName="Altura_in" />
+          <ScalarProperty Name="Piso_in" ColumnName="Piso_in" />
+          <ScalarProperty Name="dep_in" ColumnName="dep_in" />
+          <ScalarProperty Name="Calle_fn" ColumnName="Calle_fn" />
+          <ScalarProperty Name="Altura_fn" ColumnName="Altura_fn" />
+          <ScalarProperty Name="Piso_fn" ColumnName="Piso_fn" />
+          <ScalarProperty Name="dep_fn" ColumnName="dep_fn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ususarioxmoto" TypeName="DatabaseModel1.ususarioxmoto" StoreEntitySet="ususarioxmoto">
+      <EndProperty Name="Usuario">
+        <ScalarProperty Name="Codigo_id" ColumnName="Codigo_id" />
+      </EndProperty>
+      <EndProperty Name="MOTO">
+        <ScalarProperty Name="Patente" ColumnName="Patente" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

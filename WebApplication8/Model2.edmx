@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DatabaseModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MOTO">
+          <Key>
+            <PropertyRef Name="Patente" />
+          </Key>
+          <Property Name="modelo" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Registro" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Patente" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Seguro" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Foto" Type="image" />
+        </EntityType>
+        <EntityType Name="pago">
+          <Key>
+            <PropertyRef Name="Numero_Factura" />
+          </Key>
+          <Property Name="Codigo_viaje" Type="int" Nullable="false" />
+          <Property Name="Met_Pago" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Estado_pago" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="importe" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Numero_Factura" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoUsuario">
+          <Key>
+            <PropertyRef Name="Codigo_id" />
+          </Key>
+          <Property Name="Codigo_id" Type="int" Nullable="false" />
+          <Property Name="Tipo_Usuario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Codigo_id" />
+          </Key>
+          <Property Name="Codigo_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Apellido" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="doc_type" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="num_doc" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="pais" Type="text" />
+          <Property Name="f_nacimiento" Type="date" Nullable="false" />
+          <Property Name="calle" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="altura" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="piso" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="departamento" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cp" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="password" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ususarioxmoto">
+          <Key>
+            <PropertyRef Name="Codigo_id" />
+          </Key>
+          <Property Name="Codigo_id" Nullable="false" Type="int" />
+          <Property Name="Patente" Nullable="false" MaxLength="15" Type="varchar" />
+        </EntityType>
+        <EntityType Name="viajes">
+          <Key>
+            <PropertyRef Name="Codigo_viaje" />
+          </Key>
+          <Property Name="Id_Usuario_Pide" Type="int" Nullable="false" />
+          <Property Name="Id_Usuario_Realiza" Type="int" Nullable="false" />
+          <Property Name="Codigo_viaje" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Calle_in" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Altura_in" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Piso_in" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="dep_in" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Calle_fn" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Altura_fn" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Piso_fn" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="dep_fn" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ususarioxmoto_ToTable">
+          <End Type="Self.Usuario" Multiplicity="1" Role="Usuario" />
+          <End Type="Self.ususarioxmoto" Multiplicity="0..1" Role="ususarioxmoto" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Codigo_id" />
+            </Principal>
+            <Dependent Role="ususarioxmoto">
+              <PropertyRef Name="Codigo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ususarioxmoto_ToTable1">
+          <End Type="Self.MOTO" Multiplicity="1" Role="MOTO" />
+          <End Type="Self.ususarioxmoto" Multiplicity="*" Role="ususarioxmoto" />
+          <ReferentialConstraint>
+            <Principal Role="MOTO">
+              <PropertyRef Name="Patente" />
+            </Principal>
+            <Dependent Role="ususarioxmoto">
+              <PropertyRef Name="Patente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseModel1StoreContainer">
+          <EntitySet Name="MOTO" EntityType="Self.MOTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pago" EntityType="Self.pago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ususarioxmoto" EntityType="Self.ususarioxmoto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="viajes" EntityType="Self.viajes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ususarioxmoto_ToTable" Association="Self.FK_ususarioxmoto_ToTable">
+            <End EntitySet="Usuario" Role="Usuario" />
+            <End EntitySet="ususarioxmoto" Role="ususarioxmoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ususarioxmoto_ToTable1" Association="Self.FK_ususarioxmoto_ToTable1">
+            <End EntitySet="MOTO" Role="MOTO" />
+            <End EntitySet="ususarioxmoto" Role="ususarioxmoto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MOTO">
+          <Key>
+            <PropertyRef Name="Patente" />
+          </Key>
+          <Property Name="modelo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Registro" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Patente" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Seguro" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.ususarioxmoto" FromRole="MOTO" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="pago">
+          <Key>
+            <PropertyRef Name="Numero_Factura" />
+          </Key>
+          <Property Name="Codigo_viaje" Type="Int32" Nullable="false" />
+          <Property Name="Met_Pago" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado_pago" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="importe" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Numero_Factura" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="viaje" Relationship="DatabaseModel1.pagoviaje" FromRole="pago" ToRole="viaje" />
+        </EntityType>
+        <EntityType Name="TipoUsuario">
+          <Key>
+            <PropertyRef Name="Codigo_id" />
+          </Key>
+          <Property Name="Codigo_id" Type="Int32" Nullable="false" />
+          <Property Name="Tipo_Usuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="DatabaseModel1.TipoUsuarioUsuario" FromRole="TipoUsuario" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Codigo_id" />
+          </Key>
+          <Property Name="Codigo_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="doc_type" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="num_doc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pais" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="f_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="calle" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="altura" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="piso" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="departamento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="viaje" Relationship="DatabaseModel1.Usuarioviaje" FromRole="Usuario" ToRole="viaje" />
+          <NavigationProperty Name="TipoUsuario" Relationship="DatabaseModel1.TipoUsuarioUsuario" FromRole="Usuario" ToRole="TipoUsuario" />
+        </EntityType>
+        <EntityType Name="viaje">
+          <Key>
+            <PropertyRef Name="Codigo_viaje" />
+          </Key>
+          <Property Name="Id_Usuario_Pide" Type="Int32" Nullable="false" />
+          <Property Name="Id_Usuario_Realiza" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_viaje" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Calle_in" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Altura_in" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Piso_in" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dep_in" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Calle_fn" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Altura_fn" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Piso_fn" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dep_fn" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="pago" Relationship="DatabaseModel1.pagoviaje" FromRole="viaje" ToRole="pago" />
+          <NavigationProperty Name="Usuarios" Relationship="DatabaseModel1.Usuarioviaje" FromRole="viaje" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="ususarioxmoto">
+          <End Type="Self.Usuario" Multiplicity="*" Role="Usuario" />
+          <End Type="Self.MOTO" Multiplicity="0..1" Role="MOTO" />
+        </Association>
+        <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MOTOes" EntityType="Self.MOTO" />
+          <EntitySet Name="pagoes" EntityType="Self.pago" />
+          <EntitySet Name="TipoUsuarios" EntityType="Self.TipoUsuario" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+          <EntitySet Name="viajes" EntityType="Self.viaje" />
+          <AssociationSet Name="ususarioxmoto" Association="Self.ususarioxmoto">
+            <End EntitySet="Usuarios" Role="Usuario" />
+            <End EntitySet="MOTOes" Role="MOTO" />
+          </AssociationSet>
+          <AssociationSet Name="pagoviaje" Association="DatabaseModel1.pagoviaje">
+            <End Role="pago" EntitySet="pagoes" />
+            <End Role="viaje" EntitySet="viajes" />
+          </AssociationSet>
+          <AssociationSet Name="Usuarioviaje" Association="DatabaseModel1.Usuarioviaje">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="viaje" EntitySet="viajes" />
+          </AssociationSet>
+          <AssociationSet Name="TipoUsuarioUsuario" Association="DatabaseModel1.TipoUsuarioUsuario">
+            <End Role="TipoUsuario" EntitySet="TipoUsuarios" />
+            <End Role="Usuario" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="pagoviaje">
+          <End Type="DatabaseModel1.pago" Role="pago" Multiplicity="1" />
+          <End Type="DatabaseModel1.viaje" Role="viaje" Multiplicity="1" />
+        </Association>
+        <Association Name="Usuarioviaje">
+          <End Type="DatabaseModel1.Usuario" Role="Usuario" Multiplicity="*" />
+          <End Type="DatabaseModel1.viaje" Role="viaje" Multiplicity="1" />
+        </Association>
+        <Association Name="TipoUsuarioUsuario">
+          <End Type="DatabaseModel1.TipoUsuario" Role="TipoUsuario" Multiplicity="1" />
+          <End Type="DatabaseModel1.Usuario" Role="Usuario" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatabaseModel1StoreContainer" CdmEntityContainer="DatabaseEntities">
+          <EntitySetMapping Name="MOTOes">
+            <EntityTypeMapping TypeName="DatabaseModel1.MOTO">
+              <MappingFragment StoreEntitySet="MOTO">
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="Registro" ColumnName="Registro" />
+                <ScalarProperty Name="Patente" ColumnName="Patente" />
+                <ScalarProperty Name="Seguro" ColumnName="Seguro" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pagoes">
+            <EntityTypeMapping TypeName="DatabaseModel1.pago">
+              <MappingFragment StoreEntitySet="pago">
+                <ScalarProperty Name="Codigo_viaje" ColumnName="Codigo_viaje" />
+                <ScalarProperty Name="Met_Pago" ColumnName="Met_Pago" />
+                <ScalarProperty Name="Estado_pago" ColumnName="Estado_pago" />
+                <ScalarProperty Name="importe" ColumnName="importe" />
+                <ScalarProperty Name="Numero_Factura" ColumnName="Numero_Factura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoUsuarios">
+            <EntityTypeMapping TypeName="DatabaseModel1.TipoUsuario">
+              <MappingFragment StoreEntitySet="TipoUsuario">
+                <ScalarProperty Name="Codigo_id" ColumnName="Codigo_id" />
+                <ScalarProperty Name="Tipo_Usuario" ColumnName="Tipo_Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="DatabaseModel1.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Codigo_id" ColumnName="Codigo_id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="doc_type" ColumnName="doc_type" />
+                <ScalarProperty Name="num_doc" ColumnName="num_doc" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="f_nacimiento" ColumnName="f_nacimiento" />
+                <ScalarProperty Name="calle" ColumnName="calle" />
+                <ScalarProperty Name="altura" ColumnName="altura" />
+                <ScalarProperty Name="piso" ColumnName="piso" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+                <ScalarProperty Name="cp" ColumnName="cp" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viajes">
+            <EntityTypeMapping TypeName="DatabaseModel1.viaje">
+              <MappingFragment StoreEntitySet="viajes">
+                <ScalarProperty Name="Id_Usuario_Pide" ColumnName="Id_Usuario_Pide" />
+                <ScalarProperty Name="Id_Usuario_Realiza" ColumnName="Id_Usuario_Realiza" />
+                <ScalarProperty Name="Codigo_viaje" ColumnName="Codigo_viaje" />
+                <ScalarProperty Name="Calle_in" ColumnName="Calle_in" />
+                <ScalarProperty Name="Altura_in" ColumnName="Altura_in" />
+                <ScalarProperty Name="Piso_in" ColumnName="Piso_in" />
+                <ScalarProperty Name="dep_in" ColumnName="dep_in" />
+                <ScalarProperty Name="Calle_fn" ColumnName="Calle_fn" />
+                <ScalarProperty Name="Altura_fn" ColumnName="Altura_fn" />
+                <ScalarProperty Name="Piso_fn" ColumnName="Piso_fn" />
+                <ScalarProperty Name="dep_fn" ColumnName="dep_fn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ususarioxmoto" TypeName="DatabaseModel1.ususarioxmoto" StoreEntitySet="ususarioxmoto">
+            <EndProperty Name="Usuario">
+              <ScalarProperty Name="Codigo_id" ColumnName="Codigo_id" />
+            </EndProperty>
+            <EndProperty Name="MOTO">
+              <ScalarProperty Name="Patente" ColumnName="Patente" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
