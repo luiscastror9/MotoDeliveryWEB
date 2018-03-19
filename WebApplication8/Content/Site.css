@@ -22,17 +22,3 @@ select,
 textarea {
     max-width: 280px;
 }
-@media(max-width:479px)
-{
-    .body-content {
-    background-image: url(Logo_Moto2.png);
-    
-    }
-}
-@media(min-width:480px)
-{
-    .body-content {
-    background-image :url(Logo_Moto.png);
-    
-    }
-}
