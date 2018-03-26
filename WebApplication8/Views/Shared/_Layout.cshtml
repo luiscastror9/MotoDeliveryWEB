@@ -7,6 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <script>
+
             function myMap() {
                 var myCenter = new google.maps.LatLng(-34.59801607522178, -58.435920592574234)
                 var mapProp = {
@@ -101,8 +102,56 @@
                                 }
                             ]
                     });
+                google.maps.event.addDomListener(window, 'load', function () {
+                    new google.maps.places.SearchBox(document.getElementById('travelfrom'));
+                    new google.maps.places.SearchBox(document.getElementById('travelto'));
+                    directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': true });
+                });
+                var source, destination;
+                var directionsDisplay;
+                var directionsService = new google.maps.DirectionsService();
+                var service = new google.maps.DistanceMatrixService();
+                directionsDisplay.setMap(map);
+
+                source = document.getElementById("travelfrom").value;
+                destination = document.getElementById("travelto").value;
+
+                var request = {
+                    origin: source,
+                    destination: destination,
+                    travelMode: google.maps.TravelMode.DRIVING
+                };
+
+                directionsService.route(request, function (response, status) {
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        directionsDisplay.setDirections(response);
+                    }
+                });
+                var service = new google.maps.DistanceMatrixService();
+                service.getDistanceMatrix
+                    ({
+                        origins: [source],
+                        destinations: [destination],
+                        travelMode: google.maps.TravelMode.DRIVING,
+                        unitSystem: google.maps.UnitSystem.METRIC,
+                        avoidHighways: false,
+                        avoidTolls: false,
+                    },
+                    function (response, status) {
+
+                        if (status == google.maps.DistanceMatrixStatus.OK &&
+                            response.rows[0].elements[0].status != "ZERO_RESULTS") {
+                            var distance = response.rows[0].elements[0].distance.text;
+                            var duration = response.rows[0].elements[0].duration.value;
+                            var dvDistance = document.getElementById("dvDistance");
+                            duration = parseFloat(duration / 60).toFixed(2);
+                            dvDistance.innerHTML = "";
+                            dvDistance.innerHTML += "Distancia: " + distance + "<br />";
+                            dvDistance.innerHTML += "Tiempo:" + duration + " min";
+                        }
+                    }
+
                 var marker = new google.maps.Marker({ position: myCenter });
-                marker.setMap(map);
             }
     </script>
 </head>
@@ -132,7 +181,6 @@
             <p>&copy; @DateTime.Now.Year - MotoDelivery</p>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
