@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using WebApplication8.Models;
+using System.Collections.Generic;
 
 namespace WebApplication8.Controllers
 {
@@ -139,6 +140,7 @@ namespace WebApplication8.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+           
             return View();
         }
 
