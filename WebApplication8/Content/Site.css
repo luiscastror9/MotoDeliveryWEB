@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color:#E7E7E7;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -22,3 +23,10 @@ select,
 textarea {
     max-width: 280px;
 }
+h2
+{
+font-family: 'Pattaya', sans-serif;
+font-style:normal;
+font-size:42px;
+}
+
