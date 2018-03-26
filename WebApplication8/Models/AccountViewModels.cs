@@ -78,7 +78,7 @@ namespace WebApplication8.Models
 
         [Required]
         [Display(Name = "Tipo de Documento")]
-        public string doc_tipo { get; set; }
+        public tipo doc_tipo { get; set; }
 
         [Required]
         [Display(Name = "Número")]
@@ -125,7 +125,11 @@ namespace WebApplication8.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
-
+    public enum tipo
+    {
+        DNI,
+        Pasaporte
+    }
     public class ResetPasswordViewModel
     {
         [Required]
