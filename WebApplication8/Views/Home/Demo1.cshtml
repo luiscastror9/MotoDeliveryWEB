@@ -5,17 +5,17 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <style>
-         /* Always set the map height explicitly to define the size of the div
+        /* Always set the map height explicitly to define the size of the div
         * element that contains the map. */
-         #map {
-             height: 75%;
-         }
-         /* Optional: Makes the sample page fill the window. */
-         html, body {
-             height: 100%;
-             margin: 0;
-             padding: 0;
-         }
+        #map {
+            height: 75%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
     </style>
 </head>
 <body>
@@ -76,12 +76,6 @@
 
             });
         }
-
-    </script>
-    <script>
-        function GetRoute() {
-            location.reload();
-        }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYTNn6hVbZXSFOGsWkgeNVRgkB2B77C0k&callback=initMap"
             async defer></script>
@@ -97,7 +91,7 @@
                 <div>
                     Desde : <input id="travelfrom" type="text" name="name" value="Villa Crespo, Buenos Aires" />
                     Hasta : <input id="travelto" type="text" name="name" value="Estacion Constitucion, Buenos Aires" />
-                    <input type="button" value="Calcular Ruta" onclick="GetRoute()" />
+                    <input type="button" value="Calcular Ruta" onclick="initMap()" />
 
                 </div>
                 <br />
