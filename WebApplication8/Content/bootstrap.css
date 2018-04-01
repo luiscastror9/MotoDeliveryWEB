@@ -1753,8 +1753,7 @@ textarea.form-control {
 }
 
 .form-group {
- padding: 15px 15px;
-   
+    display:contents;    
 }
 
 .radio,
