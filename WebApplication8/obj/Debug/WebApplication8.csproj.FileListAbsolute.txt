@@ -411,6 +411,5 @@ D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\Microsoft.Owin.Security.OAuth.xml
 D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\Microsoft.Owin.Security.Google.xml
 D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\Microsoft.Owin.Security.Twitter.xml
 D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\GitHub\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.csprojResolveAssemblyReference.cache
 D:\GitHub\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.dll
 D:\GitHub\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.pdb

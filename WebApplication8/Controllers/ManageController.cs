@@ -26,15 +26,18 @@ namespace WebApplication8.Controllers
             SignInManager = signInManager;
         }
 
+
+
+
         public ApplicationSignInManager SignInManager
         {
             get
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -74,6 +77,13 @@ namespace WebApplication8.Controllers
             };
             return View(model);
         }
+        public ActionResult Index(DataRegisterViewModel lr)
+        {
+            return View(new DataRegisterViewModel { IndexViewModel = new IndexViewModel(), RegisterFullViewModel = new RegisterFullViewModel() }); 
+}
+           
+  
+        
 
         //
         // POST: /Manage/RemoveLogin
