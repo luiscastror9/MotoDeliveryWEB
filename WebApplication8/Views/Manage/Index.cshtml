@@ -1,13 +1,11 @@
 ﻿
-@model WebApplication8.Models.DataRegisterViewModel
+@model WebApplication8.Models.IndexViewModel
 @{
     ViewBag.Title = "Manage";
 }
 
 <h2>@ViewBag.Title.</h2>
-@using (Html.BeginForm("Index", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
+
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
@@ -25,87 +23,8 @@
 
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
-
-
                 <h3>Datos Personales</h3>
-                <p>Complete los siguientes Datos</p>
-                @Html.ValidationSummary("", new { @class = "text-danger" })
-                <div class="form-group">
-                @Html.LabelFor(m => m., new { @class = "col-md-2 control-label" })
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.RegisterFullViewModel.nombre, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.RegisterFullViewModel.apellido, new { @class = "col-md-2 control-label" })
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.RegisterFullViewModel.apellido, new { @class = "form-control" })
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                @Html.LabelFor(m => m.RegisterFullViewModel.doc_tipo, new { @class = "col-md-2 control-label" })
-
-                <div class="col-md-4">
-                    @Html.EnumDropDownListFor(m => m.RegisterFullViewModel.doc_tipo, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.RegisterFullViewModel.num_doc, new { @class = "col-md-2 control-label" })
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.RegisterFullViewModel.num_doc, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.RegisterFullViewModel.pais, new { @class = "col-md-2 control-label" })
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.RegisterFullViewModel.pais, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.RegisterFullViewModel.f_nac, new { @class = "col-md-2 control-label" })
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.RegisterFullViewModel.f_nac, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.RegisterFullViewModel.tel, new { @class = "col-md-2 control-label" })
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.RegisterFullViewModel.tel, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.RegisterFullViewModel.calle, new { @class = "col-md-2 control-label" })
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.RegisterFullViewModel.calle, new { @class = "form-control" })
-                </div>
-            </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.RegisterFullViewModel.altura, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-4">
-                        @Html.TextBoxFor(m => m.RegisterFullViewModel.altura, new { @class = "form-control" })
-                    </div>
-                </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.RegisterFullViewModel.depto, new { @class = "col-md-2 control-label" })
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.RegisterFullViewModel.depto, new { @class = "form-control" })
-                </div>
-            </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.RegisterFullViewModel.piso, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-4">
-                        @Html.TextBoxFor(m => m.RegisterFullViewModel.piso, new { @class = "form-control" })
-                    </div>
-                </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.RegisterFullViewModel.codpost, new { @class = "col-md-2 control-label" })
-                <div class="col-md-4">
-                    @Html.TextBoxFor(m => m.RegisterFullViewModel.codpost, new { @class = "form-control" })
-                </div>
-            </div>
-
+                <p>Aquí va formulario</p>
             </div>
             <div id="menu1" class="tab-pane fade">
                 <h3>Datos Moto</h3>
@@ -117,11 +36,12 @@
             </div>
             <div id="menu3" class="tab-pane fade">
                 <h3>Cambio de Contrase</h3>
+                
                 <dl class="dl-horizontal">
                     <dt>Password:</dt>
                     <dd>
                         [
-                        @if (Model.IndexViewModel.HasPassword)
+                        @if (Model.HasPassword)
                         {
                             @Html.ActionLink("Change your password", "ChangePassword")
                         }
@@ -133,7 +53,7 @@
                     </dd>
                     <dt>External Logins:</dt>
                     <dd>
-                        @Model.IndexViewModel.Logins.Count [
+                        @Model.Logins.Count [
                         @Html.ActionLink("Manage", "ManageLogins") ]
                     </dd>
                     @*
@@ -192,6 +112,6 @@
             </div>
         </div>
     </div>
-}
+
 
 </div>

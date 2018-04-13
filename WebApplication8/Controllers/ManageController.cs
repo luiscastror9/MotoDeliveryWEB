@@ -77,10 +77,7 @@ namespace WebApplication8.Controllers
             };
             return View(model);
         }
-        public ActionResult Index(DataRegisterViewModel lr)
-        {
-            return View(new DataRegisterViewModel { IndexViewModel = new IndexViewModel(), RegisterFullViewModel = new RegisterFullViewModel() }); 
-}
+
            
   
         
