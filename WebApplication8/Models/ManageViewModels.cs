@@ -5,15 +5,18 @@ using Microsoft.Owin.Security;
 
 namespace WebApplication8.Models
 {
-    public class IndexViewModel
+    
+
+        public class IndexViewModel
     {
+       
+
         public bool HasPassword { get; set; }
         public IList<UserLoginInfo> Logins { get; set; }
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
     }
-
     public class ManageLoginsViewModel
     {
         public IList<UserLoginInfo> CurrentLogins { get; set; }
@@ -57,7 +60,7 @@ namespace WebApplication8.Models
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
-
+   
     public class AddPhoneNumberViewModel
     {
         [Required]
