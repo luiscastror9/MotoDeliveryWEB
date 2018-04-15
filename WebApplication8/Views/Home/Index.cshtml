@@ -16,7 +16,7 @@
             <div class="container">
                 <h2 align="center">Sobre Nosotros</h2>
                 <p>
-                    <strong>MotoDelivery</strong> posee dos enfoques, el primero es facilitar l desplazamiento de paquetes por la ciudad
+                    <strong>MotoDelivery</strong> posee dos enfoques, el primero es facilitar el desplazamiento de paquetes por la ciudad
                     y el segundo es brindar la oportunidad de obtener un ingreso adicional a todo aquel dueño de una moto.
                 </p>
                 <div class="panel-group" id="accordion">
@@ -41,7 +41,22 @@
                         </div>
                         <div id="collapse2" class="panel-collapse collapse">
                             <div class="panel-body">
-                                Pagas un minimo de $25 por 2 KM, y hasta $15 por cada KM adicional. Dias de lluvia el servicio tiene un costo adicional del 50 %
+                                <h6> <strong>$ 15 por KM</strong>. Los dias lluviosos, calcular un costo adicional del 50 % a la tarifa aproximada.</h6>
+                                <div>
+                                    <div>
+                                        <strong>Desde : </strong><input id="travelfrom" type="text" name="name" value="Av Corrientes, Buenos Aires" />
+                                        <br />
+                                        <strong>Hasta : </strong><input id="travelto" type="text" name="name" value="Av Cordoba, Buenos Aires" />
+                                        <input type="button" value="Calcular Ruta" onclick="initMap()" />
+
+                                    </div>
+                                    <br />
+                                    <div>
+                                        <div id="dvDistance">
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -77,17 +92,11 @@
             </div>
         </div>
         <div class="col-md-8">
-            <div id="googleMap" style="width:96%;height:390px;margin:14px;"></div>
-
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZUj2QpFw1P8mS9dnWafEv2f7z9wQVXYQ&callback=myMap"></script>
+            <div id="map" style="width:96%;height:520px;margin:14px;"></div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYTNn6hVbZXSFOGsWkgeNVRgkB2B77C0k&callback=initMap"
+                    async defer></script>
         </div>
     </div>
-
-<div class="row">
-    <div class="col-md-12">
-        <h2><a href="Demo1">Mapa 1.6</a> Prueba de Mapa con Direcciones</h2>
-    </div>
-</div>
 
 <div class="row">
     <div class="col-md-12">
