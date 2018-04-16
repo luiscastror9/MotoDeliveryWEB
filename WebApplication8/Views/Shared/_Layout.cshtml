@@ -601,8 +601,8 @@
                     dvDistance.innerHTML += "<strong>Distancia: </strong>" + distance + "<br />";
                     dvDistance.innerHTML += "<strong>Tiempo Aproximado: </strong>" + duration + " min" + "<br />";
                     distance = distance.toString();
-                    var nuevaCadena = distance.replace('km', '');
-                    nuevaCadena = (nuevaCadena * 15);
+                    var nuevaCadena = distance.replace('km','');
+                    nuevaCadena = (parseInt(nuevaCadena) * 15);
                     dvDistance.innerHTML += "<strong>Tarifa Aproximada:</strong> $ " + nuevaCadena;
 
                 });
