@@ -1,78 +1,94 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
-using Microsoft.AspNet.Ident
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using WebApplication8.Models;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Threading.Tasks;
+using System.Web;
 
-
-namespace WebApplication8
+namespace IdentitySample.Models
 {
+    // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
 
-    //     Default EntityFramework IUser implementation
-    public class IdentityUser<TKey, TLogin, TRole, TClaim> : IUser<TKey>
-       where TLogin : IdentityUserLogin<TKey>
-       where TRole : IdentityUserRole<TKey>
-       where TClaim : IdentityUserClaim<TKey>
+    public class ApplicationUserManager : UserManager<ApplicationUser>
     {
-        public IdentityUser()
+        public ApplicationUserManager(IUserStore<ApplicationUser> store)
+            : base(store)
         {
-            Claims = new List<TClaim>();
-            Roles = new List<TRole>();
-            Logins = new List<TLogin>();
         }
 
-        ///     User ID (Primary Key)
-        public virtual TKey Id { get; set; }
+        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options,
+            IOwinContext context)
+        {
+            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
+            // Configure validation logic for usernames
+            manager.UserValidator = new UserValidator<ApplicationUser>(manager)
+            {
+                AllowOnlyAlphanumericUserNames = false,
+                RequireUniqueEmail = true
+            };
+            // Configure validation logic for passwords
+            manager.PasswordValidator = new PasswordValidator
+            {
+                RequiredLength = 6,
+                RequireNonLetterOrDigit = true,
+                RequireDigit = true,
+                RequireLowercase = true,
+                RequireUppercase = true,
+            };
+            // Configure user lockout defaults
+            manager.UserLockoutEnabledByDefault = true;
+            manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
+            manager.MaxFailedAccessAttemptsBeforeLockout = 5;
+            // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
+            // You can write your own provider and plug in here.
+            manager.RegisterTwoFactorProvider("PhoneCode", new PhoneNumberTokenProvider<ApplicationUser>
+            {
+                MessageFormat = "Your security code is: {0}"
+            });
+            manager.RegisterTwoFactorProvider("EmailCode", new EmailTokenProvider<ApplicationUser>
+            {
+                Subject = "SecurityCode",
+                BodyFormat = "Your security code is {0}"
+            });
+            manager.EmailService = new EmailService();
+            manager.SmsService = new SmsService();
+            var dataProtectionProvider = options.DataProtectionProvider;
+            if (dataProtectionProvider != null)
+            {
+                manager.UserTokenProvider =
+                    new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
+            }
+            return manager;
+        }
+    }
 
-        public virtual string Email { get; set; }
-        public virtual bool EmailConfirmed { get; set; }
+    // Configure the RoleManager used in the application. RoleManager is defined in the ASP.NET Identity core assembly
+    public class ApplicationRoleManager : RoleManager<IdentityRole>
+    {
+        public ApplicationRoleManager(IRoleStore<IdentityRole,string> roleStore)
+            : base(roleStore)
+        {
+        }
 
-        public virtual string PasswordHash { get; set; }
-
-        ///     A random value that should change whenever a users credentials have changed (password changed, login removed)
-        public virtual string SecurityStamp { get; set; }
-
-        public virtual string PhoneNumber { get; set; }
-        public virtual bool PhoneNumberConfirmed { get; set; }
-
-        public virtual bool TwoFactorEnabled { get; set; }
-
-        ///     DateTime in UTC when lockout ends, any time in the past is considered not locked out.
-        public virtual DateTime? LockoutEndDateUtc { get; set; }
-
-        public virtual bool LockoutEnabled { get; set; }
-
-        ///     Used to record failures for the purposes of lockout
-        public virtual int AccessFailedCount { get; set; }
-
-        ///     Navigation property for user roles
-        public virtual ICollection<TRole> Roles { get; private set; }
-
-        ///     Navigation property for user claims
-        public virtual ICollection<TClaim> Claims { get; private set; }
-
-        ///     Navigation property for user logins
-        public virtual ICollection<TLogin> Logins { get; private set; }
-
-        public virtual string UserName { get; set; }
+        public static ApplicationRoleManager Create(IdentityFactoryOptions<ApplicationRoleManager> options, IOwinContext context)
+        {
+            return new ApplicationRoleManager(new RoleStore<IdentityRole>(context.Get<ApplicationDbContext>()));
+        }
     }
 
     public class EmailService : IIdentityMessageService
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
             return configSendGridasync(message);
         }
+
         private Task configSendGridasync(IdentityMessage message)
         {
             var myMessage = new SendGridMessage();
@@ -107,78 +123,55 @@ namespace WebApplication8
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your SMS service here to send a text message.
+            // Plug in your sms service here to send a text message.
             return Task.FromResult(0);
         }
     }
 
-    // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
-    public class ApplicationUserManager : UserManager<ApplicationUser>
+    // This is useful if you do not want to tear down the database each time you run the application.
+    // public class ApplicationDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
+    // This example shows you how to create a new database if the Model changes
+    public class ApplicationDbInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext> 
     {
-        public ApplicationUserManager(IUserStore<ApplicationUser> store)
-            : base(store)
-        {
+        protected override void Seed(ApplicationDbContext context) {
+            InitializeIdentityForEF(context);
+            base.Seed(context);
         }
 
-        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
-        {
-            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
-            // Configure validation logic for usernames
-            manager.UserValidator = new UserValidator<ApplicationUser>(manager)
-            {
-                AllowOnlyAlphanumericUserNames = false,
-                RequireUniqueEmail = true
-            };
+        //Create User=Admin@Admin.com with password=Admin@123456 in the Admin role        
+        public static void InitializeIdentityForEF(ApplicationDbContext db) {
+            var userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var roleManager = HttpContext.Current.GetOwinContext().Get<ApplicationRoleManager>();
+            const string name = "admin@example.com";
+            const string password = "Admin@123456";
+            const string roleName = "Admin";
 
-            // Configure validation logic for passwords
-            manager.PasswordValidator = new PasswordValidator
-            {
-                RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
-            };
-
-            // Configure user lockout defaults
-            manager.UserLockoutEnabledByDefault = true;
-            manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
-            manager.MaxFailedAccessAttemptsBeforeLockout = 5;
-
-            // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
-            // You can write your own provider and plug it in here.
-            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<ApplicationUser>
-            {
-                MessageFormat = "Your security code is {0}"
-            });
-            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<ApplicationUser>
-            {
-                Subject = "Security Code",
-                BodyFormat = "Your security code is {0}"
-            });
-            manager.EmailService = new EmailService();
-            manager.SmsService = new SmsService();
-            var dataProtectionProvider = options.DataProtectionProvider;
-            if (dataProtectionProvider != null)
-            {
-                manager.UserTokenProvider = 
-                    new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"))
-                    {
-                        TokenLifespan = TimeSpan.FromHours(3)
-                    };
-                ;
+            //Create Role Admin if it does not exist
+            var role = roleManager.FindByName(roleName);
+            if (role == null) {
+                role = new IdentityRole(roleName);
+                var roleresult = roleManager.Create(role);
             }
-            return manager;
+
+            var user = userManager.FindByName(name);
+            if (user == null) {
+                user = new ApplicationUser { UserName = name, Email = name };
+                var result = userManager.Create(user, password);
+                result = userManager.SetLockoutEnabled(user.Id, false);
+            }
+
+            // Add user admin to Role Admin if not already added
+            var rolesForUser = userManager.GetRoles(user.Id);
+            if (!rolesForUser.Contains(role.Name)) {
+                var result = userManager.AddToRole(user.Id, role.Name);
+            }
         }
     }
 
-    // Configure the application sign-in manager which is used in this application.
     public class ApplicationSignInManager : SignInManager<ApplicationUser, string>
     {
-        public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager)
-            : base(userManager, authenticationManager)
-        {
-        }
+        public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager) : 
+            base(userManager, authenticationManager) { }
 
         public override Task<ClaimsIdentity> CreateUserIdentityAsync(ApplicationUser user)
         {
