@@ -33,9 +33,10 @@ namespace WebApplication8
         public string calle { get; set; }
         public string altura { get; set; }
         public string dep { get; set; }
-        public string email { get; set; }
         public string cp { get; set; }
-        public string contrasena { get; set; }
+        public string Email { get; set; }
+        public bool EmailConfirmed { get; set; }
+        public string PasswordHash { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<factura> facturas { get; set; }

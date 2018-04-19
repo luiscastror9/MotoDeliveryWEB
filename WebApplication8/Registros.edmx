@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MotoDeliveryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MotoDeliveryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="estado_viaje">
           <Key>
             <PropertyRef Name="estado_viaje" />
@@ -57,6 +57,9 @@
             <PropertyRef Name="usuario_id" />
           </Key>
           <Property Name="usuario_id" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="tipo_usuario" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="nombre" Type="text" Nullable="false" />
           <Property Name="apellido" Type="text" Nullable="false" />
@@ -67,9 +70,7 @@
           <Property Name="calle" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="altura" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="dep" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="cp" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="contrasena" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="usuario_moto">
           <Key>
@@ -214,8 +215,7 @@
             <End Role="usuario_moto" EntitySet="usuario_moto" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MotoDeliveryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -290,13 +290,14 @@
           <Property Name="calle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="altura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="dep" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="facturas" Relationship="Self.FK_factura_usuario" FromRole="usuario" ToRole="factura" />
           <NavigationProperty Name="motoes" Relationship="Self.FK_moto_usuario" FromRole="usuario" ToRole="moto" />
           <NavigationProperty Name="trasladoes" Relationship="Self.FK_traslado_usuario" FromRole="usuario" ToRole="traslado" />
           <NavigationProperty Name="usuario_moto" Relationship="Self.FK_usuario_moto_usuario" FromRole="usuario" ToRole="usuario_moto" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="usuario_moto">
           <Key>
@@ -504,6 +505,9 @@
           <EntitySetMapping Name="usuarios">
             <EntityTypeMapping TypeName="MotoDeliveryModel.usuario">
               <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
                 <ScalarProperty Name="tipo_usuario" ColumnName="tipo_usuario" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -515,9 +519,7 @@
                 <ScalarProperty Name="calle" ColumnName="calle" />
                 <ScalarProperty Name="altura" ColumnName="altura" />
                 <ScalarProperty Name="dep" ColumnName="dep" />
-                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="cp" ColumnName="cp" />
-                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
