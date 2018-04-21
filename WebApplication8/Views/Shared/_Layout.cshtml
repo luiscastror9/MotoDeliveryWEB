@@ -10,13 +10,15 @@
         <script>
             var map;
             var source, destination;
+            var directionsDisplay;
+            var directionsService;
+            var markerArray = [];
+            
             function initMap() {
-                var directionsDisplay = new google.maps.DirectionsRenderer;
-                var directionsService = new google.maps.DirectionsService;
-                map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: -34.6131500, lng: -58.3772300 },
-                    zoom: 13,
-                    mapTypeId: 'roadmap',
+                directionsService = new google.maps.DirectionsService();
+                var mapOptions = {
+                    zoom: 12,
+                    center: { lat: -34.599908, lng: -58.438778 },
                     disableDefaultUI: true,
                     styles: [
                         {
@@ -300,324 +302,87 @@
                             ]
                         }
                     ]
-                    //    {
-                    //        "elementType": "geometry",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#ebe3cd"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "elementType": "labels.text.fill",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#523735"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "elementType": "labels.text.stroke",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#f5f1e6"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "administrative",
-                    //        "elementType": "geometry.stroke",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#c9b2a6"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "administrative.land_parcel",
-                    //        "elementType": "geometry.stroke",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#dcd2be"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "administrative.land_parcel",
-                    //        "elementType": "labels.text.fill",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#ae9e90"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "landscape.natural",
-                    //        "elementType": "geometry",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#dfd2ae"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "poi",
-                    //        "elementType": "geometry",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#dfd2ae"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "poi",
-                    //        "elementType": "labels.text.fill",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#93817c"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "poi.business",
-                    //        "stylers": [
-                    //            {
-                    //                "visibility": "off"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "poi.park",
-                    //        "elementType": "geometry.fill",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#a5b076"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "poi.park",
-                    //        "elementType": "labels.text.fill",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#447530"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "road",
-                    //        "elementType": "geometry",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#f5f1e6"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "road",
-                    //        "elementType": "labels.icon",
-                    //        "stylers": [
-                    //            {
-                    //                "visibility": "off"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "road.arterial",
-                    //        "elementType": "geometry",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#fdfcf8"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "road.highway",
-                    //        "elementType": "geometry",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#f8c967"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "road.highway",
-                    //        "elementType": "geometry.stroke",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#e9bc62"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "road.highway.controlled_access",
-                    //        "elementType": "geometry",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#e98d58"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "road.highway.controlled_access",
-                    //        "elementType": "geometry.stroke",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#db8555"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "road.local",
-                    //        "elementType": "geometry.fill",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#fdc43e"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "road.local",
-                    //        "elementType": "geometry.stroke",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#fdc43e"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "road.local",
-                    //        "elementType": "labels.text.fill",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#806b63"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "transit",
-                    //        "stylers": [
-                    //            {
-                    //                "visibility": "off"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "transit.line",
-                    //        "elementType": "geometry",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#dfd2ae"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "transit.line",
-                    //        "elementType": "labels.text.fill",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#8f7d77"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "transit.line",
-                    //        "elementType": "labels.text.stroke",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#ebe3cd"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "transit.station",
-                    //        "elementType": "geometry",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#dfd2ae"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "water",
-                    //        "elementType": "geometry.fill",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#b9d3c2"
-                    //            }
-                    //        ]
-                    //    },
-                    //    {
-                    //        "featureType": "water",
-                    //        "elementType": "labels.text.fill",
-                    //        "stylers": [
-                    //            {
-                    //                "color": "#92998d"
-                    //            }
-                    //        ]
-                    //    }
-                    //]
-                });
+                }                
+                map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
+                // Create a renderer for directions and bind it to the map.
+                var rendererOptions = { map: map }
+                directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
+
+                var input1 = (document.getElementById('travelfrom'));
+                var input2 = (document.getElementById('travelto'));
+
+                var autocomplete1 = new google.maps.places.Autocomplete(input1);
+
+                autocomplete1.bindTo('bounds', map);
+
+                var autocomplete2 = new google.maps.places.Autocomplete(input2);
+
+                autocomplete2.bindTo('bounds', map);;
+            }
+
+
+            function calcRoute() {
                 google.maps.event.addDomListener(window, 'reload', function () {
-                    new google.maps.places.SearchBox(document.getElementById('travelfrom'));
-                    new google.maps.places.SearchBox(document.getElementById('travelto'));
-                    google.maps.DirectionsRenderer({'draggable': true });
-                });
+                        new google.maps.places.SearchBox(document.getElementById('travelfrom'));
+                        new google.maps.places.SearchBox(document.getElementById('travelto'));
+                        google.maps.DirectionsRenderer({ 'draggable': true });
+                    });
 
-                directionsDisplay.setMap(map);
+                    directionsDisplay.setMap(map);
 
-                source = document.getElementById("travelfrom").value;
-                destination = document.getElementById("travelto").value;
+                    source = document.getElementById("travelfrom").value;
+                    destination = document.getElementById("travelto").value;
 
-                var request = {
-                origin: source,
-                    destination: destination,
-                    travelMode: google.maps.TravelMode.DRIVING
-                };
+                    var request = {
+                        origin: source,
+                        destination: destination,
+                        travelMode: google.maps.TravelMode.DRIVING
+                    };
 
-                directionsService.route(request, function (response, status) {
-                    if (status === google.maps.DirectionsStatus.OK) {
-                directionsDisplay.setDirections(response);
-            } else {
-                window.alert('La pifiaste porque ' + status);
-            }
-                });
+                    directionsService.route(request, function (response, status) {
+                        if (status === google.maps.DirectionsStatus.OK) {
+                            directionsDisplay.setDirections(response);
+                        } else {
+                            window.alert('Error en Direcciones: ' + status);
+                        }
+                    });
 
-                var service = new google.maps.DistanceMatrixService();
-                service.getDistanceMatrix({
-                    origins: [source],
-                    destinations: [destination],
-                    travelMode: google.maps.TravelMode.DRIVING,
-                    unitSystem: google.maps.UnitSystem.METRIC,
-                    avoidHighways: false,
-                    avoidTolls: false
-                }, function (response, status) {
-                    var distance = response.rows[0].elements[0].distance.text;
-                    var duration = response.rows[0].elements[0].duration.value;
-                    var dvDistance = document.getElementById("dvDistance");
-                    duration = parseFloat(duration / 60).toFixed(2);
-                    dvDistance.innerHTML = "";
-                    dvDistance.innerHTML += "<strong>Distancia: </strong>" + distance + "<br />";
-                    dvDistance.innerHTML += "<strong>Tiempo Aproximado: </strong>" + duration + " min" + "<br />";
-                    distance = distance.toString();
-                    var nuevaCadena = distance.replace('km','');
-                    nuevaCadena = (parseInt(nuevaCadena) * 15);
-                    dvDistance.innerHTML += "<strong>Tarifa Aproximada:</strong> $ " + nuevaCadena;
+                    var service = new google.maps.DistanceMatrixService();
+                    service.getDistanceMatrix({
+                        origins: [source],
+                        destinations: [destination],
+                        travelMode: google.maps.TravelMode.DRIVING,
+                        unitSystem: google.maps.UnitSystem.METRIC,
+                        avoidHighways: false,
+                        avoidTolls: false
+                    },
+                        function (response, status) {
+                            var distance = response.rows[0].elements[0].distance.text;
+                            var duration = response.rows[0].elements[0].duration.value;
+                            var dvDistance = document.getElementById("dvDistance");
+                            duration = parseFloat(duration / 60).toFixed(2);
+                            dvDistance.innerHTML = "";
+                            dvDistance.innerHTML += "<strong>Distancia: </strong>" + distance + "<br />";
+                            dvDistance.innerHTML += "<strong>Tiempo Aproximado: </strong>" + duration + " min" + "<br />";
+                            distance = distance.toString();
+                            var nuevaCadena = distance.replace('km', '');
+                            nuevaCadena = (parseInt(nuevaCadena) * 15);
+                            dvDistance.innerHTML += "<strong>Tarifa Aproximada:</strong> $ " + nuevaCadena;
 
-                });
-            }
+                        });
+                }
     </script>   
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <man type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
+                </man>
                 @Html.ActionLink("MotoDelivery", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">

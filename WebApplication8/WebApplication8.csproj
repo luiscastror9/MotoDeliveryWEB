@@ -173,6 +173,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\trasladosController.cs" />
     <Compile Include="estado_viaje.cs">
       <DependentUpon>Registros.tt</DependentUpon>
     </Compile>
@@ -222,6 +223,7 @@
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Boton.png" />
     <Content Include="Content\Logo_Moto.png" />
     <Content Include="Content\Logo_Moto2.png" />
     <Content Include="favicon.ico" />
@@ -295,6 +297,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Demo1.cshtml" />
     <Content Include="Views\Home\Demo2.cshtml" />
+    <Content Include="Views\traslados\Create.cshtml" />
+    <Content Include="Views\traslados\Delete.cshtml" />
+    <Content Include="Views\traslados\Details.cshtml" />
+    <Content Include="Views\traslados\Edit.cshtml" />
+    <Content Include="Views\traslados\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
