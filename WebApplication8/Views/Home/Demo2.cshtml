@@ -1,26 +1,77 @@
-﻿
+﻿<head>
+    <style type="text/css">
+        .boton_personalizado {
+            text-decoration: none;
+            padding: 10px;
+            font-weight: 600;
+            font-size: 20px;
+            color: #ffffff;
+            background-color: #1883ba;
+            border-radius: 6px;
+            border: 2px solid #0016b0;
+        }
+
+            .boton_personalizado:hover {
+                color: #1883ba;
+                background-color: #ffffff;
+            }
+    </style>
+
+</head>
+
+
+
 @{
     ViewBag.Title = "Interfaz de usuario";
 }
 
-<h2>Interfaz</h2>
+<h2>Interfaz de usuario</h2>
 
 <div class="col-md-8">
     <div id="map" style="width:96%;height:520px;margin:14px;"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYTNn6hVbZXSFOGsWkgeNVRgkB2B77C0k&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYTNn6hVbZXSFOGsWkgeNVRgkB2B77C0k&callback=initMap&libraries=places"
             async defer></script>
 </div>
 
-    <div>
-<strong>Desde : </strong><input id="travelfrom" type="text" name="name" value="Av Corrientes, Buenos Aires" />
-<br />
-<strong>Hasta : </strong><input id="travelto" type="text" name="name" value="Av Cordoba, Buenos Aires" />
-<input type="button" value="Calcular Ruta" onclick="initMap()" />
-
-                                    </div>
-<br />
 <div>
-    <div id="dvDistance">
-    </div>
+    <strong>Desde : </strong><input id="travelfrom" type="text" name="name" value="" />
+    <br />
+    <strong>Hasta : </strong><input id="travelto" type="text" name="name" value="" />
+    <input type="button" value="Calcular Ruta" onclick="calcRoute()" />
 </div>
+<br />
+<br />
+
+<div id="dvDistance">
+</div>      <br /><br />
+
+ <form id="form1" name="form1" method="post" action="index.php">
+                      <table width="200" border="0">
+                          <tr>
+                              <td width="61">Nombre:</td>
+                              <td width="123">
+                                  <label for="nombre"></label>
+                                  <input type="text" name="nombre" id="nombre" />
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>Nick:</td>
+                              <td>
+                                  <label for="nick"></label>
+                                  <input type="text" name="nick" id="nick" />
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>&nbsp;</td>
+                              <td align="right">
+                                  <input type="submit" name="enviar" id="enviar" value="Enviar" />
+                              </td>
+                          </tr>
+                      </table>                  
+ </form>
+
+
+
+<input type="image" src="~/Content/Boton.png" alt="Enviar">
+
 
