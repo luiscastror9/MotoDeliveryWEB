@@ -367,7 +367,7 @@
                             dvDistance.innerHTML += "<strong>Tiempo Aproximado: </strong>" + duration + " min" + "<br />";
                             distance = distance.toString();
                             var nuevaCadena = distance.replace('km', '');
-                            nuevaCadena = (parseInt(nuevaCadena) * 15);
+                            nuevaCadena = (parseInt(nuevaCadena) + 1) * 15;
                             dvDistance.innerHTML += "<strong>Tarifa Aproximada:</strong> $ " + nuevaCadena;
 
                         });

@@ -17,17 +17,17 @@ namespace WebApplication8
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public usuario_moto()
         {
-            this.facturas = new HashSet<factura>();
-            this.trasladoes = new HashSet<traslado>();
+            this.factura = new HashSet<factura>();
+            this.traslado = new HashSet<traslado>();
         }
     
         public int patente { get; set; }
         public int id_moto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<factura> facturas { get; set; }
+        public virtual ICollection<factura> factura { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<traslado> trasladoes { get; set; }
+        public virtual ICollection<traslado> traslado { get; set; }
         public virtual usuario usuario { get; set; }
     }
 }

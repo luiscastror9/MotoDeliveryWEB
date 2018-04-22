@@ -17,12 +17,12 @@ namespace WebApplication8
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public usuario()
         {
-            this.facturas = new HashSet<factura>();
-            this.motoes = new HashSet<moto>();
-            this.trasladoes = new HashSet<traslado>();
+            this.factura = new HashSet<factura>();
+            this.moto = new HashSet<moto>();
+            this.traslado = new HashSet<traslado>();
         }
     
-        public int usuario_id { get; set; }
+        public int id_Usuario { get; set; }
         public string tipo_usuario { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
@@ -38,11 +38,11 @@ namespace WebApplication8
         public string contrasena { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<factura> facturas { get; set; }
+        public virtual ICollection<factura> factura { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<moto> motoes { get; set; }
+        public virtual ICollection<moto> moto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<traslado> trasladoes { get; set; }
+        public virtual ICollection<traslado> traslado { get; set; }
         public virtual usuario_moto usuario_moto { get; set; }
     }
 }

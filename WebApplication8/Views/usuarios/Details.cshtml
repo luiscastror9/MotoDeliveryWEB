@@ -1,0 +1,130 @@
+﻿@model WebApplication8.usuario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>usuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pais)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pais)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.doc_tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.doc_tipo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.num_doc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.num_doc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f_nac)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f_nac)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.calle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.calle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.altura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.altura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contrasena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contrasena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario_moto.id_moto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario_moto.id_moto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_Usuario }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
