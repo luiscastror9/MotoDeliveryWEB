@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebApplication8.usuario>
+﻿@model IEnumerable<WebApplication8.Usuario>
 
 @{
     ViewBag.Title = "Index";
@@ -11,9 +11,6 @@
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.id_Usuario)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.tipo_usuario)
         </th>
@@ -54,16 +51,13 @@
             @Html.DisplayNameFor(model => model.contrasena)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.usuario_moto.id_moto)
+            @Html.DisplayNameFor(model => model.Usuario_Moto.id_moto)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.id_Usuario)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.tipo_usuario)
         </td>
@@ -104,12 +98,12 @@
             @Html.DisplayFor(modelItem => item.contrasena)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.usuario_moto.id_moto)
+            @Html.DisplayFor(modelItem => item.Usuario_Moto.id_moto)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.id_Usuario }) |
-            @Html.ActionLink("Details", "Details", new { id = item.id_Usuario }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.id_Usuario })
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_Usuario }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_Usuario }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_Usuario })
         </td>
     </tr>
 }

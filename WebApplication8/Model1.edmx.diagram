@@ -4,19 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8419ff4fdfda4f23ae480cda992900f4" Name="Diagram1">
-        <EntityTypeShape EntityType="MotoDeliveryModel.factura" Width="1.5" PointX="4.375" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MotoDeliveryModel.moto" Width="1.5" PointX="1.375" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MotoDeliveryModel.traslado" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MotoDeliveryModel.usuario" Width="1.5" PointX="1.375" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MotoDeliveryModel.usuario_moto" Width="1.5" PointX="4.375" PointY="9.125" IsExpanded="true" />
-        <AssociationConnector Association="MotoDeliveryModel.FK_factura_traslado" ManuallyRouted="false" />
-        <AssociationConnector Association="MotoDeliveryModel.FK_factura_usuario" ManuallyRouted="false" />
-        <AssociationConnector Association="MotoDeliveryModel.FK_factura_usuario_moto" ManuallyRouted="false" />
-        <AssociationConnector Association="MotoDeliveryModel.FK_usuario_moto" ManuallyRouted="false" />
-        <AssociationConnector Association="MotoDeliveryModel.FK_traslado_usuario" ManuallyRouted="false" />
-        <AssociationConnector Association="MotoDeliveryModel.FK_traslado_usuario_moto" ManuallyRouted="false" />
-        <AssociationConnector Association="MotoDeliveryModel.FK_usuario_moto_usuario" ManuallyRouted="false" />
+      <Diagram DiagramId="f54a8c748ba94f018c5a0d3a7229db6e" Name="Diagram1">
+        <EntityTypeShape EntityType="MotoDeliveryModel.Factura" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MotoDeliveryModel.Moto" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MotoDeliveryModel.Traslado" Width="1.5" PointX="8.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MotoDeliveryModel.Usuario" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MotoDeliveryModel.Usuario_Moto" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
+        <AssociationConnector Association="MotoDeliveryModel.FK_Factura_Traslado" ManuallyRouted="false" />
+        <AssociationConnector Association="MotoDeliveryModel.FK_Factura_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="MotoDeliveryModel.FK_Factura_Usuario_moto" ManuallyRouted="false" />
+        <AssociationConnector Association="MotoDeliveryModel.FK_Usuario_Moto" ManuallyRouted="false" />
+        <AssociationConnector Association="MotoDeliveryModel.FK_Traslado_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="MotoDeliveryModel.FK_Traslado_Usuario_moto" ManuallyRouted="false" />
+        <AssociationConnector Association="MotoDeliveryModel.FK_Usuario_Moto_usuario" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -7,13 +7,13 @@
     <title>@ViewBag.Title - MotoDelivery</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-        <script>
+    <script>
             var map;
             var source, destination;
             var directionsDisplay;
             var directionsService;
             var markerArray = [];
-            
+
             function initMap() {
                 directionsService = new google.maps.DirectionsService();
                 var mapOptions = {
@@ -302,7 +302,7 @@
                             ]
                         }
                     ]
-                }                
+                }
                 map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
                 // Create a renderer for directions and bind it to the map.
@@ -369,9 +369,15 @@
                             var nuevaCadena = distance.replace('km', '');
                             nuevaCadena = (parseInt(nuevaCadena) + 1) * 15;
                             dvDistance.innerHTML += "<strong>Tarifa Aproximada:</strong> $ " + nuevaCadena;
-
                         });
-                }
+            }
+
+            function calcEnvio() {
+
+                calcRoute();
+
+            }
+        
     </script>   
 </head>
 <body>

@@ -11,32 +11,38 @@ namespace WebApplication8
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class traslado
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class Traslado
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public traslado()
+        public Traslado()
         {
-            this.factura = new HashSet<factura>();
+            this.Factura = new HashSet<Factura>();
         }
     
         public int codigo_tras { get; set; }
+        [Required]
+        [Display(Name = "Elija su Usuario ID")]
         public int usuario_id { get; set; }
+        [Display(Name = "No seleccionar")]
         public Nullable<int> id_moto { get; set; }
+        [Required]
+        [Display(Name = "Ingrese Tarifa Aproximada")]
         public string tarifa { get; set; }
+        [Required]
+        [Display(Name = "Ingrese Calle de Origen")]
         public string calle_in { get; set; }
-        public string altura_in { get; set; }
-        public string piso_in { get; set; }
-        public string dep_in { get; set; }
+        [Required]
+        [Display(Name = "Ingrese Calle Destino")]
         public string calle_fn { get; set; }
-        public string altura_fn { get; set; }
-        public string piso_fn { get; set; }
-        public string dep_fn { get; set; }
-        public string estado_viaje { get; set; }
-    
+        [Required]
+        [Display(Name = "Ingrese Estado del Viaje")]
+        public int estado_viaje { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<factura> factura { get; set; }
-        public virtual usuario usuario { get; set; }
-        public virtual usuario_moto usuario_moto { get; set; }
+        public virtual ICollection<Factura> Factura { get; set; }
+        public virtual Usuario Usuario { get; set; }
+        public virtual Usuario_Moto Usuario_Moto { get; set; }
     }
 }

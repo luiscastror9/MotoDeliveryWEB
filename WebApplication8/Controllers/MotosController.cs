@@ -10,116 +10,112 @@ using WebApplication8;
 
 namespace WebApplication8.Controllers
 {
-    public class trasladoesController : Controller
+    public class MotosController : Controller
     {
-        private MotoDeliveryEntities1 db = new MotoDeliveryEntities1();
+        private MotoDeliveryEntities2 db = new MotoDeliveryEntities2();
 
-        // GET: trasladoes
+        // GET: Motos
         public ActionResult Index()
         {
-            var traslado = db.traslado.Include(t => t.usuario).Include(t => t.usuario_moto);
-            return View(traslado.ToList());
+            var moto = db.Moto.Include(m => m.Usuario);
+            return View(moto.ToList());
         }
 
-        // GET: trasladoes/Details/5
+        // GET: Motos/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            traslado traslado = db.traslado.Find(id);
-            if (traslado == null)
+            Moto moto = db.Moto.Find(id);
+            if (moto == null)
             {
                 return HttpNotFound();
             }
-            return View(traslado);
+            return View(moto);
         }
 
-        // GET: trasladoes/Create
+        // GET: Motos/Create
         public ActionResult Create()
         {
-            ViewBag.usuario_id = new SelectList(db.usuario, "id_Usuario", "id_Usuario");
-            ViewBag.id_moto = new SelectList(db.usuario_moto, "id_moto", "id_moto");
+            ViewBag.usuario_id = new SelectList(db.Usuario, "id_Usuario", "id_Usuario");
             return View();
         }
 
-        // POST: trasladoes/Create
+        // POST: Motos/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "codigo_tras,usuario_id,id_moto,tarifa,calle_in,altura_in,piso_in,dep_in,calle_fn,altura_fn,piso_fn,dep_fn,estado_viaje")] traslado traslado)
+        public ActionResult Create([Bind(Include = "patente,usuario_id,modelo,registro,seguro,foto")] Moto moto)
         {
             if (ModelState.IsValid)
             {
-                db.traslado.Add(traslado);
+                db.Moto.Add(moto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.usuario_id = new SelectList(db.usuario, "id_Usuario", "id_Usuario", traslado.usuario_id);
-            ViewBag.id_moto = new SelectList(db.usuario_moto, "id_moto", "id_moto", traslado.id_moto);
-            return View(traslado);
+            ViewBag.usuario_id = new SelectList(db.Usuario, "id_Usuario", "id_Usuario", moto.usuario_id);
+            return View(moto);
         }
 
-        // GET: trasladoes/Edit/5
+        // GET: Motos/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            traslado traslado = db.traslado.Find(id);
-            if (traslado == null)
+            Moto moto = db.Moto.Find(id);
+            if (moto == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.usuario_id = new SelectList(db.usuario, "id_Usuario", "id_Usuario", traslado.usuario_id);
-            ViewBag.id_moto = new SelectList(db.usuario_moto, "id_moto", "id_moto", traslado.id_moto);
-            return View(traslado);
+            ViewBag.usuario_id = new SelectList(db.Usuario, "id_Usuario", "id_Usuario", moto.usuario_id);
+            return View(moto);
         }
 
-        // POST: trasladoes/Edit/5
+        // POST: Motos/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "codigo_tras,usuario_id,id_moto,tarifa,calle_in,altura_in,piso_in,dep_in,calle_fn,altura_fn,piso_fn,dep_fn,estado_viaje")] traslado traslado)
+        public ActionResult Edit([Bind(Include = "patente,usuario_id,modelo,registro,seguro,foto")] Moto moto)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(traslado).State = EntityState.Modified;
+                db.Entry(moto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.usuario_id = new SelectList(db.usuario, "id_Usuario", "id_Usuario", traslado.usuario_id);
-            ViewBag.id_moto = new SelectList(db.usuario_moto, "id_moto", "id_moto", traslado.id_moto);
-            return View(traslado);
+            ViewBag.usuario_id = new SelectList(db.Usuario, "id_Usuario", "id_Usuario", moto.usuario_id);
+            return View(moto);
         }
 
-        // GET: trasladoes/Delete/5
+        // GET: Motos/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            traslado traslado = db.traslado.Find(id);
-            if (traslado == null)
+            Moto moto = db.Moto.Find(id);
+            if (moto == null)
             {
                 return HttpNotFound();
             }
-            return View(traslado);
+            return View(moto);
         }
 
-        // POST: trasladoes/Delete/5
+        // POST: Motos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            traslado traslado = db.traslado.Find(id);
-            db.traslado.Remove(traslado);
+            Moto moto = db.Moto.Find(id);
+            db.Moto.Remove(moto);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

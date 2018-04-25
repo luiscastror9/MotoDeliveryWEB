@@ -10,25 +10,25 @@ using WebApplication8;
 
 namespace WebApplication8.Controllers
 {
-    public class usuariosController : Controller
+    public class UsuariosController : Controller
     {
-        private MotoDeliveryEntities1 db = new MotoDeliveryEntities1();
+        private MotoDeliveryEntities2 db = new MotoDeliveryEntities2();
 
-        // GET: usuarios
+        // GET: Usuarios
         public ActionResult Index()
         {
-            var usuario = db.usuario.Include(u => u.usuario_moto);
+            var usuario = db.Usuario.Include(u => u.Usuario_Moto);
             return View(usuario.ToList());
         }
 
-        // GET: usuarios/Details/5
+        // GET: Usuarios/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            usuario usuario = db.usuario.Find(id);
+            Usuario usuario = db.Usuario.Find(id);
             if (usuario == null)
             {
                 return HttpNotFound();
@@ -36,53 +36,53 @@ namespace WebApplication8.Controllers
             return View(usuario);
         }
 
-        // GET: usuarios/Create
+        // GET: Usuarios/Create
         public ActionResult Create()
         {
-            ViewBag.id_Usuario = new SelectList(db.usuario_moto, "id_moto", "id_moto");
+            ViewBag.id_Usuario = new SelectList(db.Usuario_Moto, "id_moto", "id_moto");
             return View();
         }
 
-        // POST: usuarios/Create
+        // POST: Usuarios/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_Usuario,tipo_usuario,nombre,apellido,pais,doc_tipo,num_doc,f_nac,calle,altura,dep,email,cp,contrasena")] usuario usuario)
+        public ActionResult Create([Bind(Include = "id_Usuario,tipo_usuario,nombre,apellido,pais,doc_tipo,num_doc,f_nac,calle,altura,dep,email,cp,contrasena")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-                db.usuario.Add(usuario);
+                db.Usuario.Add(usuario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.id_Usuario = new SelectList(db.usuario_moto, "id_moto", "id_moto", usuario.id_Usuario);
+            ViewBag.id_Usuario = new SelectList(db.Usuario_Moto, "id_moto", "id_moto", usuario.id_Usuario);
             return View(usuario);
         }
 
-        // GET: usuarios/Edit/5
+        // GET: Usuarios/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            usuario usuario = db.usuario.Find(id);
+            Usuario usuario = db.Usuario.Find(id);
             if (usuario == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.id_Usuario = new SelectList(db.usuario_moto, "id_moto", "id_moto", usuario.id_Usuario);
+            ViewBag.id_Usuario = new SelectList(db.Usuario_Moto, "id_moto", "id_moto", usuario.id_Usuario);
             return View(usuario);
         }
 
-        // POST: usuarios/Edit/5
+        // POST: Usuarios/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_Usuario,tipo_usuario,nombre,apellido,pais,doc_tipo,num_doc,f_nac,calle,altura,dep,email,cp,contrasena")] usuario usuario)
+        public ActionResult Edit([Bind(Include = "id_Usuario,tipo_usuario,nombre,apellido,pais,doc_tipo,num_doc,f_nac,calle,altura,dep,email,cp,contrasena")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -90,18 +90,18 @@ namespace WebApplication8.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.id_Usuario = new SelectList(db.usuario_moto, "id_moto", "id_moto", usuario.id_Usuario);
+            ViewBag.id_Usuario = new SelectList(db.Usuario_Moto, "id_moto", "id_moto", usuario.id_Usuario);
             return View(usuario);
         }
 
-        // GET: usuarios/Delete/5
+        // GET: Usuarios/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            usuario usuario = db.usuario.Find(id);
+            Usuario usuario = db.Usuario.Find(id);
             if (usuario == null)
             {
                 return HttpNotFound();
@@ -109,13 +109,13 @@ namespace WebApplication8.Controllers
             return View(usuario);
         }
 
-        // POST: usuarios/Delete/5
+        // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            usuario usuario = db.usuario.Find(id);
-            db.usuario.Remove(usuario);
+            Usuario usuario = db.Usuario.Find(id);
+            db.Usuario.Remove(usuario);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

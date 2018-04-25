@@ -549,8 +549,8 @@ D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\bin\Microsoft.Owi
 D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\bin\Microsoft.Owin.Security.Google.xml
 D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\bin\Microsoft.Owin.Security.Twitter.xml
 D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.csprojResolveAssemblyReference.cache
 D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.csproj.CoreCompileInputs.cache
 D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.csproj.CopyComplete
 D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.dll
 D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.pdb
+D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.csprojResolveAssemblyReference.cache
