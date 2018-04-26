@@ -32,7 +32,8 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYTNn6hVbZXSFOGsWkgeNVRgkB2B77C0k&callback=initMap&libraries=places"
             async defer></script>
 </div>
-
+@using (Html.BeginForm())
+{
 <div>
     <strong>Desde : </strong><input id="travelfrom" type="text" name="travelfrom" value="" />
     <br />
@@ -46,7 +47,7 @@
 </div>
 <br /><br />
 
-@*//<input id="pedir" type="image" src="~/Content/Boton.png" alt="">*@
+<button id="pedir" type="image" src="~/Content/Boton.png" alt=""></button>
 
-<h2><a href="~/traslados/Create"><img src="~/Content/Boton.png" border="0"></a></h2>
-
+@*<h2><a href="#"><img  src="~/Content/Boton.png" border="0"></a></h2>*@
+}

@@ -13,8 +13,13 @@ namespace WebApplication8.Controllers
             return View();
         }
 
-        public ActionResult Demo2()
+        public ActionResult Demo2(FormCollection data)
         {
+            MotoDeliveryEntities2 mde = new MotoDeliveryEntities2();
+            Traslado u = new Traslado();
+            u.calle_in = data["travelfrom"];
+
+            Session.Add("viajeida", data["travelfrom"]);
             return View();
         }
 
