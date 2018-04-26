@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ea519107b0114669b7ee597d4ae64a0e" Name="Diagram1" ZoomLevel="84">
+        <EntityTypeShape EntityType="MotoDeliveryModel.estado_viaje" Width="1.5" PointX="10.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MotoDeliveryModel.factura" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MotoDeliveryModel.moto" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MotoDeliveryModel.traslado" Width="1.5" PointX="8.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MotoDeliveryModel.usuario" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="MotoDeliveryModel.usuario_moto" Width="1.5" PointX="3" PointY="17.375" IsExpanded="true" />
+        <AssociationConnector Association="MotoDeliveryModel.FK_estado_viaje_traslado" ManuallyRouted="false" />
+        <AssociationConnector Association="MotoDeliveryModel.FK_factura_traslado" ManuallyRouted="false" />
+        <AssociationConnector Association="MotoDeliveryModel.FK_factura_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="MotoDeliveryModel.FK_factura_usuario_moto" ManuallyRouted="false" />
+        <AssociationConnector Association="MotoDeliveryModel.FK_moto_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="MotoDeliveryModel.FK_traslado_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="MotoDeliveryModel.FK_traslado_usuario_moto" ManuallyRouted="false" />
+        <AssociationConnector Association="MotoDeliveryModel.FK_usuario_moto_usuario" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

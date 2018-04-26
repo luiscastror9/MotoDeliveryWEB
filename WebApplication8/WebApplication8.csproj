@@ -173,47 +173,48 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\usuariosController.cs" />
     <Compile Include="estado_viaje.cs">
-      <DependentUpon>Registros.tt</DependentUpon>
+      <DependentUpon>MotoDeliveryDBcontext.tt</DependentUpon>
     </Compile>
     <Compile Include="factura.cs">
-      <DependentUpon>Registros.tt</DependentUpon>
+      <DependentUpon>MotoDeliveryDBcontext.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\RegistrarUsuarioViewModels.cs" />
     <Compile Include="moto.cs">
-      <DependentUpon>Registros.tt</DependentUpon>
+      <DependentUpon>MotoDeliveryDBcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MotoDeliveryDBcontext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MotoDeliveryDBcontext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MotoDeliveryDBcontext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MotoDeliveryDBcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MotoDeliveryDBcontext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MotoDeliveryDBcontext.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registros.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Registros.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Registros.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Registros.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Registros.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Registros.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="traslado.cs">
-      <DependentUpon>Registros.tt</DependentUpon>
+      <DependentUpon>MotoDeliveryDBcontext.tt</DependentUpon>
     </Compile>
     <Compile Include="usuario.cs">
-      <DependentUpon>Registros.tt</DependentUpon>
+      <DependentUpon>MotoDeliveryDBcontext.tt</DependentUpon>
     </Compile>
     <Compile Include="usuario_moto.cs">
-      <DependentUpon>Registros.tt</DependentUpon>
+      <DependentUpon>MotoDeliveryDBcontext.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -229,25 +230,26 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Registros.Context.tt">
+    <Content Include="MotoDeliveryDBcontext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Registros.edmx</DependentUpon>
-      <LastGenOutput>Registros.Context.cs</LastGenOutput>
+      <DependentUpon>MotoDeliveryDBcontext.edmx</DependentUpon>
+      <LastGenOutput>MotoDeliveryDBcontext.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Registros.tt">
+    <Content Include="MotoDeliveryDBcontext.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Registros.edmx</DependentUpon>
-      <LastGenOutput>Registros.cs</LastGenOutput>
+      <DependentUpon>MotoDeliveryDBcontext.edmx</DependentUpon>
+      <LastGenOutput>MotoDeliveryDBcontext.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Registros.edmx">
+    <EntityDeploy Include="MotoDeliveryDBcontext.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Registros.Designer.cs</LastGenOutput>
+      <LastGenOutput>MotoDeliveryDBcontext.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Registros.edmx.diagram">
-      <DependentUpon>Registros.edmx</DependentUpon>
+    <Content Include="MotoDeliveryDBcontext.edmx.diagram">
+      <DependentUpon>MotoDeliveryDBcontext.edmx</DependentUpon>
     </Content>
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -296,6 +298,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Demo1.cshtml" />
     <Content Include="Views\Home\Demo2.cshtml" />
+    <Content Include="Views\usuarios\Create.cshtml" />
+    <Content Include="Views\usuarios\Delete.cshtml" />
+    <Content Include="Views\usuarios\Details.cshtml" />
+    <Content Include="Views\usuarios\Edit.cshtml" />
+    <Content Include="Views\usuarios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
