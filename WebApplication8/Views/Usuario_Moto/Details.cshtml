@@ -1,0 +1,42 @@
+﻿@model WebApplication8.Usuario_Moto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Usuario_Moto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.patente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado_moto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado_moto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.id_Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.id_Usuario)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_moto }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -34,44 +34,19 @@
 </div>
 
 <div>
-    <strong>Desde : </strong><input id="travelfrom" type="text" name="name" value="" />
+    <strong>Desde : </strong><input id="travelfrom" type="text" name="travelfrom" value="" />
     <br />
-    <strong>Hasta : </strong><input id="travelto" type="text" name="name" value="" />
-    <input type="button" value="Calcular Ruta" onclick="calcRoute()" />
+    <strong>Hasta : </strong><input id="travelto" type="text" name="travelto" value="" />
+    <input type="button" value="Calcular Ruta" onclick="calcEnvio()" />
 </div>
 <br />
 <br />
 
 <div id="dvDistance">
-</div>      <br /><br />
+</div>
+<br /><br />
 
- <form id="form1" name="form1" method="post" action="index.php">
-                      <table width="200" border="0">
-                          <tr>
-                              <td width="61">Nombre:</td>
-                              <td width="123">
-                                  <label for="nombre"></label>
-                                  <input type="text" name="nombre" id="nombre" />
-                              </td>
-                          </tr>
-                          <tr>
-                              <td>Nick:</td>
-                              <td>
-                                  <label for="nick"></label>
-                                  <input type="text" name="nick" id="nick" />
-                              </td>
-                          </tr>
-                          <tr>
-                              <td>&nbsp;</td>
-                              <td align="right">
-                                  <input type="submit" name="enviar" id="enviar" value="Enviar" />
-                              </td>
-                          </tr>
-                      </table>                  
- </form>
+@*//<input id="pedir" type="image" src="~/Content/Boton.png" alt="">*@
 
-
-
-<input type="image" src="~/Content/Boton.png" alt="Enviar">
-
+<h2><a href="~/traslados/Create"><img src="~/Content/Boton.png" border="0"></a></h2>
 

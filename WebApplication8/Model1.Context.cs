@@ -13,10 +13,10 @@ namespace WebApplication8
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MotoDeliveryEntities : DbContext
+    public partial class MotoDeliveryEntities2 : DbContext
     {
-        public MotoDeliveryEntities()
-            : base("name=MotoDeliveryEntities")
+        public MotoDeliveryEntities2()
+            : base("name=MotoDeliveryEntities2")
         {
         }
     
@@ -25,11 +25,10 @@ namespace WebApplication8
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<estado_viaje> estado_viaje { get; set; }
-        public virtual DbSet<factura> facturas { get; set; }
-        public virtual DbSet<moto> motoes { get; set; }
-        public virtual DbSet<traslado> trasladoes { get; set; }
-        public virtual DbSet<usuario> usuarios { get; set; }
-        public virtual DbSet<usuario_moto> usuario_moto { get; set; }
+        public virtual DbSet<Factura> Factura { get; set; }
+        public virtual DbSet<Moto> Moto { get; set; }
+        public virtual DbSet<Traslado> Traslado { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Usuario_Moto> Usuario_Moto { get; set; }
     }
 }

@@ -171,49 +171,51 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EntityController.cs" />
+    <Compile Include="Controllers\FacturasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\trasladosController.cs" />
-    <Compile Include="estado_viaje.cs">
-      <DependentUpon>Registros.tt</DependentUpon>
-    </Compile>
-    <Compile Include="factura.cs">
-      <DependentUpon>Registros.tt</DependentUpon>
+    <Compile Include="Controllers\MotosController.cs" />
+    <Compile Include="Controllers\TrasladosController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Controllers\Usuario_MotoController.cs" />
+    <Compile Include="Factura.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="moto.cs">
-      <DependentUpon>Registros.tt</DependentUpon>
+    <Compile Include="Moto.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registros.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Registros.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Registros.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Registros.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Registros.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Registros.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="traslado.cs">
-      <DependentUpon>Registros.tt</DependentUpon>
+    <Compile Include="Traslado.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="usuario.cs">
-      <DependentUpon>Registros.tt</DependentUpon>
+    <Compile Include="Usuario.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="usuario_moto.cs">
-      <DependentUpon>Registros.tt</DependentUpon>
+    <Compile Include="Usuario_Moto.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -230,24 +232,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Registros.Context.tt">
+    <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Registros.edmx</DependentUpon>
-      <LastGenOutput>Registros.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Registros.tt">
+    <Content Include="Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Registros.edmx</DependentUpon>
-      <LastGenOutput>Registros.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Registros.edmx">
+    <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Registros.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Registros.edmx.diagram">
-      <DependentUpon>Registros.edmx</DependentUpon>
+    <Content Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -297,11 +299,31 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Demo1.cshtml" />
     <Content Include="Views\Home\Demo2.cshtml" />
-    <Content Include="Views\traslados\Create.cshtml" />
-    <Content Include="Views\traslados\Delete.cshtml" />
-    <Content Include="Views\traslados\Details.cshtml" />
-    <Content Include="Views\traslados\Edit.cshtml" />
-    <Content Include="Views\traslados\Index.cshtml" />
+    <Content Include="Views\Traslados\Create.cshtml" />
+    <Content Include="Views\Traslados\Delete.cshtml" />
+    <Content Include="Views\Traslados\Details.cshtml" />
+    <Content Include="Views\Traslados\Edit.cshtml" />
+    <Content Include="Views\Traslados\Index.cshtml" />
+    <Content Include="Views\Usuarios\Create.cshtml" />
+    <Content Include="Views\Usuarios\Delete.cshtml" />
+    <Content Include="Views\Usuarios\Details.cshtml" />
+    <Content Include="Views\Usuarios\Edit.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Motos\Create.cshtml" />
+    <Content Include="Views\Motos\Delete.cshtml" />
+    <Content Include="Views\Motos\Details.cshtml" />
+    <Content Include="Views\Motos\Edit.cshtml" />
+    <Content Include="Views\Motos\Index.cshtml" />
+    <Content Include="Views\Usuario_Moto\Create.cshtml" />
+    <Content Include="Views\Usuario_Moto\Delete.cshtml" />
+    <Content Include="Views\Usuario_Moto\Details.cshtml" />
+    <Content Include="Views\Usuario_Moto\Edit.cshtml" />
+    <Content Include="Views\Usuario_Moto\Index.cshtml" />
+    <Content Include="Views\Facturas\Create.cshtml" />
+    <Content Include="Views\Facturas\Delete.cshtml" />
+    <Content Include="Views\Facturas\Details.cshtml" />
+    <Content Include="Views\Facturas\Edit.cshtml" />
+    <Content Include="Views\Facturas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -313,6 +335,9 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Entity\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -10,116 +10,112 @@ using WebApplication8;
 
 namespace WebApplication8.Controllers
 {
-    public class trasladosController : Controller
+    public class UsuariosController : Controller
     {
-        private MotoDeliveryEntities db = new MotoDeliveryEntities();
+        private MotoDeliveryEntities2 db = new MotoDeliveryEntities2();
 
-        // GET: traslados
+        // GET: Usuarios
         public ActionResult Index()
         {
-            var trasladoes = db.trasladoes.Include(t => t.usuario).Include(t => t.usuario_moto);
-            return View(trasladoes.ToList());
+            var usuario = db.Usuario.Include(u => u.Usuario_Moto);
+            return View(usuario.ToList());
         }
 
-        // GET: traslados/Details/5
+        // GET: Usuarios/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            traslado traslado = db.trasladoes.Find(id);
-            if (traslado == null)
+            Usuario usuario = db.Usuario.Find(id);
+            if (usuario == null)
             {
                 return HttpNotFound();
             }
-            return View(traslado);
+            return View(usuario);
         }
 
-        // GET: traslados/Create
+        // GET: Usuarios/Create
         public ActionResult Create()
         {
-            ViewBag.usuario_id = new SelectList(db.usuarios, "usuario_id", "tipo_usuario");
-            ViewBag.id_moto = new SelectList(db.usuario_moto, "id_moto", "id_moto");
+            ViewBag.id_Usuario = new SelectList(db.Usuario_Moto, "id_moto", "id_moto");
             return View();
         }
 
-        // POST: traslados/Create
+        // POST: Usuarios/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "codigo_tras,usuario_id,id_moto,tarifa,calle_in,altura_in,piso_in,dep_in,calle_fn,altura_fn,piso_fn,dep_fn")] traslado traslado)
+        public ActionResult Create([Bind(Include = "id_Usuario,tipo_usuario,nombre,apellido,pais,doc_tipo,num_doc,f_nac,calle,altura,dep,email,cp,contrasena")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-                db.trasladoes.Add(traslado);
+                db.Usuario.Add(usuario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.usuario_id = new SelectList(db.usuarios, "usuario_id", "tipo_usuario", traslado.usuario_id);
-            ViewBag.id_moto = new SelectList(db.usuario_moto, "id_moto", "id_moto", traslado.id_moto);
-            return View(traslado);
+            ViewBag.id_Usuario = new SelectList(db.Usuario_Moto, "id_moto", "id_moto", usuario.id_Usuario);
+            return View(usuario);
         }
 
-        // GET: traslados/Edit/5
+        // GET: Usuarios/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            traslado traslado = db.trasladoes.Find(id);
-            if (traslado == null)
+            Usuario usuario = db.Usuario.Find(id);
+            if (usuario == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.usuario_id = new SelectList(db.usuarios, "usuario_id", "tipo_usuario", traslado.usuario_id);
-            ViewBag.id_moto = new SelectList(db.usuario_moto, "id_moto", "id_moto", traslado.id_moto);
-            return View(traslado);
+            ViewBag.id_Usuario = new SelectList(db.Usuario_Moto, "id_moto", "id_moto", usuario.id_Usuario);
+            return View(usuario);
         }
 
-        // POST: traslados/Edit/5
+        // POST: Usuarios/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "codigo_tras,usuario_id,id_moto,tarifa,calle_in,altura_in,piso_in,dep_in,calle_fn,altura_fn,piso_fn,dep_fn")] traslado traslado)
+        public ActionResult Edit([Bind(Include = "id_Usuario,tipo_usuario,nombre,apellido,pais,doc_tipo,num_doc,f_nac,calle,altura,dep,email,cp,contrasena")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(traslado).State = EntityState.Modified;
+                db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.usuario_id = new SelectList(db.usuarios, "usuario_id", "tipo_usuario", traslado.usuario_id);
-            ViewBag.id_moto = new SelectList(db.usuario_moto, "id_moto", "id_moto", traslado.id_moto);
-            return View(traslado);
+            ViewBag.id_Usuario = new SelectList(db.Usuario_Moto, "id_moto", "id_moto", usuario.id_Usuario);
+            return View(usuario);
         }
 
-        // GET: traslados/Delete/5
+        // GET: Usuarios/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            traslado traslado = db.trasladoes.Find(id);
-            if (traslado == null)
+            Usuario usuario = db.Usuario.Find(id);
+            if (usuario == null)
             {
                 return HttpNotFound();
             }
-            return View(traslado);
+            return View(usuario);
         }
 
-        // POST: traslados/Delete/5
+        // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            traslado traslado = db.trasladoes.Find(id);
-            db.trasladoes.Remove(traslado);
+            Usuario usuario = db.Usuario.Find(id);
+            db.Usuario.Remove(usuario);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

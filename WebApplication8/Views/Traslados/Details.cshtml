@@ -1,0 +1,66 @@
+﻿@model WebApplication8.Traslado
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Traslado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tarifa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tarifa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.calle_in)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.calle_in)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.calle_fn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.calle_fn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado_viaje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado_viaje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.id_Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.id_Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario_Moto.id_moto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario_Moto.id_moto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.codigo_tras }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

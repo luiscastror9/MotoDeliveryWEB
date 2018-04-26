@@ -12,22 +12,23 @@ namespace WebApplication8
     using System;
     using System.Collections.Generic;
     
-    public partial class usuario_moto
+    public partial class Usuario_Moto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public usuario_moto()
+        public Usuario_Moto()
         {
-            this.facturas = new HashSet<factura>();
-            this.trasladoes = new HashSet<traslado>();
+            this.Factura = new HashSet<Factura>();
+            this.Traslado = new HashSet<Traslado>();
         }
     
         public int patente { get; set; }
         public int id_moto { get; set; }
+        public int estado_moto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<factura> facturas { get; set; }
+        public virtual ICollection<Factura> Factura { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<traslado> trasladoes { get; set; }
-        public virtual usuario usuario { get; set; }
+        public virtual ICollection<Traslado> Traslado { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

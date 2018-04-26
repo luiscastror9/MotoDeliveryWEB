@@ -11,16 +11,16 @@ namespace WebApplication8
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class moto
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class Moto
     {
         public int patente { get; set; }
         public int usuario_id { get; set; }
         public string modelo { get; set; }
         public string registro { get; set; }
         public string seguro { get; set; }
-        public byte[] foto { get; set; }
     
-        public virtual usuario usuario { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

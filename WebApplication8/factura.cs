@@ -12,7 +12,7 @@ namespace WebApplication8
     using System;
     using System.Collections.Generic;
     
-    public partial class factura
+    public partial class Factura
     {
         public int num_factura { get; set; }
         public int codigo_viaje { get; set; }
@@ -22,8 +22,8 @@ namespace WebApplication8
         public Nullable<decimal> importe { get; set; }
         public string estado_pago { get; set; }
     
-        public virtual traslado traslado { get; set; }
-        public virtual usuario usuario { get; set; }
-        public virtual usuario_moto usuario_moto { get; set; }
+        public virtual Traslado Traslado { get; set; }
+        public virtual Usuario Usuario { get; set; }
+        public virtual Usuario_Moto Usuario_Moto { get; set; }
     }
 }
