@@ -413,7 +413,6 @@ D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\Microsoft.Owin.Security.Twitter.xm
 D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\GitHub\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.dll
 D:\GitHub\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.pdb
-D:\GitHub\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.csprojResolveAssemblyReference.cache
 C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\roslyn\csc.exe
 C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
