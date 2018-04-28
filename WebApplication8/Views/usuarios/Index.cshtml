@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.usuario_moto.id_moto)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.tipo_usuario)
         </th>
         <th>
@@ -42,25 +45,28 @@
             @Html.DisplayNameFor(model => model.dep)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.email)
+            @Html.DisplayNameFor(model => model.Email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.emailconfirmado)
+            @Html.DisplayNameFor(model => model.EmailConfirmado)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.cp)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.contrasena)
+            @Html.DisplayNameFor(model => model.Password)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.usuario_moto.id_moto)
+            @Html.DisplayNameFor(model => model.ConfirmPassword)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.usuario_moto.id_moto)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.tipo_usuario)
         </td>
@@ -92,19 +98,19 @@
             @Html.DisplayFor(modelItem => item.dep)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.email)
+            @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.emailconfirmado)
+            @Html.DisplayFor(modelItem => item.EmailConfirmado)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.cp)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.contrasena)
+            @Html.DisplayFor(modelItem => item.Password)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.usuario_moto.id_moto)
+            @Html.DisplayFor(modelItem => item.ConfirmPassword)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.usuario_id }) |

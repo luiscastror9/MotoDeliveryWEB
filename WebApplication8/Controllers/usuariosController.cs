@@ -8,12 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication8;
 
-
 namespace WebApplication8.Controllers
 {
     public class usuariosController : Controller
     {
-        private MotoDeliveryEntities1 db = new MotoDeliveryEntities1();
+        private DbMotoDelivery db = new DbMotoDelivery();
 
         // GET: usuarios
         public ActionResult Index()
@@ -49,7 +48,7 @@ namespace WebApplication8.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "usuario_id,tipo_usuario,nombre,apellido,pais,doc_tipo,num_doc,f_nac,calle,altura,dep,email,emailconfirmado,cp,contrasena")] usuario usuario)
+        public ActionResult Create([Bind(Include = "usuario_id,tipo_usuario,nombre,apellido,pais,doc_tipo,num_doc,f_nac,calle,altura,dep,Email,EmailConfirmado,cp,Password,ConfirmPassword")] usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +82,7 @@ namespace WebApplication8.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "usuario_id,tipo_usuario,nombre,apellido,pais,doc_tipo,num_doc,f_nac,calle,altura,dep,email,emailconfirmado,cp,contrasena")] usuario usuario)
+        public ActionResult Edit([Bind(Include = "usuario_id,tipo_usuario,nombre,apellido,pais,doc_tipo,num_doc,f_nac,calle,altura,dep,Email,EmailConfirmado,cp,Password,ConfirmPassword")] usuario usuario)
         {
             if (ModelState.IsValid)
             {
