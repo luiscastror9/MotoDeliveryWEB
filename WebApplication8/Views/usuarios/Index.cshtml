@@ -59,9 +59,7 @@
         <th>
             @Html.DisplayNameFor(model => model.PasswordHash)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.confirmarPasswordHash)
-        </th>
+      
         <th></th>
     </tr>
 
@@ -115,9 +113,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.PasswordHash)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.confirmarPasswordHash)
-        </td>
+     
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.usuario_id }) |
             @Html.ActionLink("Details", "Details", new { id=item.usuario_id }) |

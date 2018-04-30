@@ -17,8 +17,8 @@ namespace WebApplication8.Controllers
         // GET: usuarios
         public ActionResult Index()
         {
-            var usuarios = db.usuarios.Include(u => u.AspNetUser).Include(u => u.usuario_moto);
-            return View(usuarios.ToList());
+            
+            return View(db.usuarios.ToList());
         }
 
         // GET: usuarios/Details/5
