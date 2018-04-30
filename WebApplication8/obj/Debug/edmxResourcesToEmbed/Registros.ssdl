@@ -52,6 +52,9 @@
       <PropertyRef Name="usuario_id" />
     </Key>
     <Property Name="usuario_id" Type="int" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="tipo_usuario" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="nombre" Type="text" Nullable="false" />
     <Property Name="apellido" Type="text" Nullable="false" />
@@ -62,9 +65,7 @@
     <Property Name="calle" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="altura" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="dep" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="cp" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="contrasena" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="usuario_moto">
     <Key>

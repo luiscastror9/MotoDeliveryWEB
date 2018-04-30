@@ -55,6 +55,9 @@
     <EntitySetMapping Name="usuarios">
       <EntityTypeMapping TypeName="MotoDeliveryModel.usuario">
         <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
           <ScalarProperty Name="tipo_usuario" ColumnName="tipo_usuario" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -66,9 +69,7 @@
           <ScalarProperty Name="calle" ColumnName="calle" />
           <ScalarProperty Name="altura" ColumnName="altura" />
           <ScalarProperty Name="dep" ColumnName="dep" />
-          <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="cp" ColumnName="cp" />
-          <ScalarProperty Name="contrasena" ColumnName="contrasena" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

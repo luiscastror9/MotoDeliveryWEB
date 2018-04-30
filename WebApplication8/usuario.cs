@@ -64,6 +64,7 @@ namespace WebApplication8
         
         [Display(Name = "Departamento")]
         public string dep { get; set; }
+<<<<<<< HEAD
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -80,6 +81,12 @@ namespace WebApplication8
         
         [Display(Name = "Contraseña")]
         public string contrasena { get; set; }
+=======
+        public string cp { get; set; }
+        public string Email { get; set; }
+        public bool EmailConfirmed { get; set; }
+        public string PasswordHash { get; set; }
+>>>>>>> 42df39d7b364ba9f6fd19dad9ec95d671c65dce5
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<factura> facturas { get; set; }

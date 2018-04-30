@@ -4,8 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+<<<<<<< HEAD:WebApplication8/MotoDeliveryDBcontext.edmx.diagram
       <Diagram DiagramId="ea519107b0114669b7ee597d4ae64a0e" Name="Diagram1" ZoomLevel="84">
         <EntityTypeShape EntityType="MotoDeliveryModel.estado_viaje" Width="1.5" PointX="10.5" PointY="11.875" IsExpanded="true" />
+=======
+      <Diagram DiagramId="400c1eccc067400f965bcba4f9b72905" Name="Diagram1" ZoomLevel="87">
+        <EntityTypeShape EntityType="MotoDeliveryModel.estado_viaje" Width="1.5" PointX="10.5" PointY="12" IsExpanded="true" />
+>>>>>>> 42df39d7b364ba9f6fd19dad9ec95d671c65dce5:WebApplication8/Registros.edmx.diagram
         <EntityTypeShape EntityType="MotoDeliveryModel.factura" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MotoDeliveryModel.moto" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MotoDeliveryModel.traslado" Width="1.5" PointX="8.25" PointY="10.625" IsExpanded="true" />

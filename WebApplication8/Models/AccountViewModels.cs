@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using WebApplication8;
 
 namespace WebApplication8.Models
 {
@@ -48,6 +49,8 @@ namespace WebApplication8.Models
 
     public class LoginViewModel
     {
+        
+
         [Required]
         [Display(Name = "Email")]
         [EmailAddress]
