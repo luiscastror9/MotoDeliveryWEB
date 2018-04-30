@@ -12,7 +12,7 @@ namespace WebApplication8.Controllers
 {
     public class Usuario_MotoController : Controller
     {
-        private MotoDeliveryEntities2 db = new MotoDeliveryEntities2();
+        private DbMotoDelivery db = new DbMotoDelivery();
 
         // GET: Usuario_Moto
         public ActionResult Index()
@@ -39,7 +39,7 @@ namespace WebApplication8.Controllers
         // GET: Usuario_Moto/Create
         public ActionResult Create()
         {
-            ViewBag.id_moto = new SelectList(db.Usuario, "id_Usuario", "id_Usuario");
+            ViewBag.id_moto = new SelectList(db.Usuarios, "id_Usuario", "id_Usuario");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace WebApplication8.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.id_moto = new SelectList(db.Usuario, "id_Usuario", "id_Usuario", usuario_Moto.id_moto);
+            ViewBag.id_moto = new SelectList(db.Usuarios, "id_Usuario", "id_Usuario", usuario_Moto.id_moto);
             return View(usuario_Moto);
         }
 
@@ -73,7 +73,7 @@ namespace WebApplication8.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.id_moto = new SelectList(db.Usuario, "id_Usuario", "id_Usuario", usuario_Moto.id_moto);
+            ViewBag.id_moto = new SelectList(db.Usuarios, "id_Usuario", "id_Usuario", usuario_Moto.id_moto);
             return View(usuario_Moto);
         }
 
@@ -90,7 +90,7 @@ namespace WebApplication8.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.id_moto = new SelectList(db.Usuario, "id_Usuario", "id_Usuario", usuario_Moto.id_moto);
+            ViewBag.id_moto = new SelectList(db.Usuarios, "id_Usuario", "id_Usuario", usuario_Moto.id_moto);
             return View(usuario_Moto);
         }
 

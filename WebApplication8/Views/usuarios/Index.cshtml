@@ -95,7 +95,8 @@
             @Html.DisplayFor(modelItem => item.cp)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.contrasena)
+            @Html.EditorFor(modelItem => item.contrasena, new { @class = "form-control", })
+           
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Usuario_Moto.id_moto)

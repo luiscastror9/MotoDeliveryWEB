@@ -179,12 +179,18 @@
     <Compile Include="Controllers\TrasladosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\Usuario_MotoController.cs" />
+    <Compile Include="DbMotoDelivery.cs" />
     <Compile Include="Factura.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804301832246_[DbMotoDelivery].cs" />
+    <Compile Include="Migrations\201804301832246_[DbMotoDelivery].Designer.cs">
+      <DependentUpon>201804301832246_[DbMotoDelivery].cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -338,6 +344,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Entity\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201804301832246_[DbMotoDelivery].resx">
+      <DependentUpon>201804301832246_[DbMotoDelivery].cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

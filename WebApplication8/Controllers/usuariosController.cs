@@ -12,12 +12,12 @@ namespace WebApplication8.Controllers
 {
     public class UsuariosController : Controller
     {
-        private MotoDeliveryEntities2 db = new MotoDeliveryEntities2();
+        private DbMotoDelivery db = new DbMotoDelivery();
 
         // GET: Usuarios
         public ActionResult Index()
         {
-            var usuario = db.Usuario.Include(u => u.Usuario_Moto);
+            var usuario = db.Usuarios.Include(u => u.Usuario_Moto);
             return View(usuario.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace WebApplication8.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuario usuario = db.Usuario.Find(id);
+            Usuario usuario = db.Usuarios.Find(id);
             if (usuario == null)
             {
                 return HttpNotFound();
@@ -52,7 +52,7 @@ namespace WebApplication8.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Usuario.Add(usuario);
+                db.Usuarios.Add(usuario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -68,7 +68,7 @@ namespace WebApplication8.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuario usuario = db.Usuario.Find(id);
+            Usuario usuario = db.Usuarios.Find(id);
             if (usuario == null)
             {
                 return HttpNotFound();
@@ -101,7 +101,7 @@ namespace WebApplication8.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuario usuario = db.Usuario.Find(id);
+            Usuario usuario = db.Usuarios.Find(id);
             if (usuario == null)
             {
                 return HttpNotFound();
@@ -114,8 +114,8 @@ namespace WebApplication8.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Usuario usuario = db.Usuario.Find(id);
-            db.Usuario.Remove(usuario);
+            Usuario usuario = db.Usuarios.Find(id);
+            db.Usuarios.Remove(usuario);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

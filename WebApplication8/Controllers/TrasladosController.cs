@@ -12,12 +12,12 @@ namespace WebApplication8.Controllers
 {
     public class TrasladosController : Controller
     {
-        private MotoDeliveryEntities2 db = new MotoDeliveryEntities2();
+        private DbMotoDelivery db = new DbMotoDelivery();
 
         // GET: Traslados
         public ActionResult Index()
         {
-            var traslado = db.Traslado.Include(t => t.Usuario).Include(t => t.Usuario_Moto);
+            var traslado = db.Traslados.Include(t => t.Usuario).Include(t => t.Usuario_Moto);
             return View(traslado.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace WebApplication8.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Traslado traslado = db.Traslado.Find(id);
+            Traslado traslado = db.Traslados.Find(id);
             if (traslado == null)
             {
                 return HttpNotFound();
@@ -39,7 +39,7 @@ namespace WebApplication8.Controllers
         // GET: Traslados/Create
         public ActionResult Create()
         {
-            ViewBag.usuario_id = new SelectList(db.Usuario, "id_Usuario", "id_Usuario");
+            ViewBag.usuario_id = new SelectList(db.Usuarios, "id_Usuario", "id_Usuario");
             ViewBag.id_moto = new SelectList(db.Usuario_Moto, "id_moto", "id_moto");
             return View();
         }
@@ -53,12 +53,12 @@ namespace WebApplication8.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Traslado.Add(traslado);
+                db.Traslados.Add(traslado);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.usuario_id = new SelectList(db.Usuario, "id_Usuario", "id_Usuario", traslado.usuario_id);
+            ViewBag.usuario_id = new SelectList(db.Usuarios, "id_Usuario", "id_Usuario", traslado.usuario_id);
             ViewBag.id_moto = new SelectList(db.Usuario_Moto, "id_moto", "id_moto", traslado.id_moto);
             return View(traslado);
         }
@@ -70,12 +70,12 @@ namespace WebApplication8.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Traslado traslado = db.Traslado.Find(id);
+            Traslado traslado = db.Traslados.Find(id);
             if (traslado == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.usuario_id = new SelectList(db.Usuario, "id_Usuario", "id_Usuario", traslado.usuario_id);
+            ViewBag.usuario_id = new SelectList(db.Usuarios, "id_Usuario", "id_Usuario", traslado.usuario_id);
             ViewBag.id_moto = new SelectList(db.Usuario_Moto, "id_moto", "id_moto", traslado.id_moto);
             return View(traslado);
         }
@@ -93,7 +93,7 @@ namespace WebApplication8.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.usuario_id = new SelectList(db.Usuario, "id_Usuario", "id_Usuario", traslado.usuario_id);
+            ViewBag.usuario_id = new SelectList(db.Usuarios, "id_Usuario", "id_Usuario", traslado.usuario_id);
             ViewBag.id_moto = new SelectList(db.Usuario_Moto, "id_moto", "id_moto", traslado.id_moto);
             return View(traslado);
         }
@@ -105,7 +105,7 @@ namespace WebApplication8.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Traslado traslado = db.Traslado.Find(id);
+            Traslado traslado = db.Traslados.Find(id);
             if (traslado == null)
             {
                 return HttpNotFound();
@@ -118,8 +118,8 @@ namespace WebApplication8.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Traslado traslado = db.Traslado.Find(id);
-            db.Traslado.Remove(traslado);
+            Traslado traslado = db.Traslados.Find(id);
+            db.Traslados.Remove(traslado);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
