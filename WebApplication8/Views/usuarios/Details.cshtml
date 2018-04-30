@@ -11,6 +11,22 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario_moto.id_moto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario_moto.id_moto)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.tipo_usuario)
         </dt>
 
@@ -115,19 +131,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.contrasena)
+            @Html.DisplayNameFor(model => model.PasswordHash)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.contrasena)
+            @Html.DisplayFor(model => model.PasswordHash)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.usuario_moto.id_moto)
+            @Html.DisplayNameFor(model => model.confirmarPasswordHash)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.usuario_moto.id_moto)
+            @Html.DisplayFor(model => model.confirmarPasswordHash)
         </dd>
 
     </dl>

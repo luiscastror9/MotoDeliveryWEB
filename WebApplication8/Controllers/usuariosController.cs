@@ -8,22 +8,21 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication8;
 
-
 namespace WebApplication8.Controllers
 {
     public class usuariosController : Controller
     {
-        private MotoDeliveryEntities1 db = new MotoDeliveryEntities1();
+        private DbMotoDelivery db = new DbMotoDelivery();
 
         // GET: usuarios
         public ActionResult Index()
         {
-            var usuarios = db.usuarios.Include(u => u.usuario_moto);
+            var usuarios = db.usuarios.Include(u => u.AspNetUser).Include(u => u.usuario_moto);
             return View(usuarios.ToList());
         }
 
         // GET: usuarios/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
@@ -40,6 +39,7 @@ namespace WebApplication8.Controllers
         // GET: usuarios/Create
         public ActionResult Create()
         {
+            ViewBag.usuario_id = new SelectList(db.AspNetUsers, "Id", "Email");
             ViewBag.usuario_id = new SelectList(db.usuario_moto, "id_moto", "id_moto");
             return View();
         }
@@ -49,7 +49,7 @@ namespace WebApplication8.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "usuario_id,tipo_usuario,nombre,apellido,pais,doc_tipo,num_doc,f_nac,calle,altura,dep,email,emailconfirmado,cp,contrasena")] usuario usuario)
+        public ActionResult Create([Bind(Include = "usuario_id,tipo_usuario,nombre,apellido,pais,doc_tipo,num_doc,f_nac,calle,altura,dep,email,emailconfirmado,cp,PasswordHash,confirmarPasswordHash")] usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -58,12 +58,13 @@ namespace WebApplication8.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.usuario_id = new SelectList(db.AspNetUsers, "Id", "Email", usuario.usuario_id);
             ViewBag.usuario_id = new SelectList(db.usuario_moto, "id_moto", "id_moto", usuario.usuario_id);
             return View(usuario);
         }
 
         // GET: usuarios/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
@@ -74,6 +75,7 @@ namespace WebApplication8.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.usuario_id = new SelectList(db.AspNetUsers, "Id", "Email", usuario.usuario_id);
             ViewBag.usuario_id = new SelectList(db.usuario_moto, "id_moto", "id_moto", usuario.usuario_id);
             return View(usuario);
         }
@@ -83,7 +85,7 @@ namespace WebApplication8.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "usuario_id,tipo_usuario,nombre,apellido,pais,doc_tipo,num_doc,f_nac,calle,altura,dep,email,emailconfirmado,cp,contrasena")] usuario usuario)
+        public ActionResult Edit([Bind(Include = "usuario_id,tipo_usuario,nombre,apellido,pais,doc_tipo,num_doc,f_nac,calle,altura,dep,email,emailconfirmado,cp,PasswordHash,confirmarPasswordHash")] usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -91,12 +93,13 @@ namespace WebApplication8.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.usuario_id = new SelectList(db.AspNetUsers, "Id", "Email", usuario.usuario_id);
             ViewBag.usuario_id = new SelectList(db.usuario_moto, "id_moto", "id_moto", usuario.usuario_id);
             return View(usuario);
         }
 
         // GET: usuarios/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
@@ -113,7 +116,7 @@ namespace WebApplication8.Controllers
         // POST: usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
             usuario usuario = db.usuarios.Find(id);
             db.usuarios.Remove(usuario);

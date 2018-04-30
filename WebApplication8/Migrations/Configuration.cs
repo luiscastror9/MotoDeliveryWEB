@@ -5,14 +5,14 @@ namespace WebApplication8.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<WebApplication8.MotoDeliveryEntities1>
+    internal sealed class Configuration : DbMigrationsConfiguration<WebApplication8.DbMotoDelivery>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(WebApplication8.MotoDeliveryEntities1 context)
+        protected override void Seed(WebApplication8.DbMotoDelivery context)
         {
             //  This method will be called after migrating to the latest version.
 

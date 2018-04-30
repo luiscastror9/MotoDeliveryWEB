@@ -483,3 +483,5 @@ C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\obj\Debug\We
 C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.dll
 C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.pdb
 D:\GitHub\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.csprojResolveAssemblyReference.cache
+D:\GitHub\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.Migrations.DbMotoDelivery.resources
+D:\GitHub\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.csproj.GenerateResource.Cache
