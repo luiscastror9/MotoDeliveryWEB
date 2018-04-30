@@ -1,0 +1,141 @@
+namespace WebApplication8.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class DbMotoDelivery : DbMigration
+    {
+        public override void Up()
+        {
+            CreateTable(
+                "dbo.estado_viaje",
+                c => new
+                    {
+                        estado_viaje = c.Int(nullable: false),
+                        codigo_tras = c.Int(),
+                    })
+                .PrimaryKey(t => t.estado_viaje)
+                .ForeignKey("dbo.traslado", t => t.codigo_tras)
+                .Index(t => t.codigo_tras);
+            
+            CreateTable(
+                "dbo.traslado",
+                c => new
+                    {
+                        codigo_tras = c.Int(nullable: false),
+                        usuario_id = c.Int(nullable: false),
+                        id_moto = c.Int(nullable: false),
+                        tarifa = c.String(nullable: false, maxLength: 50, unicode: false),
+                        calle_in = c.String(nullable: false, maxLength: 50, unicode: false),
+                        altura_in = c.String(nullable: false, maxLength: 50, unicode: false),
+                        piso_in = c.String(nullable: false, maxLength: 50, unicode: false),
+                        dep_in = c.String(nullable: false, maxLength: 50, unicode: false),
+                        calle_fn = c.String(nullable: false, maxLength: 50, unicode: false),
+                        altura_fn = c.String(nullable: false, maxLength: 50, unicode: false),
+                        piso_fn = c.String(nullable: false, maxLength: 50, unicode: false),
+                        dep_fn = c.String(nullable: false, maxLength: 50, unicode: false),
+                    })
+                .PrimaryKey(t => t.codigo_tras)
+                .ForeignKey("dbo.usuario", t => t.usuario_id)
+                .ForeignKey("dbo.usuario_moto", t => t.id_moto)
+                .Index(t => t.usuario_id)
+                .Index(t => t.id_moto);
+            
+            CreateTable(
+                "dbo.factura",
+                c => new
+                    {
+                        num_factura = c.Int(nullable: false),
+                        codigo_viaje = c.Int(nullable: false),
+                        cliente = c.Int(nullable: false),
+                        id_moto = c.Int(nullable: false),
+                        fecha = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        importe = c.Decimal(precision: 18, scale: 0, storeType: "numeric"),
+                        estado_pago = c.String(maxLength: 50, unicode: false),
+                    })
+                .PrimaryKey(t => t.num_factura)
+                .ForeignKey("dbo.usuario", t => t.cliente)
+                .ForeignKey("dbo.usuario_moto", t => t.id_moto)
+                .ForeignKey("dbo.traslado", t => t.codigo_viaje)
+                .Index(t => t.codigo_viaje)
+                .Index(t => t.cliente)
+                .Index(t => t.id_moto);
+            
+            CreateTable(
+                "dbo.usuario",
+                c => new
+                    {
+                        usuario_id = c.Int(nullable: false),
+                        tipo_usuario = c.String(nullable: false, maxLength: 50, unicode: false),
+                        nombre = c.String(nullable: false, unicode: false, storeType: "text"),
+                        apellido = c.String(nullable: false, unicode: false, storeType: "text"),
+                        pais = c.String(nullable: false, unicode: false, storeType: "text"),
+                        doc_tipo = c.String(nullable: false, maxLength: 50, unicode: false),
+                        num_doc = c.String(nullable: false, maxLength: 50, unicode: false),
+                        f_nac = c.DateTime(nullable: false, storeType: "date"),
+                        calle = c.String(nullable: false, maxLength: 50, unicode: false),
+                        altura = c.String(nullable: false, maxLength: 50, unicode: false),
+                        dep = c.String(nullable: false, maxLength: 50, unicode: false),
+                        Email = c.String(nullable: false, maxLength: 50, unicode: false),
+                        EmailConfirmado = c.Boolean(nullable: false),
+                        cp = c.String(nullable: false, maxLength: 50, unicode: false),
+                        Password = c.String(nullable: false, maxLength: 100, unicode: false),
+                        ConfirmPassword = c.String(),
+                    })
+                .PrimaryKey(t => t.usuario_id);
+            
+            CreateTable(
+                "dbo.moto",
+                c => new
+                    {
+                        patente = c.Int(nullable: false),
+                        usuario_id = c.Int(nullable: false),
+                        modelo = c.String(nullable: false, maxLength: 50, unicode: false),
+                        registro = c.String(nullable: false, maxLength: 50, unicode: false),
+                        seguro = c.String(nullable: false, maxLength: 50, unicode: false),
+                        foto = c.Binary(nullable: false, storeType: "image"),
+                    })
+                .PrimaryKey(t => t.patente)
+                .ForeignKey("dbo.usuario", t => t.usuario_id)
+                .Index(t => t.usuario_id);
+            
+            CreateTable(
+                "dbo.usuario_moto",
+                c => new
+                    {
+                        id_moto = c.Int(nullable: false),
+                        patente = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.id_moto)
+                .ForeignKey("dbo.usuario", t => t.id_moto)
+                .Index(t => t.id_moto);
+            
+        }
+        
+        public override void Down()
+        {
+            DropForeignKey("dbo.factura", "codigo_viaje", "dbo.traslado");
+            DropForeignKey("dbo.usuario_moto", "id_moto", "dbo.usuario");
+            DropForeignKey("dbo.traslado", "id_moto", "dbo.usuario_moto");
+            DropForeignKey("dbo.factura", "id_moto", "dbo.usuario_moto");
+            DropForeignKey("dbo.traslado", "usuario_id", "dbo.usuario");
+            DropForeignKey("dbo.moto", "usuario_id", "dbo.usuario");
+            DropForeignKey("dbo.factura", "cliente", "dbo.usuario");
+            DropForeignKey("dbo.estado_viaje", "codigo_tras", "dbo.traslado");
+            DropIndex("dbo.usuario_moto", new[] { "id_moto" });
+            DropIndex("dbo.moto", new[] { "usuario_id" });
+            DropIndex("dbo.factura", new[] { "id_moto" });
+            DropIndex("dbo.factura", new[] { "cliente" });
+            DropIndex("dbo.factura", new[] { "codigo_viaje" });
+            DropIndex("dbo.traslado", new[] { "id_moto" });
+            DropIndex("dbo.traslado", new[] { "usuario_id" });
+            DropIndex("dbo.estado_viaje", new[] { "codigo_tras" });
+            DropTable("dbo.usuario_moto");
+            DropTable("dbo.moto");
+            DropTable("dbo.usuario");
+            DropTable("dbo.factura");
+            DropTable("dbo.traslado");
+            DropTable("dbo.estado_viaje");
+        }
+    }
+}

@@ -169,7 +169,11 @@ namespace WebApplication8.Controllers
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
+<<<<<<< HEAD
                     return RedirectToAction("Index", "Manage");
+=======
+                    return RedirectToAction("Create", "Usuarios");
+>>>>>>> eec724b12c477201fb1001e2181c19dabdbe70a3
                 }
                 AddErrors(result);
             }

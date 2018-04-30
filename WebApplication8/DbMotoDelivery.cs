@@ -12,11 +12,14 @@ namespace WebApplication8
         {
         }
 
+<<<<<<< HEAD
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+=======
+>>>>>>> eec724b12c477201fb1001e2181c19dabdbe70a3
         public virtual DbSet<estado_viaje> estado_viaje { get; set; }
         public virtual DbSet<factura> facturas { get; set; }
         public virtual DbSet<moto> motoes { get; set; }
@@ -26,6 +29,7 @@ namespace WebApplication8
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+<<<<<<< HEAD
             modelBuilder.Entity<AspNetRole>()
                 .HasMany(e => e.AspNetUsers)
                 .WithMany(e => e.AspNetRoles)
@@ -45,6 +49,8 @@ namespace WebApplication8
                 .HasOptional(e => e.usuario)
                 .WithRequired(e => e.AspNetUser);
 
+=======
+>>>>>>> eec724b12c477201fb1001e2181c19dabdbe70a3
             modelBuilder.Entity<factura>()
                 .Property(e => e.importe)
                 .HasPrecision(18, 0);
@@ -144,7 +150,11 @@ namespace WebApplication8
                 .IsUnicode(false);
 
             modelBuilder.Entity<usuario>()
+<<<<<<< HEAD
                 .Property(e => e.email)
+=======
+                .Property(e => e.Email)
+>>>>>>> eec724b12c477201fb1001e2181c19dabdbe70a3
                 .IsUnicode(false);
 
             modelBuilder.Entity<usuario>()
@@ -152,6 +162,13 @@ namespace WebApplication8
                 .IsUnicode(false);
 
             modelBuilder.Entity<usuario>()
+<<<<<<< HEAD
+=======
+                .Property(e => e.Password)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<usuario>()
+>>>>>>> eec724b12c477201fb1001e2181c19dabdbe70a3
                 .HasMany(e => e.facturas)
                 .WithRequired(e => e.usuario)
                 .HasForeignKey(e => e.cliente)

@@ -49,7 +49,11 @@ namespace WebApplication8.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+<<<<<<< HEAD
         public ActionResult Create([Bind(Include = "usuario_id,tipo_usuario,nombre,apellido,pais,doc_tipo,num_doc,f_nac,calle,altura,dep,email,emailconfirmado,cp,PasswordHash,confirmarPasswordHash")] usuario usuario)
+=======
+        public ActionResult Create([Bind(Include = "usuario_id,tipo_usuario,nombre,apellido,pais,doc_tipo,num_doc,f_nac,calle,altura,dep,Email,EmailConfirmado,cp,Password,ConfirmPassword")] usuario usuario)
+>>>>>>> eec724b12c477201fb1001e2181c19dabdbe70a3
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +89,11 @@ namespace WebApplication8.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+<<<<<<< HEAD
         public ActionResult Edit([Bind(Include = "usuario_id,tipo_usuario,nombre,apellido,pais,doc_tipo,num_doc,f_nac,calle,altura,dep,email,emailconfirmado,cp,PasswordHash,confirmarPasswordHash")] usuario usuario)
+=======
+        public ActionResult Edit([Bind(Include = "usuario_id,tipo_usuario,nombre,apellido,pais,doc_tipo,num_doc,f_nac,calle,altura,dep,Email,EmailConfirmado,cp,Password,ConfirmPassword")] usuario usuario)
+>>>>>>> eec724b12c477201fb1001e2181c19dabdbe70a3
         {
             if (ModelState.IsValid)
             {
