@@ -556,3 +556,5 @@ D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\obj\Debug\WebAppl
 D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.csprojResolveAssemblyReference.cache
 D:\GitHub\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.Migrations.DbMotoDelivery.resources
 D:\GitHub\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.csproj.GenerateResource.Cache
+D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.Migrations.DbMotoDelivery.resources
+D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.csproj.GenerateResource.cache
