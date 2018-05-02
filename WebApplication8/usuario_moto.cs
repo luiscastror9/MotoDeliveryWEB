@@ -21,9 +21,7 @@ namespace WebApplication8
             this.Traslado = new HashSet<Traslado>();
         }
     
-        public int patente { get; set; }
         public int id_moto { get; set; }
-        public int estado_moto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura> Factura { get; set; }

@@ -11,8 +11,7 @@ namespace WebApplication8
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,45 +23,20 @@ namespace WebApplication8
         }
     
         public int id_Usuario { get; set; }
-        [Required]
-        [Display(Name = "Indique Cliente o Motero")]
         public string tipo_usuario { get; set; }
-        [Required]
-        [Display(Name = "Ingrese su/s Nombre/s")]
         public string nombre { get; set; }
-        [Required]
-        [Display(Name = "Ingrese su Apellido")]
         public string apellido { get; set; }
-        [Required]
-        [Display(Name = "Pais de Origen")]
         public string pais { get; set; }
-        [Required]
-        [Display(Name = "Indique tipo de Documento")]
         public string doc_tipo { get; set; }
-        [Required]
-        [Display(Name = "Ingrese su Documento")]
         public string num_doc { get; set; }
-        [Required]
-        [Display(Name = "Fecha de Nacimiento")]
         public System.DateTime f_nac { get; set; }
-        [Required]
-        [Display(Name = "Calle donde vive")]
         public string calle { get; set; }
-        [Required]
-        [Display(Name = "Altura")]
         public string altura { get; set; }
-        [Display(Name = "Piso y Depto (No Obligatorio)")]
         public string dep { get; set; }
-        [Required]
-        [Display(Name = "Ingrese su E-mail")]
         public string email { get; set; }
-        [Required]
-        [Display(Name = "Codigo Postal")]
         public string cp { get; set; }
-        [Required]
-        [Display(Name = "Ingrese su Contraseña")]
         public string contrasena { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura> Factura { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

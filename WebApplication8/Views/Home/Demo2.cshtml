@@ -26,28 +26,32 @@
 }
 
 <h2>Interfaz de usuario</h2>
-
-<div class="col-md-8">
-    <div id="map" style="width:96%;height:520px;margin:14px;"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYTNn6hVbZXSFOGsWkgeNVRgkB2B77C0k&callback=initMap&libraries=places"
-            async defer></script>
-</div>
-@using (Html.BeginForm())
-{
 <div>
-    <strong>Desde : </strong><input id="travelfrom" type="text" name="travelfrom" value="" />
-    <br />
-    <strong>Hasta : </strong><input id="travelto" type="text" name="travelto" value="" />
-    <input type="button" value="Calcular Ruta" onclick="calcEnvio()" />
+    <div class="col-md-8">
+        <div id="map" style="width:96%;height:520px;margin:14px;"></div>
+    </div>
+    @using (Html.BeginForm())
+    {
+
+        <div align="center">
+            <br />
+            <strong>Desde: </strong><input id="travelfrom" type="text" style="WIDTH: 329px; HEIGHT: 26px" size=32 name="travelfrom" value="" />
+            <br />
+            <strong>Hasta: </strong><input id="travelto" type="text" name="travelto" value="" style="WIDTH: 333px; HEIGHT: 26px" />
+            <br /><br />
+            <input type="button" value="Calcular Ruta" onclick="calcEnvio()" />
+        </div>
+        <br />
+        <br />
+
+        <div id="dvDistance"></div>
+        <div id="tarifa"></div>
+        <input type="hidden" id="pasarTarifa" value="" name="pasarTarifa" />
+        <br /><br />
+
+        <div align="center">
+            <button id="pedir" type="submit" style="display: none;" border="0" class="btn btn-default">Pedir Motodelivery</button>
+        </div>
+    }
+
 </div>
-<br />
-<br />
-
-<div id="dvDistance">
-</div>
-<br /><br />
-
-<button id="pedir" type="image" src="~/Content/Boton.png" alt=""></button>
-
-@*<h2><a href="#"><img  src="~/Content/Boton.png" border="0"></a></h2>*@
-}

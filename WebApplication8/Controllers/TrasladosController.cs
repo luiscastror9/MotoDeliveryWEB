@@ -12,7 +12,7 @@ namespace WebApplication8.Controllers
 {
     public class TrasladosController : Controller
     {
-        private MotoDeliveryEntities2 db = new MotoDeliveryEntities2();
+        private MotoDeliveryEntities3 db = new MotoDeliveryEntities3();
 
         // GET: Traslados
         public ActionResult Index()

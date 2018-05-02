@@ -41,21 +41,22 @@
                         </div>
                         <div id="collapse2" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <h6> <strong>$ 15 por KM</strong>. Los dias lluviosos, calcular un costo adicional del 50 % a la tarifa aproximada.</h6>
+                                <h6> <strong>$ 15 por usos del servicio y aproximadamente $ 15 por cada KM de recorrido</strong>. Dias lluviosos, agregar un costo adicional del 50 % a la tarifa aproximada.</h6>
                                 <div>
                                     <div>
-                                        <strong>Desde : </strong><input id="travelfrom" placeholder="Ingrese Origen" 
-                                                                        type="text" name="name" value="" />
+                                        <strong>Desde : </strong><input id="travelfrom" placeholder="Ingrese Origen"
+                                                                        type="text" name="name" value="" style="WIDTH: 229px; HEIGHT: 24px" />
                                         <br />
                                         <strong>Hasta : </strong><input id="travelto" placeholder="Ingresa Destino"
-                                                                        type="text" name="name" value="" />
+                                                                        type="text" name="name" value="" style="WIDTH: 233px; HEIGHT: 24px" />
+                                        <br />
                                         <input type="button" value="Calcular Ruta" onclick="calcRoute()" />
 
                                     </div>
                                     <br />
                                     <div>
-                                        <div id="dvDistance">
-                                        </div>
+                                        <div id="dvDistance"></div>
+                                        <div id="tarifa"></div>
                                     </div>
 
                                 </div>
@@ -95,8 +96,7 @@
         </div>
         <div class="col-md-8">
             <div id="map" style="width:96%;height:520px;margin:14px;"></div>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYTNn6hVbZXSFOGsWkgeNVRgkB2B77C0k&libraries=places&callback=initMap"
-                    async defer></script>
+         
         </div>
     </div>
 

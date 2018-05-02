@@ -12,7 +12,7 @@ namespace WebApplication8.Controllers
 {
     public class UsuariosController : Controller
     {
-        private MotoDeliveryEntities2 db = new MotoDeliveryEntities2();
+        private MotoDeliveryEntities3 db = new MotoDeliveryEntities3();
 
         // GET: Usuarios
         public ActionResult Index()

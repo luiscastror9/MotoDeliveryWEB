@@ -11,8 +11,7 @@ namespace WebApplication8
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Traslado
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,24 +21,13 @@ namespace WebApplication8
         }
     
         public int codigo_tras { get; set; }
-        [Required]
-        [Display(Name = "Elija su Usuario ID")]
         public int usuario_id { get; set; }
-        [Display(Name = "No seleccionar")]
         public Nullable<int> id_moto { get; set; }
-        [Required]
-        [Display(Name = "Ingrese Tarifa Aproximada")]
         public string tarifa { get; set; }
-        [Required]
-        [Display(Name = "Ingrese Calle de Origen")]
         public string calle_in { get; set; }
-        [Required]
-        [Display(Name = "Ingrese Calle Destino")]
         public string calle_fn { get; set; }
-        [Required]
-        [Display(Name = "Ingrese Estado del Viaje")]
         public int estado_viaje { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura> Factura { get; set; }
         public virtual Usuario Usuario { get; set; }

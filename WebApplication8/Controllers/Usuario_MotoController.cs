@@ -12,7 +12,7 @@ namespace WebApplication8.Controllers
 {
     public class Usuario_MotoController : Controller
     {
-        private MotoDeliveryEntities2 db = new MotoDeliveryEntities2();
+        private MotoDeliveryEntities3 db = new MotoDeliveryEntities3();
 
         // GET: Usuario_Moto
         public ActionResult Index()
@@ -48,7 +48,7 @@ namespace WebApplication8.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "patente,id_moto,estado_moto")] Usuario_Moto usuario_Moto)
+        public ActionResult Create([Bind(Include = "id_moto")] Usuario_Moto usuario_Moto)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace WebApplication8.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "patente,id_moto,estado_moto")] Usuario_Moto usuario_Moto)
+        public ActionResult Edit([Bind(Include = "id_moto")] Usuario_Moto usuario_Moto)
         {
             if (ModelState.IsValid)
             {
