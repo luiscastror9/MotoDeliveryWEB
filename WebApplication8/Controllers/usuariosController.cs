@@ -14,6 +14,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace WebApplication8.Controllers
 {
+    [Authorize]
     public class UsuariosController : Controller
     {
         private DbMotoDelivery db = new DbMotoDelivery();
