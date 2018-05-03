@@ -375,10 +375,18 @@
             function calcEnvio() {
 
                 calcRoute();
-
+            if (((document.getElementById("travelfrom").value) != "") &
+                ((document.getElementById("travelto").value) != "")) {
+                document.getElementById("pedir").style.display = "";
             }
-        
-    </script>   
+        }
+
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYTNn6hVbZXSFOGsWkgeNVRgkB2B77C0k&libraries=places&callback=initMap"
+            async defer></script>
+
+            
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">

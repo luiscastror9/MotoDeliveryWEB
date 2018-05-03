@@ -5,11 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="f54a8c748ba94f018c5a0d3a7229db6e" Name="Diagram1" ZoomLevel="86">
-        <EntityTypeShape EntityType="MotoDeliveryModel.Factura" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MotoDeliveryModel.Factura" Width="1.5" PointX="5.5" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="MotoDeliveryModel.Moto" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MotoDeliveryModel.Traslado" Width="1.5" PointX="8.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MotoDeliveryModel.Traslado" Width="1.5" PointX="8" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MotoDeliveryModel.Usuario" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MotoDeliveryModel.Usuario_Moto" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MotoDeliveryModel.Usuario_Moto" Width="1.5" PointX="1.875" PointY="11.375" IsExpanded="true" />
         <AssociationConnector Association="MotoDeliveryModel.FK_Factura_Traslado" ManuallyRouted="false" />
         <AssociationConnector Association="MotoDeliveryModel.FK_Factura_Usuario" ManuallyRouted="false" />
         <AssociationConnector Association="MotoDeliveryModel.FK_Factura_Usuario_moto" ManuallyRouted="false" />
@@ -17,6 +17,14 @@
         <AssociationConnector Association="MotoDeliveryModel.FK_Traslado_Usuario" ManuallyRouted="false" />
         <AssociationConnector Association="MotoDeliveryModel.FK_Traslado_Usuario_moto" ManuallyRouted="false" />
         <AssociationConnector Association="MotoDeliveryModel.FK_Usuario_Moto_usuario" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MotoDeliveryModel.C__MigrationHistory" Width="2.375" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MotoDeliveryModel.AspNetRoles" Width="2.375" PointX="1.75" PointY="3" />
+        <EntityTypeShape EntityType="MotoDeliveryModel.AspNetUserClaims" Width="2.375" PointX="8.25" PointY="3.625" />
+        <EntityTypeShape EntityType="MotoDeliveryModel.AspNetUserLogins" Width="2.375" PointX="8.25" PointY="1" />
+        <EntityTypeShape EntityType="MotoDeliveryModel.AspNetUsers" Width="2.375" PointX="5" PointY="1.375" />
+        <AssociationConnector Association="MotoDeliveryModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="MotoDeliveryModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="MotoDeliveryModel.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
