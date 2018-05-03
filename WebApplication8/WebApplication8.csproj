@@ -181,6 +181,9 @@
     <Compile Include="Controllers\TrasladosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\Usuario_MotoController.cs" />
+    <Compile Include="C__MigrationHistory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbMotoDelivery.cs" />
     <Compile Include="Factura.cs">
       <DependentUpon>Model1.tt</DependentUpon>

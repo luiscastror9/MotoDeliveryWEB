@@ -17,7 +17,8 @@
         <AssociationConnector Association="MotoDeliveryModel.FK_Traslado_Usuario" ManuallyRouted="false" />
         <AssociationConnector Association="MotoDeliveryModel.FK_Traslado_Usuario_moto" ManuallyRouted="false" />
         <AssociationConnector Association="MotoDeliveryModel.FK_Usuario_Moto_usuario" ManuallyRouted="false" />
-      </Diagram>
+        <EntityTypeShape EntityType="MotoDeliveryModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

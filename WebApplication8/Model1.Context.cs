@@ -30,5 +30,6 @@ namespace WebApplication8
         public virtual DbSet<Traslado> Traslado { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<Usuario_Moto> Usuario_Moto { get; set; }
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
     }
 }

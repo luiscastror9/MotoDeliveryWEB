@@ -41,26 +41,32 @@
                         </div>
                         <div id="collapse2" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <h6> <strong>$ 15 por KM</strong>. Los dias lluviosos, calcular un costo adicional del 50 % a la tarifa aproximada.</h6>
-                                <div>
-                                    <div>
-                                        <strong>Desde : </strong><input id="travelfrom" placeholder="Ingrese Origen" 
-                                                                        type="text" name="name" value="" />
-                                        <br />
-                                        <strong>Hasta : </strong><input id="travelto" placeholder="Ingresa Destino"
-                                                                        type="text" name="name" value="" />
-                                        <input type="button" value="Calcular Ruta" onclick="calcRoute()" />
+                                @using (Html.BeginForm())
+                                {
 
+                                    <div align="center">
+                                        <br />
+                                        <strong>Desde: </strong><input id="travelfrom" type="text" placeholder="Ingrese Origen" name="travelfrom" value="" />
+                                        <br />
+                                        <strong>Hasta: </strong><input id="travelto" type="text" name="travelto" value="" placeholder="Ingresa Destino" />
+                                        <br /><br />
+                                        <input type="button" value="Calcular Ruta" onclick="calcEnvio()" />
                                     </div>
                                     <br />
-                                    <div>
-                                        <div id="dvDistance">
-                                        </div>
-                                    </div>
+                                    <br />
 
-                                </div>
+                                    <div id="dvDistance"></div>
+                                    <div id="tarifa"></div>
+                                    <input type="hidden" id="pasarTarifa" value="" name="pasarTarifa" />
+                                    <br /><br />
+
+                                    <div align="center">
+                                        <button id="pedir" type="submit" style="display: none;" border="0" class="btn btn-default">Pedir Motodelivery</button>
+                                    </div>
+                                }
                             </div>
                         </div>
+
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -95,15 +101,7 @@
         </div>
         <div class="col-md-8">
             <div id="map" style="width:96%;height:520px;margin:14px;"></div>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYTNn6hVbZXSFOGsWkgeNVRgkB2B77C0k&libraries=places&callback=initMap"
-                    async defer></script>
         </div>
     </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <h2><a href="~/Home/Demo2">Pedir MotoDelivery!</a> Interfaz de ususario para Pedir MotoDelivery!</h2>
-
-    </div>
-</div>
-    </body>
+</body>

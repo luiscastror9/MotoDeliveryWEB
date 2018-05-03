@@ -359,26 +359,34 @@
                     },
                         function (response, status) {
                             var distance = response.rows[0].elements[0].distance.text;
-                            var duration = response.rows[0].elements[0].duration.value;
-                            var dvDistance = document.getElementById("dvDistance");
-                            duration = parseFloat(duration / 60).toFixed(2);
-                            dvDistance.innerHTML = "";
-                            dvDistance.innerHTML += "<strong>Distancia: </strong>" + distance + "<br />";
-                            dvDistance.innerHTML += "<strong>Tiempo Aproximado: </strong>" + duration + " min" + "<br />";
-                            distance = distance.toString();
-                            var nuevaCadena = distance.replace('km', '');
-                            nuevaCadena = (parseInt(nuevaCadena) + 1) * 15;
-                            dvDistance.innerHTML += "<strong>Tarifa Aproximada:</strong> $ " + nuevaCadena;
+                    var duration = response.rows[0].elements[0].duration.value;
+                    var dvDistance = document.getElementById("dvDistance");
+                    duration = parseFloat(duration / 60).toFixed(2);
+                    dvDistance.innerHTML = "";
+                    dvDistance.innerHTML += "<strong>Distancia: </strong>" + distance + "<br />";
+                    dvDistance.innerHTML += "<strong>Tiempo Aproximado: </strong>" + duration + " min" + "<br />";
+                    distance = distance.toString();
+                    var tarifa = document.getElementById("tarifa");
+                    nuevaCadena = Math.round(((response.rows[0].elements[0].distance.value) + 999) * 0.015);
+                    tarifa.innerHTML += "<strong>Tarifa Aproximada:</strong> $ " + nuevaCadena;
+                    document.getElementById("pasarTarifa").value = "$ " + nuevaCadena;
+                    document.adder.pasarTarifa.value = nuevaCadena;
                         });
+        }
+
+        function calcEnvio() {
+
+            calcRoute();
+            if (((document.getElementById("travelfrom").value) != "") &
+                ((document.getElementById("travelto").value) != "")) {
+                document.getElementById("pedir").style.display = "";
             }
+        }
 
-            function calcEnvio() {
 
-                calcRoute();
-
-            }
-        
-    </script>   
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYTNn6hVbZXSFOGsWkgeNVRgkB2B77C0k&libraries=places&callback=initMap"
+            async defer></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
