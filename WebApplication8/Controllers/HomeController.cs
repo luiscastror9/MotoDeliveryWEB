@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data;
+using System.Data.Entity;
+using System.Net;
+using WebApplication8;
 
 namespace WebApplication8.Controllers
 {
@@ -13,8 +17,21 @@ namespace WebApplication8.Controllers
             return View();
         }
 
-        public ActionResult Demo2()
-        {
+        public ActionResult Demo2(FormCollection data)
+       {
+            using (MotoDeliveryEntities2 db = new MotoDeliveryEntities2())
+            {
+                var u = new Traslado
+                {
+                    usuario_id = 1,
+                    id_moto = 6,
+                    tarifa = data["pasarTarifa"],
+                    calle_in = data["travelfrom"],
+                    calle_fn = data["travelto"],
+                    estado_viaje = 1,
+                };
+                db.Traslado.Add(u);
+            }
             return View();
         }
 

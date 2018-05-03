@@ -53,7 +53,7 @@ namespace WebApplication8
                 .IsUnicode(false);
 
             modelBuilder.Entity<Traslado>()
-                .HasMany(e => e.Facturas)
+                .HasMany(e => e.Factura)
                 .WithRequired(e => e.Traslado)
                 .HasForeignKey(e => e.codigo_viaje)
                 .WillCascadeOnDelete(false);
@@ -107,19 +107,19 @@ namespace WebApplication8
                 .IsUnicode(false);
 
             modelBuilder.Entity<Usuario>()
-                .HasMany(e => e.Facturas)
+                .HasMany(e => e.Factura)
                 .WithRequired(e => e.Usuario)
                 .HasForeignKey(e => e.cliente)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Usuario>()
-                .HasMany(e => e.Motoes)
+                .HasMany(e => e.Moto)
                 .WithRequired(e => e.Usuario)
                 .HasForeignKey(e => e.usuario_id)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Usuario>()
-                .HasMany(e => e.Traslados)
+                .HasMany(e => e.Traslado)
                 .WithRequired(e => e.Usuario)
                 .HasForeignKey(e => e.usuario_id)
                 .WillCascadeOnDelete(false);
@@ -129,7 +129,7 @@ namespace WebApplication8
                 .WithRequired(e => e.Usuario);
 
             modelBuilder.Entity<Usuario_Moto>()
-                .HasMany(e => e.Facturas)
+                .HasMany(e => e.Factura)
                 .WithRequired(e => e.Usuario_Moto)
                 .WillCascadeOnDelete(false);
         }
