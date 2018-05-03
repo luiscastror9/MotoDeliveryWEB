@@ -49,9 +49,8 @@ namespace WebApplication8.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -64,7 +63,13 @@ namespace WebApplication8.Models
 
     public class RegisterViewModel
     {
-       
+        [Required]
+        [Display(Name = "UserRoles")]
+        public string UserRoles { get; set; }
+
+        [Required]
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
 
         [Required]
         [EmailAddress]

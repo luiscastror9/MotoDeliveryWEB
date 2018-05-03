@@ -6,7 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using WebApplication8;
+using WebApplication8.Models;
+using System.Security.Claims;
+using System.Web.Security;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace WebApplication8.Controllers
 {
@@ -15,10 +19,48 @@ namespace WebApplication8.Controllers
         private DbMotoDelivery db = new DbMotoDelivery();
 
         // GET: Usuarios
+        // GET: Users
+		public Boolean isAdminUser()
+		{
+			if (User.Identity.IsAuthenticated)
+			{
+				var user = User.Identity;
+				ApplicationDbContext context = new ApplicationDbContext();
+				var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+				var s = UserManager.GetRoles(user.GetUserId());
+				if (s[0].ToString() == "Admin")
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			return false;
+		}
         public ActionResult Index()
         {
             var usuario = db.Usuarios.Include(u => u.Usuario_Moto);
             return View(usuario.ToList());
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = User.Identity;
+                ViewBag.Name = user.Name;
+
+                ViewBag.displayMenu = "No";
+
+                if (isAdminUser())
+                {
+                    ViewBag.displayMenu = "Yes";
+                }
+                return View();
+            }
+            else
+            {
+                ViewBag.Name = "Not Logged IN";
+            }
+            return View();
         }
 
         // GET: Usuarios/Details/5
