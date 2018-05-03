@@ -22,7 +22,7 @@
                new SelectListItem { Text="Seleccione Tipo de Usuario", Value="" },
                new SelectListItem { Text="Cliente", Value="Cliente" },
                 new SelectListItem { Text="Motero", Value="Motero" },
-           }, new { htmlAttributes = new { @class = "control-label col-md-2" } })
+           }, new  { @class = "form-control" } )
 
 
                 @Html.ValidationMessageFor(model => model.tipo_usuario, "", new { @class = "text-danger" })
@@ -61,7 +61,7 @@
                new SelectListItem { Text="Seleccione Tipo de Documento", Value="" },
                new SelectListItem { Text="DNI", Value="DNI" },
                 new SelectListItem { Text="Pasaporte", Value="Pasaporte" },
-           }, new { htmlAttributes = new { @class = "form-control" } })
+           }, new { @class = "form-control" })
 
                 @Html.ValidationMessageFor(model => model.doc_tipo, "", new { @class = "text-danger" })
             </div>

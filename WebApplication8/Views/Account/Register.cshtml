@@ -52,7 +52,7 @@
                     @Html.Label("user Role", new { @class = "col-md-4 control-label" })
                     <div class="col-md-5">
                         @*@Html.DropDownList("Name")*@
-                        @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, " ")
+                        @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, " ", new { @class = "form-control" })
                     </div>
                 </div>   
 
