@@ -49,7 +49,7 @@ namespace WebApplication8.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "UserName")]
+        [Display(Name = "Nombre de Usuario")]
         public string UserName { get; set; }
 
         [Required]
@@ -64,11 +64,11 @@ namespace WebApplication8.Models
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "UserRoles")]
+        [Display(Name = "Rol de Usuario")]
         public string UserRoles { get; set; }
 
         [Required]
-        [Display(Name = "UserName")]
+        [Display(Name = "Nombre de Usuario")]
         public string UserName { get; set; }
 
         [Required]

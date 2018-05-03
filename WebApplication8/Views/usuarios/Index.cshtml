@@ -4,14 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-@if (ViewBag.displayMenu == "Yes")
-{
-    <h1>Welcome Admin. Now you can create user Role.</h1>
-    <h3>
-        <li>@Html.ActionLink("Manage Role", "Index", "Role")</li>
-    </h3>
-  
+<h1>Welcome Admin. Now you can create user Role.</h1>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -62,62 +55,58 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.tipo_usuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.apellido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.pais)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.doc_tipo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.num_doc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.f_nac)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.calle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.altura)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dep)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cp)
-        </td>
-        <td>
-            @Html.EditorFor(modelItem => item.contrasena, new { @class = "form-control", })
-           
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario_Moto.id_moto)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_Usuario }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_Usuario }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_Usuario })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipo_usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.doc_tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.num_doc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.f_nac)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.calle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.altura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dep)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cp)
+            </td>
+            <td>
+                @Html.EditorFor(modelItem => item.contrasena, new { @class = "form-control", })
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario_Moto.id_moto)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_Usuario }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id_Usuario }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_Usuario })
+            </td>
+        </tr>
+    }
 
 </table>
-}
-else
-{
-    <h2>  Welcome <strong>@ViewBag.Name</strong> :) .We will add user module soon </h2>
-}  
