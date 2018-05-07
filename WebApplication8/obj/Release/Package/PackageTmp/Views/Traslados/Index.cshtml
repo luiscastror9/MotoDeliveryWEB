@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebApplication8.Traslado>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tarifa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.calle_in)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.calle_fn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado_viaje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario.id_Usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario_Moto.id_moto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tarifa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.calle_in)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.calle_fn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado_viaje)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario.id_Usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario_Moto.id_moto)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.codigo_tras }) |
+            @Html.ActionLink("Details", "Details", new { id=item.codigo_tras }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.codigo_tras })
+        </td>
+    </tr>
+}
+
+</table>

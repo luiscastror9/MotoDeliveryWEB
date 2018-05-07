@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MotoDeliveryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="num_factura" />
+    </Key>
+    <Property Name="num_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo_viaje" Type="Int32" Nullable="false" />
+    <Property Name="cliente" Type="Int32" Nullable="false" />
+    <Property Name="id_moto" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="importe" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="estado_pago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Traslado" Relationship="Self.FK_Factura_Traslado" FromRole="Factura" ToRole="Traslado" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Factura_Usuario" FromRole="Factura" ToRole="Usuario" />
+    <NavigationProperty Name="Usuario_Moto" Relationship="Self.FK_Factura_Usuario_moto" FromRole="Factura" ToRole="Usuario_Moto" />
+  </EntityType>
+  <EntityType Name="Moto">
+    <Key>
+      <PropertyRef Name="patente" />
+    </Key>
+    <Property Name="patente" Type="Int32" Nullable="false" />
+    <Property Name="usuario_id" Type="Int32" Nullable="false" />
+    <Property Name="modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="registro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="seguro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Moto" FromRole="Moto" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Traslado">
+    <Key>
+      <PropertyRef Name="codigo_tras" />
+    </Key>
+    <Property Name="codigo_tras" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario_id" Type="Int32" Nullable="false" />
+    <Property Name="id_moto" Type="Int32" />
+    <Property Name="tarifa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="calle_in" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="calle_fn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estado_viaje" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Factura" Relationship="Self.FK_Factura_Traslado" FromRole="Traslado" ToRole="Factura" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Traslado_Usuario" FromRole="Traslado" ToRole="Usuario" />
+    <NavigationProperty Name="Usuario_Moto" Relationship="Self.FK_Traslado_Usuario_moto" FromRole="Traslado" ToRole="Usuario_Moto" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id_Usuario" />
+    </Key>
+    <Property Name="id_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellido" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pais" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="doc_tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="num_doc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="f_nac" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="calle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="altura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dep" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Factura" Relationship="Self.FK_Factura_Usuario" FromRole="Usuario" ToRole="Factura" />
+    <NavigationProperty Name="Moto" Relationship="Self.FK_Usuario_Moto" FromRole="Usuario" ToRole="Moto" />
+    <NavigationProperty Name="Traslado" Relationship="Self.FK_Traslado_Usuario" FromRole="Usuario" ToRole="Traslado" />
+    <NavigationProperty Name="Usuario_Moto" Relationship="Self.FK_Usuario_Moto_usuario" FromRole="Usuario" ToRole="Usuario_Moto" />
+  </EntityType>
+  <EntityType Name="Usuario_Moto">
+    <Key>
+      <PropertyRef Name="id_moto" />
+    </Key>
+    <Property Name="id_moto" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Factura" Relationship="Self.FK_Factura_Usuario_moto" FromRole="Usuario_Moto" ToRole="Factura" />
+    <NavigationProperty Name="Traslado" Relationship="Self.FK_Traslado_Usuario_moto" FromRole="Usuario_Moto" ToRole="Traslado" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Moto_usuario" FromRole="Usuario_Moto" ToRole="Usuario" />
+  </EntityType>
+  <Association Name="FK_Factura_Traslado">
+    <End Role="Traslado" Type="Self.Traslado" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Traslado">
+        <PropertyRef Name="codigo_tras" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="codigo_viaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Factura_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_Usuario" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Factura_Usuario_moto">
+    <End Role="Usuario_Moto" Type="Self.Usuario_Moto" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario_Moto">
+        <PropertyRef Name="id_moto" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="id_moto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Moto">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Moto" Type="Self.Moto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_Usuario" />
+      </Principal>
+      <Dependent Role="Moto">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Traslado_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Traslado" Type="Self.Traslado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_Usuario" />
+      </Principal>
+      <Dependent Role="Traslado">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Traslado_Usuario_moto">
+    <End Role="Usuario_Moto" Type="Self.Usuario_Moto" Multiplicity="0..1" />
+    <End Role="Traslado" Type="Self.Traslado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario_Moto">
+        <PropertyRef Name="id_moto" />
+      </Principal>
+      <Dependent Role="Traslado">
+        <PropertyRef Name="id_moto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Moto_usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Usuario_Moto" Type="Self.Usuario_Moto" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_Usuario" />
+      </Principal>
+      <Dependent Role="Usuario_Moto">
+        <PropertyRef Name="id_moto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MotoDeliveryEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Factura" EntityType="Self.Factura" />
+    <EntitySet Name="Moto" EntityType="Self.Moto" />
+    <EntitySet Name="Traslado" EntityType="Self.Traslado" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <EntitySet Name="Usuario_Moto" EntityType="Self.Usuario_Moto" />
+    <AssociationSet Name="FK_Factura_Traslado" Association="Self.FK_Factura_Traslado">
+      <End Role="Traslado" EntitySet="Traslado" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Factura_Usuario" Association="Self.FK_Factura_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Factura_Usuario_moto" Association="Self.FK_Factura_Usuario_moto">
+      <End Role="Usuario_Moto" EntitySet="Usuario_Moto" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Moto" Association="Self.FK_Usuario_Moto">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Moto" EntitySet="Moto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Traslado_Usuario" Association="Self.FK_Traslado_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Traslado" EntitySet="Traslado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Traslado_Usuario_moto" Association="Self.FK_Traslado_Usuario_moto">
+      <End Role="Usuario_Moto" EntitySet="Usuario_Moto" />
+      <End Role="Traslado" EntitySet="Traslado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Moto_usuario" Association="Self.FK_Usuario_Moto_usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Usuario_Moto" EntitySet="Usuario_Moto" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
