@@ -58,12 +58,12 @@ namespace WebApplication8.Controllers
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
-                : message == ManageMessageId.Error ? "An error has occurred."
-                : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
-                : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
+                message == ManageMessageId.ChangePasswordSuccess ? "Su contraseña fue cambiada."
+                : message == ManageMessageId.SetPasswordSuccess ? "Su contraseña fue establecida."
+                : message == ManageMessageId.SetTwoFactorSuccess ? "Su autenticación de dos factores fue establecida."
+                : message == ManageMessageId.Error ? "Ocurrió un error."
+                : message == ManageMessageId.AddPhoneSuccess ? "Su número de teléfono fue agregado."
+                : message == ManageMessageId.RemovePhoneSuccess ? "Su número de teléfono removido."
                 : "";
 
             var userId = User.Identity.GetUserId();
@@ -130,7 +130,7 @@ namespace WebApplication8.Controllers
                 var message = new IdentityMessage
                 {
                     Destination = model.Number,
-                    Body = "Your security code is: " + code
+                    Body = "Su código de seguridad es: " + code
                 };
                 await UserManager.SmsService.SendAsync(message);
             }
