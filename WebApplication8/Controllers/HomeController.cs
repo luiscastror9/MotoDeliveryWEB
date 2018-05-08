@@ -10,7 +10,6 @@ using WebApplication8;
 
 namespace WebApplication8.Controllers
 {
-    [RequireHttps]
     public class HomeController : Controller
     {
 
