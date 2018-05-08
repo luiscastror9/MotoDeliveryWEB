@@ -7,7 +7,7 @@
       <Diagram DiagramId="1627bb44aa8542d681595c532d7692f5" Name="Diagram1">
         <EntityTypeShape EntityType="MotoDeliveryModel.Factura" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MotoDeliveryModel.Moto" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MotoDeliveryModel.Traslado" Width="1.5" PointX="8.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MotoDeliveryModel.Traslado" Width="1.5" PointX="7.375" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="MotoDeliveryModel.Usuario" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MotoDeliveryModel.Usuario_Moto" Width="1.5" PointX="7.125" PointY="5.625" IsExpanded="true" />
         <AssociationConnector Association="MotoDeliveryModel.FK_Factura_Traslado" ManuallyRouted="false" />

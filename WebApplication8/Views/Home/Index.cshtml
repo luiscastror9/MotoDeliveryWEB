@@ -43,33 +43,34 @@
                             <div class="panel-body">
                                 <h6> <strong>Aproximadamente $ 15 por KM</strong>. Dias lluviosos, agregar un costo adicional del 50 % a la tarifa aproximada.</h6>
                                 <div>
+                                    <div align="center">
+                                        <button id="cancelar" type="button" style="display: none;" onclick="cancelar()">Calcular Nueva Ruta</button>
+                                    </div>
                                     @using (Html.BeginForm())
-                                {
+                                    {
+                                        <div align="center">
+                                            <br />
+                                            <strong>Desde : </strong><input id="travelfrom" placeholder="Ingrese Origen"
+                                                                    type="text" name="name" value="" style="WIDTH: 229px; HEIGHT: 24px" />
+                                            <br />
+                                            <strong>Hasta : </strong><input id="travelto" placeholder="Ingresa Destino"
+                                                                    type="text" name="name" value="" style="WIDTH: 233px; HEIGHT: 24px" />
+                                            <br />
+                                            <br />
+                                            <button id="calcular" type="button" onclick="calcEnvio()">Calcular Ruta</button>
+                                        </div>
 
-                                    <div align="center">
+                                        <div id="dvDistance"></div>
+                                        <div id="tarifa"></div>
+                                        <input type="hidden" id="pasarTarifa" value="" name="pasarTarifa" />
                                         <br />
-                                        <strong>Desde : </strong><input id="travelfrom" placeholder="Ingrese Origen"
-                                                                        type="text" name="name" value="" style="WIDTH: 229px; HEIGHT: 24px" />
-                                        <br />
-                                        <strong>Hasta : </strong><input id="travelto" placeholder="Ingresa Destino"
-                                                                        type="text" name="name" value="" style="WIDTH: 233px; HEIGHT: 24px" />
-                                        <br />
-                                        <br />
-                                        <input type="button" value="Calcular Ruta" onclick="calcEnvio()" />
-                                    </div>
-                                    <br />
 
-                                    <div id="dvDistance"></div>
-                                    <div id="tarifa"></div>
-                                    <input type="hidden" id="pasarTarifa" value="" name="pasarTarifa" />
-                                    <br />
-
-                                    <div align="center">
-                                        <button id="pedir" type="submit" style="display: none;" border="0" class="btn btn-default">Pedir Motodelivery</button>
+                                        <div align="center">
+                                            <button id="pedir" type="button" style="display: none;">Pedir Motodelivery!</button>
+                                        </div>
+                                    }
                                     </div>
-                                }
-                                    </div>
-                            </div>
+                                </div>
                         </div>
                     </div>
                     <div class="panel panel-default">

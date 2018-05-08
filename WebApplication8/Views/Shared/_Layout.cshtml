@@ -361,13 +361,13 @@
                     var distance = response.rows[0].elements[0].distance.text;
                     var duration = response.rows[0].elements[0].duration.value;
                     var dvDistance = document.getElementById("dvDistance");
-                    duration = parseFloat(duration / 60).toFixed(2);
+                    duration = Math.round(parseFloat(duration / 60).toFixed(2));
                     dvDistance.innerHTML = "";
                     dvDistance.innerHTML += "<strong>Distancia: </strong>" + distance + "<br />";
                     dvDistance.innerHTML += "<strong>Tiempo Aproximado: </strong>" + duration + " min" + "<br />";
                     distance = distance.toString();
                     var tarifa = document.getElementById("tarifa");
-                    nuevaCadena = Math.round(((response.rows[0].elements[0].distance.value) + 999) * 0.015);
+                    nuevaCadena = Math.round(((response.rows[0].elements[0].distance.value) + 500) * 0.015);
                     tarifa.innerHTML += "<strong>Tarifa Aproximada:</strong> $ " + nuevaCadena;
                     document.getElementById("pasarTarifa").value = "$ " + nuevaCadena;
                     document.adder.pasarTarifa.value = nuevaCadena;
@@ -379,8 +379,21 @@
             calcRoute();
             if (((document.getElementById("travelfrom").value) != "") &
                 ((document.getElementById("travelto").value) != "")) {
+                document.getElementById("calcular").style = "display: none;";
                 document.getElementById("pedir").style.display = "";
+                document.getElementById("cancelar").style.display = "";
             }
+        }
+
+        function cancelar() {
+
+            dvDistance.innerHTML = "";
+            tarifa.innerHTML = "";
+            document.getElementById("calcular").style.display = "";
+            document.getElementById("pedir").style = "display: none;";
+            document.getElementById("cancelar").style = "display: none;";
+            document.getElementById("travelfrom").value = "";
+            document.getElementById("travelto").value = "";
         }
 
 
