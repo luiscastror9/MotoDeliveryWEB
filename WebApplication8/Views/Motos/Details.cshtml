@@ -1,0 +1,58 @@
+﻿@model WebApplication8.Datos.Moto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Moto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.patente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.registro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.registro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.seguro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seguro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Id_Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUsers.Id_Usuario)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Usuario }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebApplication8.Datos.Traslado>
+
+@{
+    ViewBag.Title = "Lista de Traslados";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tarifa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.calle_in)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.calle_fn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado_viaje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Moto.Id_Usuario)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tarifa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.calle_in)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.calle_fn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado_viaje)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUsers.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Moto.Id_Usuario)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.codigo_tras }) |
+            @Html.ActionLink("Details", "Details", new { id=item.codigo_tras }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.codigo_tras })
+        </td>
+    </tr>
+}
+
+</table>

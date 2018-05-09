@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WebApplication8.Datos.Moto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.patente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.registro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.seguro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Id_Usuario)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.patente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.registro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.seguro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUsers.Id_Usuario)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_Usuario }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_Usuario }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_Usuario })
+        </td>
+    </tr>
+}
+
+</table>
