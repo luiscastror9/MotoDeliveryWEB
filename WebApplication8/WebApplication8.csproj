@@ -319,6 +319,7 @@
     <Content Include="Views\UsersData\Details.cshtml" />
     <Content Include="Views\UsersData\Edit.cshtml" />
     <Content Include="Views\UsersData\Index.cshtml" />
+    <Content Include="Views\Account\DisplayEmail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
