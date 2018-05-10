@@ -49,9 +49,13 @@ namespace WebApplication8.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Nombre de Usuario")]
+        public string UserName {get; set;}
+
+        //[Required]
+        //[Display(Name = "Email")]
+        //[EmailAddress]
+        //public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -64,11 +68,13 @@ namespace WebApplication8.Models
 
     public class RegisterViewModel
     {
-       
+        [Required]
+        [Display(Name = "Nombre de Usuario")]
+        public string UserName { get; set; }
 
         [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "Correo")]
         public string Email { get; set; }
 
         [Required]
@@ -81,6 +87,11 @@ namespace WebApplication8.Models
         [Display(Name = "Confirmar contraseña")]
         [Compare("Password", ErrorMessage = "Las contraseñas no coinciden.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Rol de Usuario")]
+        public string UserRoles { get; set; }
+
     }
    
     public class ResetPasswordViewModel

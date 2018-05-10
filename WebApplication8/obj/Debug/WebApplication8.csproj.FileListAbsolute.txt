@@ -554,3 +554,16 @@ D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\obj\Debug\WebAppl
 D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.dll
 D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.pdb
 D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\obj\Debug\WebApplication8.csprojResolveAssemblyReference.cache
+D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\System.Net.Http.Formatting.dll
+D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\System.Web.Http.dll
+D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\System.Web.Http.WebHost.dll
+D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\UAParser.dll
+D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\WebStats.dll
+D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\WebStats.Owin.dll
+D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\WebStats.Owin.Katana.dll
+D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\YamlDotNet.dll
+D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\System.Net.Http.Formatting.xml
+D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\System.Web.Http.xml
+D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\System.Web.Http.WebHost.xml
+D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\UAParser.xml
+D:\GitHub\MotoDeliveryWEB\WebApplication8\bin\YamlDotNet.pdb
