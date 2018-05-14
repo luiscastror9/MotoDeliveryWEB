@@ -15,6 +15,7 @@ namespace WebApplication8.Controllers
         private MotoDeliveryEntities db = new MotoDeliveryEntities();
 
         // GET: Motos
+        [Authorize]
         public ActionResult Index()
         {
             var moto = db.Moto.Include(m => m.AspNetUsers);

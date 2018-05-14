@@ -15,6 +15,7 @@ namespace WebApplication8.Controllers
         private MotoDeliveryEntities db = new MotoDeliveryEntities();
 
         // GET: Traslados
+        [Authorize]
         public ActionResult Index()
         {
             var traslado = db.Traslado.Include(t => t.AspNetUsers).Include(t => t.Moto);
