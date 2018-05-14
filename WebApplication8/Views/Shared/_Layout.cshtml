@@ -400,13 +400,24 @@
             document.getElementById("travelto").value = "";
         }
 
+        function pedir() {
+
+            
+            travelfrom;
+            travelto;
+            tarifa;
+
+
+        }
+
 
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYTNn6hVbZXSFOGsWkgeNVRgkB2B77C0k&libraries=places&callback=initMap"
             async defer></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #e9ac1c;  border-color: #080808">
+
         <div class="container">
             <div class="navbar-header">
                 <man type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -420,8 +431,8 @@
                 <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Contacto", "Contact", "Home")</li> 
                         <li>@Html.ActionLink("Perfil", "Details", "UserDatas")</li>
-                        <li>@Html.ActionLink("Solicitar Moto", "Create", "Traslados")</li>
-                        
+               
+           
                       
 
                 </ul>

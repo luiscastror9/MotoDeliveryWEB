@@ -11,7 +11,6 @@ namespace WebApplication8.Datos
 {
     using System;
     using System.Collections.Generic;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Threading.Tasks;
     using Microsoft.AspNet.Identity;
@@ -19,7 +18,6 @@ namespace WebApplication8.Datos
 
     public partial class UserData
     {
-        [Required]
         [Display(Name = "Id Usuario")]
         public string Id_Usuario { get; set; }
         [Required]
