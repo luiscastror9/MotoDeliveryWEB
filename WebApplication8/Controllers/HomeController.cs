@@ -10,6 +10,7 @@ using WebApplication8;
 using System.Configuration;
 using WebApplication8.Datos;
 using System.Threading.Tasks;
+using WebApplication8.Models;
 
 namespace WebApplication8.Controllers
 {
@@ -17,9 +18,7 @@ namespace WebApplication8.Controllers
     public class HomeController : Controller
     
     {
-        private Task<UserData> db;
-
-        public object userData { get; private set; }
+        
 
         public ActionResult Index()
         {
@@ -40,6 +39,9 @@ namespace WebApplication8.Controllers
         {
            
                 return View("Details", "UserDatas");
+           
+
+               
             
                     
         }
