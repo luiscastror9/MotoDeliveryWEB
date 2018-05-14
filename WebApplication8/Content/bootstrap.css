@@ -1939,10 +1939,12 @@ textarea.input-lg {
   .form-inline .form-group {
     display: inline-block;
     margin-bottom: 0;
+    
    
   }
   .form-inline .form-control {
     display: inline-block;
+   
   }
   .form-inline .radio,
   .form-inline .checkbox {

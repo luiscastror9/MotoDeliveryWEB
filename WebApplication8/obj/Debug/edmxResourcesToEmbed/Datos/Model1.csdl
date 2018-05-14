@@ -102,8 +102,9 @@
     <Property Name="f_nac" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="calle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="altura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="dep" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dep" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_AspNetUsers_UserData" FromRole="UserData" ToRole="AspNetUsers" />
+    <Property Name="UsuarioNuevo" Type="Boolean" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">

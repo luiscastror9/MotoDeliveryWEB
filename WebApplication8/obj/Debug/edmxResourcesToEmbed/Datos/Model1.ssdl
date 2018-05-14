@@ -97,7 +97,8 @@
     <Property Name="f_nac" Type="date" Nullable="false" />
     <Property Name="calle" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="altura" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="dep" Type="varchar" MaxLength="50" />
+    <Property Name="dep" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UsuarioNuevo" Type="bit" />
   </EntityType>
   <Association Name="FK_AspNetUsers_Moto">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />

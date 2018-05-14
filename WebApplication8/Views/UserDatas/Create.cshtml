@@ -1,0 +1,122 @@
+﻿@model WebApplication8.Datos.UserData
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create","UserDataa", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-inline">
+        <h4>Registro de Datos de Usuario</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-inline">
+            @Html.LabelFor(model => model.Id_Usuario, "Id Usuario", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-4">
+        @Html.DisplayFor(model => model.AspNetUsers.Id, new { @class = "form-control" })
+       @* @Html.DropDownList("Id_Usuario", null, htmlAttributes: new { @class = "form-control" })*@
+    @Html.ValidationMessageFor(model => model.Id_Usuario, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-inline">
+        @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-inline">
+        @Html.LabelFor(model => model.apellido, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.apellido, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.apellido, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-inline">
+        @Html.LabelFor(model => model.pais, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.pais, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.pais, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-inline">
+        @Html.LabelFor(model => model.doc_tipo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.DropDownListFor(model=>model.doc_tipo, new List<SelectListItem> {
+                   new SelectListItem { Value = "DNI" , Text = "DNI" },
+                   new SelectListItem { Value = "Pasaporte" , Text = "Pasaporte" },
+                },new { @class = "form-control" } )
+           @* @Html.EditorFor(model => model.doc_tipo, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.doc_tipo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-inline">
+            @Html.LabelFor(model => model.num_doc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.num_doc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.num_doc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-inline">
+            @Html.LabelFor(model => model.f_nac, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.f_nac, new { htmlAttributes = new { @class = "form-control", @placeholder="dd/mm/aa" } })
+                @Html.ValidationMessageFor(model => model.f_nac, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-inline">
+            @Html.LabelFor(model => model.calle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.calle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.calle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-inline">
+            @Html.LabelFor(model => model.altura, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.altura, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.altura, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-inline">
+            @Html.LabelFor(model => model.dep, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.dep, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.dep, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+    @Html.LabelFor(model => model.UsuarioNuevo, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        <div class="checkbox">
+            @Html.EditorFor(model => model.UsuarioNuevo)
+            @Html.ValidationMessageFor(model => model.UsuarioNuevo, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+        </div>
+
+        <div class="form-inline">
+            <div class="col-md-offset-6 col-md-6">
+                <input type="submit" value="Completar" class="btn btn-default" />
+            </div>
+        </div>
+   
+}
+
+<div>
+    @Html.ActionLink("Atras", "Details","UserData")
+</div>

@@ -3,13 +3,15 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
+
+
 namespace WebApplication8.Models
 {
-    
 
-        public class IndexViewModel
+
+    public class IndexViewModel
     {
-       
+
 
         public bool HasPassword { get; set; }
         public IList<UserLoginInfo> Logins { get; set; }
@@ -60,7 +62,7 @@ namespace WebApplication8.Models
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
-   
+
     public class AddPhoneNumberViewModel
     {
         [Required]
@@ -86,4 +88,7 @@ namespace WebApplication8.Models
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
     }
+  
+    
+
 }

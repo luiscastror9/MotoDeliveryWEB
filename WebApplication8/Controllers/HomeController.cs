@@ -8,15 +8,18 @@ using System.Data.Entity;
 using System.Net;
 using WebApplication8;
 using System.Configuration;
-
+using WebApplication8.Datos;
+using System.Threading.Tasks;
 
 namespace WebApplication8.Controllers
 {
-
+    
     public class HomeController : Controller
+    
     {
+        private Task<UserData> db;
 
-
+        public object userData { get; private set; }
 
         public ActionResult Index()
         {
@@ -32,5 +35,15 @@ namespace WebApplication8.Controllers
 
             return View();
         }
+        
+        public ActionResult Details()
+        {
+           
+                return View("Details", "UserDatas");
+            
+                    
+        }
+       
+
     }
 }
