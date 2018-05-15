@@ -580,3 +580,16 @@ C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\System.W
 C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\System.Web.Http.WebHost.xml
 C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\UAParser.xml
 C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\YamlDotNet.pdb
+D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\bin\System.Net.Http.Formatting.dll
+D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\bin\System.Web.Http.dll
+D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\bin\System.Web.Http.WebHost.dll
+D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\bin\UAParser.dll
+D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\bin\WebStats.dll
+D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\bin\WebStats.Owin.dll
+D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\bin\WebStats.Owin.Katana.dll
+D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\bin\YamlDotNet.dll
+D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\bin\System.Net.Http.Formatting.xml
+D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\bin\System.Web.Http.xml
+D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\bin\System.Web.Http.WebHost.xml
+D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\bin\UAParser.xml
+D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\bin\YamlDotNet.pdb

@@ -18,7 +18,7 @@ namespace WebApplication8.Datos
 
     public partial class UserData
     {
-        [Display(Name = "Id Usuario")]
+        [Display(Name = "Usuario")]
         public string Id_Usuario { get; set; }
         [Required]
         [Display(Name = "Nombre")]
