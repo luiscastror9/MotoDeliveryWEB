@@ -18,13 +18,9 @@ namespace WebApplication8.Controllers
     public class HomeController : Controller
     
     {
-        
-
         public ActionResult Index()
         {
-            string valor = "valor de cookie";
-            HttpCookie cookie1 = new HttpCookie("foo_one", valor);
-            ControllerContext.HttpContext.Response.SetCookie(cookie1);
+
             return View();
         }
 

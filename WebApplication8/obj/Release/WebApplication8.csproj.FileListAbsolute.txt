@@ -138,3 +138,16 @@ D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\obj\Release\WebAp
 D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\obj\Release\WebApplication8.csproj.CopyComplete
 D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\obj\Release\WebApplication8.dll
 D:\JMP\Documents\Moto Delivery\MotoDeliveryWEB\WebApplication8\obj\Release\WebApplication8.pdb
+C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\System.Net.Http.Formatting.dll
+C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\System.Web.Http.dll
+C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\System.Web.Http.WebHost.dll
+C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\UAParser.dll
+C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\WebStats.dll
+C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\WebStats.Owin.dll
+C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\WebStats.Owin.Katana.dll
+C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\YamlDotNet.dll
+C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\System.Net.Http.Formatting.xml
+C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\System.Web.Http.xml
+C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\System.Web.Http.WebHost.xml
+C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\UAParser.xml
+C:\Users\ComunidadIT2\Documents\GIT\MotoDeliveryWEB\WebApplication8\bin\YamlDotNet.pdb
