@@ -36,7 +36,25 @@ namespace WebApplication8.Controllers
             }
             return false;
         }
-
+        public Boolean isMoteroUser()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = User.Identity;
+                ApplicationDbContext context = new ApplicationDbContext();
+                var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+                var s = UserManager.GetRoles(user.GetUserId());
+                if (s[0].ToString() == "Motero")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
 
         public ActionResult Index()
         {
@@ -44,13 +62,39 @@ namespace WebApplication8.Controllers
             {
                 var user = User.Identity;
                 ViewBag.Name = user.Name;
-                //	ApplicationDbContext context = new ApplicationDbContext();
-                //	var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+                ApplicationDbContext context = new ApplicationDbContext();
+                var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
-                //var s=	UserManager.GetRoles(user.GetUserId());
+                var s=	UserManager.GetRoles(user.GetUserId());
                 ViewBag.displayMenu = "No";
 
                 if (isAdminUser())
+                {
+                    ViewBag.displayMenu = "Yes";
+                }
+                return View();
+            }
+            else
+            {
+                ViewBag.Name = "Not Logged IN";
+            }
+
+
+            return View();
+        }
+        public ActionResult Motero()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = User.Identity;
+                ViewBag.Name = user.Name;
+                ApplicationDbContext context = new ApplicationDbContext();
+                var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+                var s = UserManager.GetRoles(user.GetUserId());
+                ViewBag.displayMenu = "No";
+
+                if (isMoteroUser())
                 {
                     ViewBag.displayMenu = "Yes";
                 }

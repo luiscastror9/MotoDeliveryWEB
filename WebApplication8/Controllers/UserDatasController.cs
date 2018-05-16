@@ -60,7 +60,7 @@ namespace WebApplication8.Controllers
             {
                 db.UserData.Add(userData);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details","UserDdatas", new { id=userData.Id_Usuario});
             }
 
             ViewBag.Id_Usuario = new SelectList(db.AspNetUsers, "Id", "Email", userData.Id_Usuario);

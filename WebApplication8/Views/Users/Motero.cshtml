@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Motero";
+}
+
+<h2>Motero</h2>
+
+@if (ViewBag.displayMenu == "Yes")
+{
+    <h1>Bienvenido Usuario Administrador. Ahora puede crear un Rol</h1>
+    <h3>
+        <li>@Html.ActionLink("Create", "Motos")</li>
+
+    </h3>
+}
+else
+{
+   
+}

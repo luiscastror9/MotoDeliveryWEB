@@ -35,10 +35,10 @@ namespace WebApplication8.Controllers
             return View();
         }
         
-        public ActionResult Details()
+        public ActionResult Cliente()
         {
            
-                return View("Details", "UserDatas");
+                return View("Cliente", "Perfiles");
            
 
                
