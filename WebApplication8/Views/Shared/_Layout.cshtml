@@ -401,12 +401,13 @@
         }
 
         function pedir() {
+            @using Microsoft.AspNet.Identity
+            if ((User.Identity.GetUserId()) != null) {
 
-            
-            travelfrom;
-            travelto;
-            tarifa;
 
+                location.href = "Traslados/Create";
+
+            }
 
         }
 
