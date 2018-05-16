@@ -8,83 +8,85 @@
 <h2 align="center">Datos de Pedido</h2>
 
 <div class="row">
-    <div class="col-md-7">
-        <div id="map" style="width:96%;height:520px;margin:14px;"></div>
+
+    <div class="col-md-3">
     </div>
-    <div class="col-md-5">
+    <div class="col-md-6">
         @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
+            <div class="form-horizontal">
 
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
+                <br />
+                <br />
+
+                <div class="form-group" readonly>
+                    @Html.Hidden("Id_Usuario", User.Identity.GetUserId())
+                </div>
+
+                <div class="form-group" readonly>
+                    @Html.Hidden("estado_viaje", 1)
+                </div>
+                @*
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.id_moto, "id_moto", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("id_moto", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.id_moto, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                *@
+                <div class="form-group" readonly>
+
+                    @Html.Hidden("tarifa", Request.QueryString["tarifa"])
+
+                    @Html.LabelFor(model => model.tarifa, "Tarifa Aproximada: " + Request.QueryString["tarifa"], htmlAttributes: new { @class = "control-label" })
+
+                    <div id="tarifa"></div>
+
+                </div>
+
+
+                <div class="form-group" readonly>
+                    @Html.Hidden("calle_in", Request.QueryString["travelfrom"])
+
+                    @Html.LabelFor(model => model.calle_in, "Desde: " + Request.QueryString["travelfrom"], htmlAttributes: new { @class = "control-label" })
+
+                </div>
+
+                <div class="form-group" readonly>
+                    @Html.Hidden("calle_fn", Request.QueryString["travelto"])
+
+                    @Html.LabelFor(model => model.calle_fn, "Hasta: " + Request.QueryString["travelto"], htmlAttributes: new { @class = "control-label" })
+
+                </div>
+
+                <div class="form-group" readonly>
+                    @Html.Hidden("fecha", @DateTime.Today.Day + "/" + (@DateTime.Today.Month) + "/" + @DateTime.Today.Year)
+                    @Html.LabelFor(model => model.fecha, "Fecha:  " + "  " +
+                                        @DateTime.Today.Day + " / " + (@DateTime.Today.Month) + " / " + @DateTime.Today.Year,
+                                        htmlAttributes: new { @class = "control-label" })
+                </div>
+
+                <div class="form-group" readonly>
+                    @Html.Label("Hora:  " + "  " + (DateTime.Now.Hour) + ":" + (DateTime.Now.Minute),
+                                        htmlAttributes: new { @class = "control-label" })
+
+                </div>
+            </div>
             <br />
-            <br />
-
-            <div class="form-group" readonly>
-                @Html.Hidden("Id_Usuario", User.Identity.GetUserId())
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-5">
+                    <input type="submit" value="Confirmar Pedido!" class="btn btn-default" />
+                </div>
             </div>
-
-            <div class="form-group" readonly>
-                @Html.Hidden("estado_viaje", 1)
-            </div>
-            @*
-        <div class="form-group">
-            @Html.LabelFor(model => model.id_moto, "id_moto", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("id_moto", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.id_moto, "", new { @class = "text-danger" })
-            </div>
-        </div>
-            *@
-            <div class="form-group" readonly>
-
-                <input type="hidden" id="pasarTarifa" value="" name="tarifa" />
-
-                @Html.LabelFor(model => model.tarifa, "Tarifa Aprox: ", htmlAttributes: new { @class = "control-label" })
-
-                <div id="tarifa"></div>
-
-            </div>
-
-
-            <div class="form-group" readonly>
-                @Html.Hidden("calle_in", "callein")
-
-                @Html.LabelFor(model => model.calle_in, "Desde: ", htmlAttributes: new { @class = "control-label" })
-
-            </div>
-
-            <div class="form-group" readonly>
-                @Html.Hidden("calle_fn", "callefn")
-
-                @Html.LabelFor(model => model.calle_fn, "Hasta: ", htmlAttributes: new { @class = "control-label" })
-
-            </div>
-
-            <div class="form-group" readonly>
-                @Html.Hidden("fecha", @DateTime.Today.Day + "/" + (@DateTime.Today.Month) + "/" + @DateTime.Today.Year)
-                @Html.LabelFor(model => model.fecha, "Fecha:  " + "  " +
-@DateTime.Today.Day + " / " + (@DateTime.Today.Month) + " / " + @DateTime.Today.Year,
-htmlAttributes: new { @class = "control-label" })
-            </div>
-
-            <div class="form-group" readonly>
-                @Html.Label("Hora:  " + "  " + (DateTime.Now.Hour) + ":" + (DateTime.Now.Minute),
-htmlAttributes: new { @class = "control-label" })
-
-            </div>
-        </div>
-        <br />
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-5">
-                <input type="submit" value="Confirmar Pedido!" class="btn btn-default" />
-            </div>
-        </div>
-}
+        }
     </div>
 
+    <div class="col-md-3">
+    </div>
 </div>

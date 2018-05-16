@@ -400,14 +400,11 @@
             document.getElementById("travelto").value = "";
         }
 
+
         function pedir() {
-            @using Microsoft.AspNet.Identity
-            if ((User.Identity.GetUserId()) != null) {
 
-
-                location.href = "Traslados/Create";
-
-            }
+                location.href = "/traslados/Create?tarifa=" + (document.getElementById('pasarTarifa').value) + "&travelfrom=" +
+                (document.getElementById('travelfrom').value) + "&travelto=" + (document.getElementById("travelto").value);
 
         }
 
