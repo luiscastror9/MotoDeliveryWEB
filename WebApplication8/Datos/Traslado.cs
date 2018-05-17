@@ -11,16 +11,38 @@ namespace WebApplication8.Datos
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Traslado
     {
+
+        [Display(Name = "Codigo de Viaje")]
         public int codigo_tras { get; set; }
+
+        [Display(Name = "Id Usuario")]
         public string id_usuario { get; set; }
+
+        [Display(Name = "Id Moto")]
         public string id_moto { get; set; }
+
+        [Display(Name = "Tarifa")]
         public string tarifa { get; set; }
+
+        [Required]
+        [Display(Name = "¿En dónde está?")]
+        [StringLength(100,ErrorMessage = "Por favor indique ¿En qué lugar se encuentra?")]
         public string calle_in { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "Por favor indique ¿A qué lugar se dirige?")]
+        [Display(Name = "¿A dónde va?")]
         public string calle_fn { get; set; }
+
+        [Display(Name = "Estado del Viaje")]
         public int estado_viaje { get; set; }
+        
+        [Display(Name ="Fecha")]
+        [DataType(DataType.DateTime)]
         public System.DateTime fecha { get; set; }
     
         public virtual AspNetUsers AspNetUsers { get; set; }

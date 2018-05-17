@@ -11,7 +11,12 @@ namespace WebApplication8.Datos
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.Threading.Tasks;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.Owin.Security;
+
+
     public partial class Moto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,11 +24,20 @@ namespace WebApplication8.Datos
         {
             this.Traslado = new HashSet<Traslado>();
         }
-    
+        [Required]
+        [Display(Name ="Patente")]
         public string patente { get; set; }
+        [Required]
+        [Display(Name ="Id Usuario")]
         public string Id_Usuario { get; set; }
+        [Required]
+        [Display(Name ="Modelo")]
         public string modelo { get; set; }
+        [Required]
+        [Display(Name ="Registro")]
         public string registro { get; set; }
+        [Required]
+        [Display(Name ="Seguro")]
         public string seguro { get; set; }
     
         public virtual AspNetUsers AspNetUsers { get; set; }
