@@ -40,15 +40,6 @@
                         </div>
                     </div>
                 *@
-                <div class="form-group" readonly>
-
-                    @Html.Hidden("tarifa", Request.QueryString["tarifa"])
-
-                    @Html.LabelFor(model => model.tarifa, "Tarifa Aproximada: " + Request.QueryString["tarifa"], htmlAttributes: new { @class = "control-label" })
-
-                    <div id="tarifa"></div>
-
-                </div>
 
 
                 <div class="form-group" readonly>
@@ -62,6 +53,17 @@
                     @Html.Hidden("calle_fn", Request.QueryString["travelto"])
 
                     @Html.LabelFor(model => model.calle_fn, "Hasta: " + Request.QueryString["travelto"], htmlAttributes: new { @class = "control-label" })
+
+                </div>
+
+
+                <div class="form-group" readonly>
+
+                    @Html.Hidden("tarifa", Request.QueryString["tarifa"])
+
+                    @Html.LabelFor(model => model.tarifa, "Tarifa Aproximada: " + Request.QueryString["tarifa"], htmlAttributes: new { @class = "control-label" })
+
+                    <div id="tarifa"></div>
 
                 </div>
 
