@@ -56,7 +56,7 @@ namespace WebApplication8.Controllers
             {
                 db.Traslado.Add(traslado);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Waiting", "Home");
             }
 
             ViewBag.id_usuario = new SelectList(db.AspNetUsers, "Id", "Id", traslado.id_usuario);

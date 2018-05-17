@@ -18,6 +18,12 @@ namespace WebApplication8.Controllers
     public class HomeController : Controller
     
     {
+        public ActionResult Waiting()
+        {
+
+            return View();
+        }
+
         public ActionResult Index()
         {
 

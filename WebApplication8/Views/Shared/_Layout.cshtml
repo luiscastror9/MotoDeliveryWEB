@@ -10,7 +10,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    
+
     <script>
         var map;
         var source, destination;
@@ -403,15 +403,53 @@
 
         function pedir() {
 
-                location.href = "/traslados/Create?tarifa=" + (document.getElementById('pasarTarifa').value) + "&travelfrom=" +
+            location.href = "/traslados/Create?tarifa=" + (document.getElementById('pasarTarifa').value) + "&travelfrom=" +
                 (document.getElementById('travelfrom').value) + "&travelto=" + (document.getElementById("travelto").value);
 
         }
 
+        function startTime(totalTime) {
+            document.getElementById("aguardo").style = "display: none;";
+            var m = Math.floor(totalTime / 60);
+            var s;
+            if (totalTime > 60) {
+                s = Math.floor(totalTime) - 61;
+            }
+            else {
+                s = Math.floor(totalTime);
+            }
+            var time = totalTime;
+            // add a zero in front of numbers<10
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById("contador").innerHTML = m + ":" + s;
+            time = time - 1; // ((Math.floor(m * 60)) + s);
+            if (totalTime <= 0) {
+                document.getElementById("aguardo").style.display = "";
+            }
+            else {
+                setTimeout(function () { startTime(time); }, 1000);
+            }            
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+
+        function cancelPedido() {
+            alert("Tu pedido ha sido cancelado");
+
+            location.href = "http://localhost:52204/"
+        }
+
+
 
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYTNn6hVbZXSFOGsWkgeNVRgkB2B77C0k&libraries=places&callback=initMap"
-            async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYTNn6hVbZXSFOGsWkgeNVRgkB2B77C0k&libraries=places&callback=initMap"
+        async defer></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #e9ac1c;  border-color: #080808">
@@ -427,11 +465,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li> 
-                        <li>@Html.ActionLink("Perfil", "Details", "UserDatas")</li>
-               
-           
-                      
+                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Perfil", "Details", "UserDatas")</li>
+
+
+
 
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -447,6 +485,6 @@
         </footer>
     </div>
 
-   
+
 </body>
 </html>

@@ -45,7 +45,7 @@ namespace WebApplication8.Controllers
         // GET: UserDatas/Create
         public ActionResult Create()
         {
-            ViewBag.Id_Usuario = new SelectList(db.AspNetUsers, "Id", "Email");
+            ViewBag.Id_Usuario = new SelectList(db.AspNetUsers, "Id", "Id");
             return View();
         }
 
@@ -60,10 +60,10 @@ namespace WebApplication8.Controllers
             {
                 db.UserData.Add(userData);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Details", "UserDatas");
+                return RedirectToAction("Index", "Home");
             }
 
-            ViewBag.Id_Usuario = new SelectList(db.AspNetUsers, "Id", "Email", userData.Id_Usuario);
+            ViewBag.Id_Usuario = new SelectList(db.AspNetUsers, "Id", "Id", userData.Id_Usuario);
             return View(userData);
         }
 
@@ -79,7 +79,7 @@ namespace WebApplication8.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Id_Usuario = new SelectList(db.AspNetUsers, "Id", "Email", userData.Id_Usuario);
+            ViewBag.Id_Usuario = new SelectList(db.AspNetUsers, "Id", "Id", userData.Id_Usuario);
             return View(userData);
         }
 
@@ -96,7 +96,7 @@ namespace WebApplication8.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.Id_Usuario = new SelectList(db.AspNetUsers, "Id", "Email", userData.Id_Usuario);
+            ViewBag.Id_Usuario = new SelectList(db.AspNetUsers, "Id", "Id", userData.Id_Usuario);
             return View(userData);
         }
 

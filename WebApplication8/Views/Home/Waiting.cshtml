@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Esperando MotoDelivery...";
+}
+<!DOCTYPE html>
+<html>
+<body onload="startTime(120)">
+
+    <br />
+    <br />
+    <br />
+
+    <div align="center">
+
+        <h2>Buscando MotoDelivery</h2>
+        <h2>Aguarda un momento por favor</h2>
+        <br />
+
+        <h5>Tiempo estimado para que acepten tu solicitud:</h5>
+        <div id="contador"></div>
+
+        <br />
+        <button id="cancelarPedido" type="button" onclick="cancelPedido()">Cancelar Pedido</button>
+        <button id="aguardo" type="button" style="display: none;" onclick="startTime(120)">Aguardar 2 Minutos mas</button>
+
+    </div>
+</body>
+</html>
+
