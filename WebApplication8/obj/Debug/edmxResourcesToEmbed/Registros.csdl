@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MotoDeliveryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="estado_viaje">
+    <Key>
+      <PropertyRef Name="estado_viaje1" />
+    </Key>
+    <Property Name="estado_viaje1" Type="Int32" Nullable="false" />
+    <Property Name="codigo_tras" Type="Int32" />
+    <NavigationProperty Name="traslado" Relationship="Self.FK_estado_viaje_traslado" FromRole="estado_viaje" ToRole="traslado" />
+  </EntityType>
+  <EntityType Name="factura">
+    <Key>
+      <PropertyRef Name="num_factura" />
+    </Key>
+    <Property Name="num_factura" Type="Int32" Nullable="false" />
+    <Property Name="codigo_viaje" Type="Int32" Nullable="false" />
+    <Property Name="cliente" Type="Int32" Nullable="false" />
+    <Property Name="id_moto" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="importe" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="estado_pago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="traslado" Relationship="Self.FK_factura_traslado" FromRole="factura" ToRole="traslado" />
+    <NavigationProperty Name="usuario" Relationship="Self.FK_factura_usuario" FromRole="factura" ToRole="usuario" />
+    <NavigationProperty Name="usuario_moto" Relationship="Self.FK_factura_usuario_moto" FromRole="factura" ToRole="usuario_moto" />
+  </EntityType>
+  <EntityType Name="moto">
+    <Key>
+      <PropertyRef Name="patente" />
+    </Key>
+    <Property Name="patente" Type="Int32" Nullable="false" />
+    <Property Name="usuario_id" Type="Int32" Nullable="false" />
+    <Property Name="modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="registro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="seguro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <NavigationProperty Name="usuario" Relationship="Self.FK_moto_usuario" FromRole="moto" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="traslado">
+    <Key>
+      <PropertyRef Name="codigo_tras" />
+    </Key>
+    <Property Name="codigo_tras" Type="Int32" Nullable="false" />
+    <Property Name="usuario_id" Type="Int32" Nullable="false" />
+    <Property Name="id_moto" Type="Int32" Nullable="false" />
+    <Property Name="tarifa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="calle_in" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="altura_in" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="piso_in" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dep_in" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="calle_fn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="altura_fn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="piso_fn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dep_fn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="estado_viaje" Relationship="Self.FK_estado_viaje_traslado" FromRole="traslado" ToRole="estado_viaje" />
+    <NavigationProperty Name="facturas" Relationship="Self.FK_factura_traslado" FromRole="traslado" ToRole="factura" />
+    <NavigationProperty Name="usuario" Relationship="Self.FK_traslado_usuario" FromRole="traslado" ToRole="usuario" />
+    <NavigationProperty Name="usuario_moto" Relationship="Self.FK_traslado_usuario_moto" FromRole="traslado" ToRole="usuario_moto" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="usuario_id" />
+    </Key>
+    <Property Name="usuario_id" Type="Int32" Nullable="false" />
+    <Property Name="tipo_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellido" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pais" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="doc_tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="num_doc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="f_nac" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="calle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="altura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dep" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="facturas" Relationship="Self.FK_factura_usuario" FromRole="usuario" ToRole="factura" />
+    <NavigationProperty Name="motoes" Relationship="Self.FK_moto_usuario" FromRole="usuario" ToRole="moto" />
+    <NavigationProperty Name="trasladoes" Relationship="Self.FK_traslado_usuario" FromRole="usuario" ToRole="traslado" />
+    <NavigationProperty Name="usuario_moto" Relationship="Self.FK_usuario_moto_usuario" FromRole="usuario" ToRole="usuario_moto" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="usuario_moto">
+    <Key>
+      <PropertyRef Name="id_moto" />
+    </Key>
+    <Property Name="patente" Type="Int32" Nullable="false" />
+    <Property Name="id_moto" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="facturas" Relationship="Self.FK_factura_usuario_moto" FromRole="usuario_moto" ToRole="factura" />
+    <NavigationProperty Name="trasladoes" Relationship="Self.FK_traslado_usuario_moto" FromRole="usuario_moto" ToRole="traslado" />
+    <NavigationProperty Name="usuario" Relationship="Self.FK_usuario_moto_usuario" FromRole="usuario_moto" ToRole="usuario" />
+  </EntityType>
+  <Association Name="FK_estado_viaje_traslado">
+    <End Role="traslado" Type="Self.traslado" Multiplicity="0..1" />
+    <End Role="estado_viaje" Type="Self.estado_viaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="traslado">
+        <PropertyRef Name="codigo_tras" />
+      </Principal>
+      <Dependent Role="estado_viaje">
+        <PropertyRef Name="codigo_tras" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_factura_traslado">
+    <End Role="traslado" Type="Self.traslado" Multiplicity="1" />
+    <End Role="factura" Type="Self.factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="traslado">
+        <PropertyRef Name="codigo_tras" />
+      </Principal>
+      <Dependent Role="factura">
+        <PropertyRef Name="codigo_viaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_factura_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="factura" Type="Self.factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="usuario_id" />
+      </Principal>
+      <Dependent Role="factura">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_factura_usuario_moto">
+    <End Role="usuario_moto" Type="Self.usuario_moto" Multiplicity="1" />
+    <End Role="factura" Type="Self.factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario_moto">
+        <PropertyRef Name="id_moto" />
+      </Principal>
+      <Dependent Role="factura">
+        <PropertyRef Name="id_moto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_moto_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="moto" Type="Self.moto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="usuario_id" />
+      </Principal>
+      <Dependent Role="moto">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_traslado_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="traslado" Type="Self.traslado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="usuario_id" />
+      </Principal>
+      <Dependent Role="traslado">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_traslado_usuario_moto">
+    <End Role="usuario_moto" Type="Self.usuario_moto" Multiplicity="1" />
+    <End Role="traslado" Type="Self.traslado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario_moto">
+        <PropertyRef Name="id_moto" />
+      </Principal>
+      <Dependent Role="traslado">
+        <PropertyRef Name="id_moto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_moto_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="usuario_moto" Type="Self.usuario_moto" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="usuario_id" />
+      </Principal>
+      <Dependent Role="usuario_moto">
+        <PropertyRef Name="id_moto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MotoDeliveryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="estado_viaje" EntityType="Self.estado_viaje" />
+    <EntitySet Name="facturas" EntityType="Self.factura" />
+    <EntitySet Name="motoes" EntityType="Self.moto" />
+    <EntitySet Name="trasladoes" EntityType="Self.traslado" />
+    <EntitySet Name="usuarios" EntityType="Self.usuario" />
+    <EntitySet Name="usuario_moto" EntityType="Self.usuario_moto" />
+    <AssociationSet Name="FK_estado_viaje_traslado" Association="Self.FK_estado_viaje_traslado">
+      <End Role="traslado" EntitySet="trasladoes" />
+      <End Role="estado_viaje" EntitySet="estado_viaje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_factura_traslado" Association="Self.FK_factura_traslado">
+      <End Role="traslado" EntitySet="trasladoes" />
+      <End Role="factura" EntitySet="facturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_factura_usuario" Association="Self.FK_factura_usuario">
+      <End Role="usuario" EntitySet="usuarios" />
+      <End Role="factura" EntitySet="facturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_factura_usuario_moto" Association="Self.FK_factura_usuario_moto">
+      <End Role="usuario_moto" EntitySet="usuario_moto" />
+      <End Role="factura" EntitySet="facturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_moto_usuario" Association="Self.FK_moto_usuario">
+      <End Role="usuario" EntitySet="usuarios" />
+      <End Role="moto" EntitySet="motoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_traslado_usuario" Association="Self.FK_traslado_usuario">
+      <End Role="usuario" EntitySet="usuarios" />
+      <End Role="traslado" EntitySet="trasladoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_traslado_usuario_moto" Association="Self.FK_traslado_usuario_moto">
+      <End Role="usuario_moto" EntitySet="usuario_moto" />
+      <End Role="traslado" EntitySet="trasladoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_moto_usuario" Association="Self.FK_usuario_moto_usuario">
+      <End Role="usuario" EntitySet="usuarios" />
+      <End Role="usuario_moto" EntitySet="usuario_moto" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

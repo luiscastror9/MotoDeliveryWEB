@@ -5,15 +5,62 @@ using Microsoft.Owin.Security;
 
 namespace WebApplication8.Models
 {
-    public class IndexViewModel
+    
+
+        public class IndexViewModel
     {
+
+        [Required]
+        [Display(Name = "Nombre")]
+        public string nombre { get; set; }
+
+        [Required]
+        [Display(Name = "Apellido")]
+        public string apellido { get; set; }
+
+        [Required]
+        [Display(Name = "País")]
+        public string pais { get; set; }
+
+        [Required]
+        [Display(Name = "Tipo de Documento")]
+        public string doc_tipo { get; set; }
+
+        [Required]
+        [Display(Name = "Número")]
+        public string num_doc { get; set; }
+
+        [Required]
+        [Display(Name = "Fecha de Nacimiento")]
+        public string f_nac { get; set; }
+
+        [Required]
+        [Display(Name = "Teléfono")]
+        public string tel { get; set; }
+
+        [Required]
+        [Display(Name = "Calle")]
+        public string calle { get; set; }
+
+        [Required]
+        [Display(Name = "Altura")]
+        public string altura { get; set; }
+
+        [Display(Name = "Piso")]
+        public string piso { get; set; }
+
+        [Display(Name = "Departamento")]
+        public string depto { get; set; }
+
+        [Display(Name = "Código Postal")]
+        public string codpost { get; set; }
+
         public bool HasPassword { get; set; }
         public IList<UserLoginInfo> Logins { get; set; }
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
     }
-
     public class ManageLoginsViewModel
     {
         public IList<UserLoginInfo> CurrentLogins { get; set; }
@@ -57,7 +104,7 @@ namespace WebApplication8.Models
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
-
+   
     public class AddPhoneNumberViewModel
     {
         [Required]

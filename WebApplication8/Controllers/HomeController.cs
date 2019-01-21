@@ -8,8 +8,19 @@ namespace WebApplication8.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult Demo1()
+        {
+            return View();
+        }
+
+        public ActionResult Demo2()
+        {
+            return View();
+        }
+
         public ActionResult Index()
         {
+            
             return View();
         }
 

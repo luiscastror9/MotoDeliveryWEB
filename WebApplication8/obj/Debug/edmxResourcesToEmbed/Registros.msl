@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MotoDeliveryModelStoreContainer" CdmEntityContainer="MotoDeliveryEntities">
+    <EntitySetMapping Name="estado_viaje">
+      <EntityTypeMapping TypeName="MotoDeliveryModel.estado_viaje">
+        <MappingFragment StoreEntitySet="estado_viaje">
+          <ScalarProperty Name="estado_viaje1" ColumnName="estado_viaje" />
+          <ScalarProperty Name="codigo_tras" ColumnName="codigo_tras" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="facturas">
+      <EntityTypeMapping TypeName="MotoDeliveryModel.factura">
+        <MappingFragment StoreEntitySet="factura">
+          <ScalarProperty Name="num_factura" ColumnName="num_factura" />
+          <ScalarProperty Name="codigo_viaje" ColumnName="codigo_viaje" />
+          <ScalarProperty Name="cliente" ColumnName="cliente" />
+          <ScalarProperty Name="id_moto" ColumnName="id_moto" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="importe" ColumnName="importe" />
+          <ScalarProperty Name="estado_pago" ColumnName="estado_pago" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="motoes">
+      <EntityTypeMapping TypeName="MotoDeliveryModel.moto">
+        <MappingFragment StoreEntitySet="moto">
+          <ScalarProperty Name="patente" ColumnName="patente" />
+          <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+          <ScalarProperty Name="modelo" ColumnName="modelo" />
+          <ScalarProperty Name="registro" ColumnName="registro" />
+          <ScalarProperty Name="seguro" ColumnName="seguro" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trasladoes">
+      <EntityTypeMapping TypeName="MotoDeliveryModel.traslado">
+        <MappingFragment StoreEntitySet="traslado">
+          <ScalarProperty Name="codigo_tras" ColumnName="codigo_tras" />
+          <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+          <ScalarProperty Name="id_moto" ColumnName="id_moto" />
+          <ScalarProperty Name="tarifa" ColumnName="tarifa" />
+          <ScalarProperty Name="calle_in" ColumnName="calle_in" />
+          <ScalarProperty Name="altura_in" ColumnName="altura_in" />
+          <ScalarProperty Name="piso_in" ColumnName="piso_in" />
+          <ScalarProperty Name="dep_in" ColumnName="dep_in" />
+          <ScalarProperty Name="calle_fn" ColumnName="calle_fn" />
+          <ScalarProperty Name="altura_fn" ColumnName="altura_fn" />
+          <ScalarProperty Name="piso_fn" ColumnName="piso_fn" />
+          <ScalarProperty Name="dep_fn" ColumnName="dep_fn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="MotoDeliveryModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+          <ScalarProperty Name="tipo_usuario" ColumnName="tipo_usuario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="doc_tipo" ColumnName="doc_tipo" />
+          <ScalarProperty Name="num_doc" ColumnName="num_doc" />
+          <ScalarProperty Name="f_nac" ColumnName="f_nac" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="altura" ColumnName="altura" />
+          <ScalarProperty Name="dep" ColumnName="dep" />
+          <ScalarProperty Name="cp" ColumnName="cp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario_moto">
+      <EntityTypeMapping TypeName="MotoDeliveryModel.usuario_moto">
+        <MappingFragment StoreEntitySet="usuario_moto">
+          <ScalarProperty Name="patente" ColumnName="patente" />
+          <ScalarProperty Name="id_moto" ColumnName="id_moto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
